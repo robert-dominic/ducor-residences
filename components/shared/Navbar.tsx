@@ -10,12 +10,17 @@ const navLinks = [
     { href: "/rooms", label: "Rooms" },
     { href: "/amenities", label: "Amenities" },
     { href: "/gallery", label: "Gallery" },
+    { href: "/booking", label: "Booking" },
     { href: "/contact", label: "Contact" },
 ]
 
-export default function Navbar() {
+interface NavbarProps {
+    forceSolid?: boolean
+}
+
+export default function Navbar({ forceSolid = false }: NavbarProps) {
     const [visible, setVisible] = useState(true)
-    const [scrolled, setScrolled] = useState(false)
+    const [scrolled, setScrolled] = useState(forceSolid)
     const [mobileOpen, setMobileOpen] = useState(false)
     const lastScrollY = useRef(0)
 
@@ -23,16 +28,16 @@ export default function Navbar() {
         const handleScroll = () => {
             const currentScrollY = window.scrollY
 
-            // Always visible and transparent at very top
+            // Always visible at the very top.
             if (currentScrollY < 10) {
                 setVisible(true)
-                setScrolled(false)
+                setScrolled(forceSolid)
                 lastScrollY.current = currentScrollY
                 return
             }
 
             // Solid background past 80px
-            setScrolled(currentScrollY > 80)
+            setScrolled(forceSolid || currentScrollY > 80)
 
             // Scroll DOWN → show
             // Scroll UP → hide
@@ -47,7 +52,7 @@ export default function Navbar() {
 
         window.addEventListener("scroll", handleScroll, { passive: true })
         return () => window.removeEventListener("scroll", handleScroll)
-    }, [])
+    }, [forceSolid])
 
     useEffect(() => {
         document.body.style.overflow = mobileOpen ? "hidden" : ""
@@ -105,7 +110,7 @@ export default function Navbar() {
                                 href="/booking"
                                 className={cn(
                                     "inline-block border px-5 py-2 font-sans text-sm font-medium tracking-wide transition-all duration-200",
-                                    "border-accent text-accent hover:bg-accent hover:text-primary"
+                                    "border-accent text-accent hover:bg-accent hover:text-white"
                                 )}
                             >
                                 Book a Stay
@@ -117,12 +122,13 @@ export default function Navbar() {
                             type="button"
                             onClick={() => setMobileOpen((prev) => !prev)}
                             className={cn(
-                                "md:hidden p-2 transition-colors",
+                                "p-2 transition-colors md:hidden",
+                                mobileOpen && "pointer-events-none opacity-0",
                                 scrolled ? "text-white" : "text-white"
                             )}
                             aria-label={mobileOpen ? "Close menu" : "Open menu"}
                         >
-                            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+                            <Menu size={22} />
                         </button>
                     </div>
                 </div>
@@ -136,39 +142,60 @@ export default function Navbar() {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-                        className="fixed inset-0 z-40 bg-black/50 md:hidden"
+                        className="fixed inset-0 z-[60] bg-black/50 md:hidden"
                         onClick={() => setMobileOpen(false)}
                     >
                         <motion.aside
-                            initial={{ x: "100%" }}
+                            initial={{ x: "-100%" }}
                             animate={{ x: 0 }}
-                            exit={{ x: "100%" }}
+                            exit={{ x: "-100%" }}
                             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                            className="ml-auto flex h-full w-[70vw] max-w-[280px] flex-col bg-primary px-6 pb-8 pt-24"
+                            className="flex h-full w-[70vw] max-w-[280px] flex-col bg-primary px-6 pb-8 pt-6"
                             onClick={(event) => event.stopPropagation()}
                         >
-                            <ul className="flex flex-col gap-5">
+                            <div className="border-b border-accent/25 pb-4">
+                                <div className="flex items-center justify-between gap-3">
+                                    <Link
+                                        href="/"
+                                        onClick={() => setMobileOpen(false)}
+                                        className="font-heading text-xl font-semibold leading-none tracking-wide text-accent"
+                                    >
+                                        Ducor Residences
+                                    </Link>
+                                    <button
+                                        type="button"
+                                        onClick={() => setMobileOpen(false)}
+                                        className="flex h-10 w-10 items-center justify-center p-0 text-white transition-colors hover:text-accent"
+                                        aria-label="Close menu"
+                                    >
+                                        <X size={22} />
+                                    </button>
+                                </div>
+                            </div>
+
+                            <ul className="flex flex-col gap-6 pt-8">
                                 {navLinks.map((link) => (
                                     <li key={link.href}>
                                         <Link
                                             href={link.href}
                                             onClick={() => setMobileOpen(false)}
-                                            className="font-sans text-sm font-medium text-white/80 transition-colors hover:text-accent"
+                                            className="font-sans text-sm tracking-wide text-white/85 transition-colors hover:text-accent"
                                         >
                                             {link.label}
                                         </Link>
                                     </li>
                                 ))}
-                                <li className="pt-2">
-                                    <Link
-                                        href="/booking"
-                                        onClick={() => setMobileOpen(false)}
-                                        className="inline-block border border-accent px-5 py-2 font-sans text-sm font-medium text-accent transition-all duration-200 hover:bg-accent hover:text-primary"
-                                    >
-                                        Book a Stay
-                                    </Link>
-                                </li>
                             </ul>
+
+                            <div className="pt-8">
+                                <Link
+                                    href="/booking"
+                                    onClick={() => setMobileOpen(false)}
+                                    className="inline-flex w-full items-center justify-center border border-accent px-5 py-3 font-sans text-sm font-medium text-accent transition-all duration-200 hover:bg-accent hover:text-white"
+                                >
+                                    Book a Stay
+                                </Link>
+                            </div>
                         </motion.aside>
                     </motion.div>
                 )}

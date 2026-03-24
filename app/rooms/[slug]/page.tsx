@@ -42,13 +42,9 @@ export default async function RoomDetailPage({
 
     return (
         <>
-            {/* We use bg-surface for Navbar when scrolling past top, but since there's no dark hero image here, 
-          we need a solid background up top. We'll wrap in a layout that forces it. */}
-            <div className="bg-primary pb-20">
-                <Navbar />
-            </div>
+            <Navbar forceSolid />
 
-            <main className="bg-background -mt-20">
+            <main className="bg-background">
                 <div className="mx-auto max-w-7xl px-6 lg:px-10 pt-28">
 
                     {/* Top: Gallery */}
