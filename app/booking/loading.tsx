@@ -17,11 +17,11 @@ export default function BookingLoading() {
                 </div>
 
                 {/* 2-Col Form Skeleton */}
-                <div className="mx-auto max-w-7xl px-6 lg:px-10 mt-16">
-                    <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
+                <div className="mx-auto mt-16 max-w-7xl px-6 lg:px-10">
+                    <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-10 lg:gap-16">
 
                         {/* Left: Form */}
-                        <div className="lg:col-span-8">
+                        <div className="md:col-span-7 lg:col-span-8">
                             <div className="space-y-10 border border-border bg-surface p-8 sm:p-12">
                                 <div className="space-y-6">
                                     <Skeleton className="h-8 w-40 rounded-none bg-background" />
@@ -44,7 +44,7 @@ export default function BookingLoading() {
                         </div>
 
                         {/* Right: Summary */}
-                        <div className="lg:col-span-4 hidden lg:block">
+                        <div className="hidden md:block md:col-span-5 lg:col-span-4">
                             <div className="border border-border bg-surface h-[380px]">
                                 <div className="border-b border-border/50 p-8 space-y-2">
                                     <Skeleton className="h-8 w-32 rounded-none bg-background" />
