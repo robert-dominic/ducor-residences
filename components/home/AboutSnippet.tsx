@@ -66,7 +66,7 @@ export default function AboutSnippet() {
                         <div className="pt-2">
                             <Link
                                 href="/amenities"
-                                className="inline-block border border-secondary px-6 py-3 font-sans text-sm font-medium text-secondary transition-all duration-200 hover:bg-secondary hover:text-white"
+                                className="inline-block border border-[#B89358] bg-[#B89358] px-6 py-3 font-sans text-sm font-medium text-white transition-colors hover:bg-accent"
                             >
                                 Explore Amenities
                             </Link>

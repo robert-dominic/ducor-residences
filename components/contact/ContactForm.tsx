@@ -53,7 +53,7 @@ export default function ContactForm() {
           <p className="font-sans text-xs uppercase tracking-[0.24em] text-muted">
             Thank You
           </p>
-          <h2 className="font-heading text-3xl font-semibold text-primary">
+          <h2 className="font-heading text-2xl md:text-3xl font-semibold text-primary">
             Your message has been received.
           </h2>
           <p className="max-w-xl font-sans text-sm leading-7 text-muted">
@@ -67,7 +67,7 @@ export default function ContactForm() {
             <p className="font-sans text-xs uppercase tracking-[0.24em] text-muted">
               Contact Reception
             </p>
-            <h2 className="font-heading text-3xl font-semibold text-primary">
+            <h2 className="font-heading text-2xl md:text-3xl font-semibold text-primary">
               Ask about stays, events, or private arrangements
             </h2>
             <p className="max-w-xl font-sans text-sm leading-7 text-muted">
@@ -165,7 +165,7 @@ export default function ContactForm() {
               <Button
                 type="submit"
                 disabled={form.formState.isSubmitting}
-                className="h-14 w-full bg-accent font-sans text-sm font-semibold tracking-wide text-primary hover:bg-secondary hover:text-white"
+                className="h-14 w-full bg-[#B89358] text-white font-sans text-sm font-semibold tracking-wide transition-colors hover:bg-accent"
               >
                 {form.formState.isSubmitting ? "Sending Message" : "Send Message"}
               </Button>

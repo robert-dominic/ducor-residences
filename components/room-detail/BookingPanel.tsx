@@ -42,7 +42,7 @@ export default function BookingPanel({ price }: BookingPanelProps) {
 
                 <Link
                     href="/booking"
-                    className="flex w-full items-center justify-center bg-accent px-4 py-3.5 font-sans text-sm font-semibold tracking-wide text-primary transition-colors hover:bg-secondary hover:text-white"
+                    className="flex w-full items-center justify-center bg-[#B89358] px-4 py-3.5 font-sans text-sm font-semibold tracking-wide text-white transition-colors hover:bg-accent"
                 >
                     Check Availability
                 </Link>

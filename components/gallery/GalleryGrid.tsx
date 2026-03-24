@@ -4,7 +4,6 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import Lightbox from "yet-another-react-lightbox"
-import Zoom from "yet-another-react-lightbox/plugins/zoom"
 import "yet-another-react-lightbox/styles.css"
 
 import FilterTabs, { type GalleryFilterType } from "@/components/gallery/FilterTabs"
@@ -127,7 +126,6 @@ export default function GalleryGrid() {
                     close={() => setLightboxOpen(false)}
                     index={lightboxIndex}
                     slides={lightboxSlides}
-                    plugins={[Zoom]}
                     carousel={{ padding: 0 }}
                     animation={{ swipe: 250 }}
                     controller={{ closeOnPullDown: true, closeOnBackdropClick: true }}

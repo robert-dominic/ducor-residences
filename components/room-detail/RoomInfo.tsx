@@ -13,7 +13,7 @@ export default function RoomInfo({ room }: RoomInfoProps) {
                 <div className="mb-3 inline-block bg-primary px-3 py-1 font-sans text-xs font-semibold uppercase tracking-widest text-white">
                     {room.type}
                 </div>
-                <h1 className="font-heading text-4xl font-semibold leading-tight text-primary md:text-5xl">
+                <h1 className="font-heading text-3xl md:text-5xl font-semibold leading-tight text-primary">
                     {room.name}
                 </h1>
             </div>

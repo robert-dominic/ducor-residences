@@ -8,7 +8,7 @@ export default function CTABanner() {
                 <p className="font-sans text-xs font-semibold uppercase tracking-widest text-accent">
                     Monrovia&apos;s Finest
                 </p>
-                <h2 className="font-heading text-4xl md:text-5xl font-semibold text-white leading-tight">
+                <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-semibold text-white leading-tight">
                     Ready for an elevated stay in Monrovia?
                 </h2>
                 <p className="font-sans text-base text-white/60 max-w-lg mx-auto">
@@ -18,7 +18,7 @@ export default function CTABanner() {
                 <div className="pt-2">
                     <Link
                         href="/booking"
-                        className="inline-block bg-accent text-primary font-sans text-sm font-semibold px-8 py-3.5 tracking-wide transition-all duration-300 hover:bg-secondary hover:text-white"
+                        className="inline-block bg-[#B89358] px-8 py-3.5 font-sans text-sm font-semibold tracking-wide text-white transition-colors hover:bg-accent"
                     >
                         Book Now
                     </Link>

@@ -68,7 +68,7 @@ export default function RoomCard({ room }: RoomCardProps) {
                     </span>
                     <Link
                         href={`/rooms/${room.slug}`}
-                        className="font-sans text-sm font-medium text-accent border border-accent px-4 py-2 transition-all duration-200 hover:bg-accent hover:text-primary"
+                        className="font-sans text-sm font-medium text-button border border-button px-4 py-2 transition-all duration-200 hover:bg-accent hover:text-white"
                     >
                         View Room
                     </Link>

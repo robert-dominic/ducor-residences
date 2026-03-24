@@ -91,13 +91,13 @@ export default function HeroSection() {
                     >
                         <Link
                             href="/booking"
-                            className="inline-block bg-accent px-8 py-3.5 font-sans text-sm font-semibold tracking-wide text-primary transition-all duration-300 hover:bg-[#b8935a]"
+                            className="inline-block bg-[#B89358] px-8 py-3.5 font-sans text-sm font-semibold tracking-wide text-white transition-colors hover:bg-accent"
                         >
                             Book a Stay
                         </Link>
                         <Link
                             href="/rooms"
-                            className="inline-block border border-white/50 px-8 py-3.5 font-sans text-sm font-semibold tracking-wide text-white transition-all duration-300 hover:border-white hover:bg-white/10"
+                            className="inline-block border border-button px-8 py-3.5 font-sans text-sm font-semibold tracking-wide text-white transition-all duration-300 hover:border-accent hover:bg-accent hover:text-white"
                         >
                             Explore Rooms
                         </Link>
