@@ -1,0 +1,50 @@
+[
+    {
+        "id": "amenity-001",
+        "title": "Restaurant",
+        "icon": "UtensilsCrossed",
+        "description": "Our in-house restaurant serves a curated menu of Liberian and international cuisine, prepared fresh each day using locally sourced ingredients."
+    },
+    {
+        "id": "amenity-002",
+        "title": "Rooftop Bar",
+        "icon": "Wine",
+        "description": "Perched at the top of the building, our rooftop bar offers panoramic city views, craft cocktails, and a carefully selected wine list — the perfect end to any evening in Monrovia."
+    },
+    {
+        "id": "amenity-003",
+        "title": "Swimming Pool",
+        "icon": "Waves",
+        "description": "A temperature-controlled outdoor pool surrounded by sun loungers and lush tropical planting. Open daily from 7 AM to 9 PM."
+    },
+    {
+        "id": "amenity-004",
+        "title": "Conference Room",
+        "icon": "Presentation",
+        "description": "A fully equipped conference room accommodating up to 20 delegates, with high-speed connectivity, projection facilities, and catering on request."
+    },
+    {
+        "id": "amenity-005",
+        "title": "Airport Shuttle",
+        "icon": "Car",
+        "description": "Complimentary return transfers between Roberts International Airport and Ducor Residences — available for all suite and penthouse guests, and on request for other room types."
+    },
+    {
+        "id": "amenity-006",
+        "title": "Free WiFi",
+        "icon": "Wifi",
+        "description": "High-speed, complimentary WiFi throughout the property — in your room, the lobby, the restaurant, and all outdoor areas."
+    },
+    {
+        "id": "amenity-007",
+        "title": "24hr Reception",
+        "icon": "Clock",
+        "description": "Our front desk team is available around the clock to assist with check-in, reservations, local recommendations, and anything else you need."
+    },
+    {
+        "id": "amenity-008",
+        "title": "Room Service",
+        "icon": "BellRing",
+        "description": "In-room dining available from 6 AM to midnight, with an express late-night menu available for early morning arrivals or late-night cravings."
+    }
+]

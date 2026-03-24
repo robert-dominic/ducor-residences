@@ -1,0 +1,98 @@
+[
+    {
+        "id": "gallery-001",
+        "src": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1200&q=80",
+        "alt": "Mesurado Room — king bed with warm neutral tones",
+        "category": "Rooms"
+    },
+    {
+        "id": "gallery-002",
+        "src": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=1200&q=80",
+        "alt": "Capitol View Double — spacious room with city view balcony",
+        "category": "Rooms"
+    },
+    {
+        "id": "gallery-003",
+        "src": "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=1200&q=80",
+        "alt": "Ducor Executive Suite — marble bathroom and sitting area",
+        "category": "Rooms"
+    },
+    {
+        "id": "gallery-004",
+        "src": "https://images.unsplash.com/photo-1549294413-26f195200c16?w=1200&q=80",
+        "alt": "Providence Penthouse — private rooftop terrace with ocean views",
+        "category": "Rooms"
+    },
+    {
+        "id": "gallery-005",
+        "src": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=80",
+        "alt": "In-house restaurant — candlelit dining with Liberian cuisine",
+        "category": "Dining"
+    },
+    {
+        "id": "gallery-006",
+        "src": "https://images.unsplash.com/photo-1544148103-0773bf10d330?w=1200&q=80",
+        "alt": "Rooftop bar — cocktails at sunset over Monrovia",
+        "category": "Dining"
+    },
+    {
+        "id": "gallery-007",
+        "src": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1200&q=80",
+        "alt": "Restaurant interior — elegantly laid tables with warm lighting",
+        "category": "Dining"
+    },
+    {
+        "id": "gallery-008",
+        "src": "https://images.unsplash.com/photo-1551632811-561732d1e306?w=1200&q=80",
+        "alt": "Morning breakfast spread — fresh fruits and local pastries",
+        "category": "Dining"
+    },
+    {
+        "id": "gallery-009",
+        "src": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&q=80",
+        "alt": "Ducor Residences exterior — main entrance and façade",
+        "category": "Exterior"
+    },
+    {
+        "id": "gallery-010",
+        "src": "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=1200&q=80",
+        "alt": "Outdoor swimming pool surrounded by tropical landscaping",
+        "category": "Exterior"
+    },
+    {
+        "id": "gallery-011",
+        "src": "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=1200&q=80",
+        "alt": "Pool terrace at golden hour — sun loungers and palms",
+        "category": "Exterior"
+    },
+    {
+        "id": "gallery-012",
+        "src": "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1200&q=80",
+        "alt": "Hotel garden and courtyard garden at dusk",
+        "category": "Exterior"
+    },
+    {
+        "id": "gallery-013",
+        "src": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&q=80",
+        "alt": "Conference room — boardroom setup for corporate delegates",
+        "category": "Events"
+    },
+    {
+        "id": "gallery-014",
+        "src": "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1200&q=80",
+        "alt": "Rooftop event setup — private dinner under the stars",
+        "category": "Events"
+    },
+    {
+        "id": "gallery-015",
+        "src": "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=1200&q=80",
+        "alt": "Wedding reception in the banquet hall",
+        "category": "Events"
+    },
+    {
+        "id": "gallery-016",
+        "src": "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1200&q=80",
+        "alt": "Networking event on the rooftop terrace at sunset",
+        "category": "Events"
+    }
+]

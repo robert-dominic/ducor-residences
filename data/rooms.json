@@ -1,0 +1,127 @@
+[
+    {
+        "id": "room-001",
+        "slug": "mesurado-room",
+        "name": "The Mesurado Room",
+        "type": "Single",
+        "price": 85,
+        "capacity": 1,
+        "size": "28 m²",
+        "description": "Named after the Mesurado River that winds through Monrovia, this intimate single room offers a calm, refined retreat. Dressed in warm neutrals with bespoke wooden accents, it is the perfect sanctuary for the solo traveller who values quality over scale.",
+        "featured": false,
+        "images": [
+            "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1200&q=80",
+            "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80",
+            "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=800&q=80",
+            "https://images.unsplash.com/photo-1496417263034-38ec4f0b665a?w=800&q=80",
+            "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=800&q=80"
+        ],
+        "amenities": [
+            "Free WiFi",
+            "Air Conditioning",
+            "Flat-screen TV",
+            "Mini Fridge",
+            "In-room Safe",
+            "Daily Housekeeping",
+            "Room Service",
+            "En-suite Bathroom"
+        ]
+    },
+    {
+        "id": "room-002",
+        "slug": "capitol-view-double",
+        "name": "The Capitol View Double",
+        "type": "Double",
+        "price": 120,
+        "capacity": 2,
+        "size": "38 m²",
+        "description": "Positioned to catch sweeping views of the Capitol Hill skyline, this double room pairs generous space with understated luxury. A king-sized bed, handcrafted furnishings, and a private balcony create a stay that feels both grounded and elevated.",
+        "featured": false,
+        "images": [
+            "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=1200&q=80",
+            "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&q=80",
+            "https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=800&q=80",
+            "https://images.unsplash.com/photo-1596701062351-8ac031a0a4cc?w=800&q=80",
+            "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=800&q=80"
+        ],
+        "amenities": [
+            "Free WiFi",
+            "Air Conditioning",
+            "Flat-screen TV",
+            "Mini Bar",
+            "Private Balcony",
+            "In-room Safe",
+            "Daily Housekeeping",
+            "Room Service",
+            "En-suite Bathroom with Bathtub"
+        ]
+    },
+    {
+        "id": "room-003",
+        "slug": "ducor-executive-suite",
+        "name": "The Ducor Executive Suite",
+        "type": "Suite",
+        "price": 175,
+        "capacity": 2,
+        "size": "62 m²",
+        "description": "A tribute to the golden era of the Ducor Palace Hotel, this suite is where history and modern luxury converge. A separate sitting room, a full marble bathroom, and panoramic city views make it the suite of choice for discerning travellers and business executives alike.",
+        "featured": true,
+        "images": [
+            "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=1200&q=80",
+            "https://images.unsplash.com/photo-1560347876-aeef00ee58a1?w=800&q=80",
+            "https://images.unsplash.com/photo-1587985064135-0366536eab42?w=800&q=80",
+            "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80",
+            "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=800&q=80"
+        ],
+        "amenities": [
+            "Free WiFi",
+            "Air Conditioning",
+            "55\" Smart TV",
+            "Separate Living Area",
+            "Full Mini Bar",
+            "Private Balcony with City View",
+            "Marble Bathroom with Soaking Tub",
+            "In-room Safe",
+            "Nespresso Machine",
+            "Daily Housekeeping",
+            "Priority Room Service",
+            "Complimentary Airport Transfer"
+        ]
+    },
+    {
+        "id": "room-004",
+        "slug": "providence-penthouse",
+        "name": "The Providence Penthouse",
+        "type": "Penthouse",
+        "price": 250,
+        "capacity": 4,
+        "size": "110 m²",
+        "description": "Named after Providence Island — the birthplace of Monrovia — this penthouse is the pinnacle of Ducor Residences. A private rooftop terrace with unobstructed Atlantic Ocean views, a chef's pantry, two en-suite bedrooms, and bespoke butler service define a stay that is truly singular.",
+        "featured": true,
+        "images": [
+            "https://images.unsplash.com/photo-1549294413-26f195200c16?w=1200&q=80",
+            "https://images.unsplash.com/photo-1631049421450-348ccd7f8949?w=800&q=80",
+            "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+            "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+            "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&q=80"
+        ],
+        "amenities": [
+            "Free WiFi",
+            "Full Air Conditioning",
+            "Two 65\" Smart TVs",
+            "Two En-suite Bedrooms",
+            "Private Rooftop Terrace",
+            "Atlantic Ocean Views",
+            "Chef's Pantry",
+            "Full Mini Bar",
+            "Dedicated Butler Service",
+            "Marble Bathrooms with Rain Showers",
+            "In-room Safe",
+            "Nespresso Machine",
+            "Daily Housekeeping",
+            "24hr Priority Room Service",
+            "Complimentary Airport Transfer",
+            "VIP Lounge Access"
+        ]
+    }
+]

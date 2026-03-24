@@ -1,0 +1,23 @@
+[
+    {
+        "id": "testimonial-001",
+        "name": "Emmanuel Kpaan",
+        "rating": 5,
+        "quote": "Staying at Ducor Residences felt like coming home — if home had spectacular city views and the best jollof rice I have ever tasted. A genuinely proud moment for Monrovia.",
+        "country": "Liberia"
+    },
+    {
+        "id": "testimonial-002",
+        "name": "Cynthia Williamson-Cole",
+        "rating": 5,
+        "quote": "I visit Monrovia twice a year for work. I have tried every upscale option in the city. Nothing comes close to Ducor Residences — the quiet, the service, the attention to detail. It is my only choice now.",
+        "country": "United States"
+    },
+    {
+        "id": "testimonial-003",
+        "name": "Amara Diallo",
+        "rating": 5,
+        "quote": "I travelled from Dakar for a regional conference and was not expecting much from the accommodation. I left genuinely impressed. The rooftop bar alone is worth the trip.",
+        "country": "Senegal"
+    }
+]

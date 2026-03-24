@@ -1,0 +1,44 @@
+{
+    "checkIn": "2:00 PM",
+    "checkOut": "12:00 PM",
+    "earlyCheckIn": "Early check-in from 11:00 AM is available on request, subject to availability. A half-day rate may apply.",
+    "lateCheckOut": "Late check-out until 2:00 PM is available on request, subject to availability. A half-day rate may apply.",
+    "rules": [
+        {
+            "id": "policy-001",
+            "title": "Quiet Hours",
+            "icon": "MoonStar",
+            "description": "Quiet hours are observed between 10:00 PM and 7:00 AM. We ask that all guests be mindful of other guests during this time."
+        },
+        {
+            "id": "policy-002",
+            "title": "No Smoking Indoors",
+            "icon": "CigaretteOff",
+            "description": "Smoking is strictly prohibited in all indoor areas, including rooms, corridors, and the lobby. Designated outdoor smoking areas are available."
+        },
+        {
+            "id": "policy-003",
+            "title": "Pet Policy",
+            "icon": "PawPrint",
+            "description": "Pets are welcomed at the discretion of management. Please notify us in advance of your arrival. A refundable pet deposit may be required."
+        },
+        {
+            "id": "policy-004",
+            "title": "ID & Payment",
+            "icon": "CreditCard",
+            "description": "A valid government-issued ID and a credit card are required at check-in. Payment is due in full upon arrival unless prior arrangements have been made."
+        },
+        {
+            "id": "policy-005",
+            "title": "Cancellation",
+            "icon": "CalendarX",
+            "description": "Cancellations made more than 48 hours before arrival incur no charge. Cancellations within 48 hours of arrival are subject to a one-night charge."
+        },
+        {
+            "id": "policy-006",
+            "title": "Children",
+            "icon": "Baby",
+            "description": "Children of all ages are welcome. Children under 12 stay free when sharing an existing bed with parents. Cots are available on request at no charge."
+        }
+    ]
+}
