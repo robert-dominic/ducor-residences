@@ -1,36 +1,132 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ducor Residences
 
-## Getting Started
+Ducor Residences is a luxury guest house demo website built to showcase a polished hospitality web experience for businesses in Monrovia, Liberia. The project is intentionally designed to feel premium, restrained, and conversion-focused while staying lightweight enough to serve as a freelance sales demo.
 
-First, run the development server:
+The site presents a fictional property named after the historic Ducor hill and includes:
+
+- a cinematic landing page with motion-driven storytelling
+- room listing and room detail flows
+- amenities and policy pages
+- a masonry gallery with fullscreen lightbox
+- a booking flow with validation and live pricing
+- a contact page with form, info cards, and map embed
+
+## Project Overview
+
+This repository is a front-end demo only. It does not use a backend, external CMS, or booking API. All content is sourced from local JSON files and the forms are simulated client-side to keep the project easy to run, modify, and present.
+
+The implementation focuses on:
+
+- Next.js App Router conventions
+- a custom hospitality design system
+- mobile-first responsive layouts
+- slow, refined Framer Motion transitions
+- reusable UI primitives styled to match the brand
+
+## Tech Stack
+
+- Next.js 16.2
+- React 19
+- TypeScript
+- Tailwind CSS v4
+- shadcn/ui primitives
+- Framer Motion
+- React Hook Form
+- Zod
+- React Day Picker
+- yet-another-react-lightbox
+- Lucide React
+- Phosphor Icons
+
+## Folder Structure
+
+```text
+app/
+  amenities/
+  booking/
+  contact/
+  gallery/
+  rooms/
+  layout.tsx
+  page.tsx
+  template.tsx
+
+components/
+  amenities/
+  booking/
+  contact/
+  gallery/
+  home/
+  room-detail/
+  rooms/
+  shared/
+  ui/
+
+data/
+  amenities.json
+  gallery.json
+  policies.json
+  rooms.json
+  testimonials.json
+
+lib/
+  utils.ts
+
+types/
+  index.ts
+```
+
+## Running Locally
+
+### 1. Install dependencies
+
+```bash
+npm install
+```
+
+### 2. Start the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 3. Open the app
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Visit [http://localhost:3000](http://localhost:3000).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 4. Production build
 
-## Learn More
+```bash
+npm run build
+npm run start
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Environment Setup
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project currently does not require any environment variables.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+If you extend it with a CMS, booking provider, analytics, or transactional email service, create a local `.env.local` file and keep secrets out of version control.
 
-## Deploy on Vercel
+Example future variables:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+BOOKING_PROVIDER_API_KEY=your-key
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Development Notes
+
+- Internal navigation uses `next/link`
+- Images use `next/image`
+- Route-level loading states are implemented for non-home pages
+- Page transitions use the App Router `template.tsx`
+- Gallery and booking interactions are client-side only
+- Remote placeholder images are loaded from `images.unsplash.com`
+
+## Credits
+
+- Design and implementation: Ducor Residences demo build
+- Placeholder photography: [Unsplash](https://unsplash.com/)
+- UI primitives: [shadcn/ui](https://ui.shadcn.com/)
+- Icons: [Lucide](https://lucide.dev/) and [Phosphor Icons](https://phosphoricons.com/)
+- Framework: [Next.js](https://nextjs.org/)
