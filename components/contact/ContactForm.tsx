@@ -47,7 +47,7 @@ export default function ContactForm() {
   }
 
   return (
-    <Reveal className="border border-border bg-surface p-8 sm:p-12">
+    <Reveal className="border border-border bg-surface py-8 px-4 sm:p-12">
       {submitted ? (
         <div className="space-y-4">
           <p className="font-sans text-xs uppercase tracking-[0.24em] text-muted">

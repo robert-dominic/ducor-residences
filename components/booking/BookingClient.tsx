@@ -212,7 +212,7 @@ export default function BookingClient() {
             {/* LEFT: FORM */}
             <div className="md:col-span-7 lg:col-span-8">
                 <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-10 border border-border bg-surface p-8 sm:p-12">
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-10 border border-border bg-surface py-8 px-3 sm:p-12">
 
                         <div className="space-y-6">
                             <h2 className="font-heading text-2xl font-semibold text-primary">Guest Details</h2>
@@ -314,11 +314,11 @@ export default function BookingClient() {
                                                 </FormControl>
                                             </PopoverTrigger>
                                             <PopoverContent
-                                                className="w-[17.5rem] p-0 sm:w-[19rem] md:w-auto"
+                                                className="w-[15rem] p-0 sm:w-[19rem] md:w-auto"
                                                 align="start"
                                             >
                                                 <Calendar
-                                                    initialFocus
+                                                    autoFocus
                                                     mode="single"
                                                     defaultMonth={field.value ?? today}
                                                     selected={field.value}
@@ -376,7 +376,7 @@ export default function BookingClient() {
                                                 </FormControl>
                                             </PopoverTrigger>
                                             <PopoverContent
-                                                className="w-[17.5rem] p-0 sm:w-[19rem] md:w-auto"
+                                                className="w-[15rem] p-0 sm:w-[19rem] md:w-auto"
                                                 align="start"
                                             >
                                                 <Calendar
@@ -448,7 +448,7 @@ export default function BookingClient() {
             </div>
 
             {/* RIGHT: SUMMARY (Sticky) */}
-            <div className="hidden md:block md:col-span-5 lg:col-span-4">
+            <div className="block md:col-span-5 lg:col-span-4">
                 <PriceSummary nights={nights || 0} roomTitle={roomName} basePrice={currentPrice} />
             </div>
 
