@@ -1,7 +1,6 @@
 import Navbar from "@/components/shared/Navbar"
 import Footer from "@/components/shared/Footer"
 import PageHero from "@/components/shared/PageHero"
-import CTABanner from "@/components/shared/CTABanner"
 import RoomGrid from "@/components/rooms/RoomGrid"
 
 export const metadata = {
@@ -22,7 +21,6 @@ export default function RoomsPage() {
                     compact
                 />
                 <RoomGrid />
-                <CTABanner />
             </main>
             <Footer />
         </>

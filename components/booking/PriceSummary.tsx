@@ -12,10 +12,10 @@ export default function PriceSummary({ nights, roomTitle, basePrice }: PriceSumm
     const total = subtotal + tax
 
     return (
-        <div className="sticky top-28 border border-border bg-surface">
+        <div className="sticky top-28 rounded-2xl border border-border bg-surface shadow-[0_18px_40px_rgba(26,26,26,0.05)]">
             {/* Header */}
             <div className="border-b border-border/50 p-8 space-y-2">
-                <h3 className="font-heading text-2xl font-semibold text-primary">
+                <h3 className="font-heading text-[1.7rem] font-medium text-primary">
                     Your Stay
                 </h3>
                 <p className="font-sans text-sm text-muted">
@@ -38,8 +38,8 @@ export default function PriceSummary({ nights, roomTitle, basePrice }: PriceSumm
 
                 <div className="border-t border-border/50 pt-6">
                     <div className="flex justify-between items-baseline">
-                        <span className="font-sans text-base font-semibold text-primary">Total</span>
-                        <span className="font-heading text-3xl font-bold text-primary">
+                        <span className="font-sans text-base font-medium text-primary">Total</span>
+                        <span className="font-heading text-[2.1rem] font-medium text-primary">
                             {formatPrice(total).split(" / ")[0]}
                         </span>
                     </div>

@@ -34,9 +34,9 @@ export default function RoomGrid() {
                 <div className="mt-8">
                     {loading ? (
                         // Skeleton Layout (must match RoomCard shape exactly)
-                        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                            {Array.from({ length: 3 }).map((_, i) => (
-                                <div key={i} className="border border-border bg-surface">
+                        <div className="grid grid-cols-1 gap-5 md:grid-cols-3 xl:grid-cols-4">
+                            {Array.from({ length: 4 }).map((_, i) => (
+                                <div key={i} className="overflow-hidden rounded-2xl border border-border bg-surface shadow-[0_16px_36px_rgba(26,26,26,0.05)]">
                                     <div className="relative aspect-[4/3]">
                                         <Skeleton className="h-full w-full rounded-none" />
                                     </div>
@@ -63,7 +63,7 @@ export default function RoomGrid() {
                         // Actual Grid
                         <motion.div
                             layout
-                            className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
+                            className="grid grid-cols-1 gap-5 md:grid-cols-3 xl:grid-cols-4"
                         >
                             <AnimatePresence mode="popLayout">
                                 {filteredRooms.map((room) => (
@@ -75,7 +75,7 @@ export default function RoomGrid() {
                                         transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                                         key={room.id}
                                     >
-                                        <RoomCard room={room} />
+                                        <RoomCard room={room} compact />
                                     </motion.div>
                                 ))}
                             </AnimatePresence>

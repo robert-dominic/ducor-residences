@@ -212,19 +212,19 @@ export default function BookingClient() {
             {/* LEFT: FORM */}
             <div className="md:col-span-7 lg:col-span-8">
                 <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-10 border border-border bg-surface py-8 px-3 sm:p-12">
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-10 rounded-2xl border border-border bg-surface px-3 py-8 shadow-[0_18px_40px_rgba(26,26,26,0.05)] sm:p-12">
 
                         <div className="space-y-6">
-                            <h2 className="font-heading text-2xl font-semibold text-primary">Guest Details</h2>
+                            <h2 className="font-heading text-[1.7rem] font-medium leading-[1.15] text-primary">Guest Details</h2>
                             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                                 <FormField
                                     control={form.control}
                                     name="fullName"
                                     render={({ field }) => (
                                         <FormItem>
-                                            <FormLabel className="font-sans text-xs uppercase tracking-widest text-muted">Full Name</FormLabel>
+                                            <FormLabel className="font-sans text-[11px] uppercase tracking-[0.18em] text-muted">Full Name</FormLabel>
                                             <FormControl>
-                                                <Input placeholder="John Doe" className="rounded-none border-border bg-background h-12 focus-visible:ring-accent" {...field} />
+                                                <Input placeholder="John Doe" className="h-12 rounded-lg border-border bg-background focus-visible:ring-accent" {...field} />
                                             </FormControl>
                                             <FormMessage />
                                         </FormItem>
@@ -235,9 +235,9 @@ export default function BookingClient() {
                                     name="email"
                                     render={({ field }) => (
                                         <FormItem>
-                                            <FormLabel className="font-sans text-xs uppercase tracking-widest text-muted">Email</FormLabel>
+                                            <FormLabel className="font-sans text-[11px] uppercase tracking-[0.18em] text-muted">Email</FormLabel>
                                             <FormControl>
-                                                <Input type="email" placeholder="john@example.com" className="rounded-none border-border bg-background h-12 focus-visible:ring-accent" {...field} />
+                                                <Input type="email" placeholder="john@example.com" className="h-12 rounded-lg border-border bg-background focus-visible:ring-accent" {...field} />
                                             </FormControl>
                                             <FormMessage />
                                         </FormItem>
@@ -250,9 +250,9 @@ export default function BookingClient() {
                                 name="phone"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel className="font-sans text-xs uppercase tracking-widest text-muted">Phone Number</FormLabel>
+                                        <FormLabel className="font-sans text-[11px] uppercase tracking-[0.18em] text-muted">Phone Number</FormLabel>
                                         <FormControl>
-                                            <Input type="tel" placeholder="+1 (555) 000-0000" className="rounded-none border-border bg-background h-12 focus-visible:ring-accent" {...field} />
+                                            <Input type="tel" placeholder="+1 (555) 000-0000" className="h-12 rounded-lg border-border bg-background focus-visible:ring-accent" {...field} />
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
@@ -261,17 +261,17 @@ export default function BookingClient() {
                         </div>
 
                         <div className="border-t border-border/50 pt-10 space-y-6">
-                            <h2 className="font-heading text-2xl font-semibold text-primary">Stay Details</h2>
+                            <h2 className="font-heading text-[1.7rem] font-medium leading-[1.15] text-primary">Stay Details</h2>
 
                             <FormField
                                 control={form.control}
                                 name="roomId"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel className="font-sans text-xs uppercase tracking-widest text-muted">Room Type</FormLabel>
+                                        <FormLabel className="font-sans text-[11px] uppercase tracking-[0.18em] text-muted">Room Type</FormLabel>
                                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                                             <FormControl>
-                                                <SelectTrigger className="rounded-none border-border bg-background h-12 focus:ring-accent">
+                                                <SelectTrigger className="h-12 rounded-lg border-border bg-background focus:ring-accent">
                                                     <SelectValue placeholder="Select a room" />
                                                 </SelectTrigger>
                                             </FormControl>
@@ -293,14 +293,14 @@ export default function BookingClient() {
                                 name="checkIn"
                                 render={({ field }) => (
                                     <FormItem className="flex flex-col">
-                                        <FormLabel className="font-sans text-xs uppercase tracking-widest text-muted">Check-in</FormLabel>
+                                        <FormLabel className="font-sans text-[11px] uppercase tracking-[0.18em] text-muted">Check-in</FormLabel>
                                         <Popover open={checkInOpen} onOpenChange={setCheckInOpen}>
                                             <PopoverTrigger asChild>
                                                 <FormControl>
                                                     <Button
                                                         variant={"outline"}
                                                         className={cn(
-                                                            "h-12 w-full justify-start rounded-none border-border bg-background text-left font-normal hover:bg-background hover:text-current active:bg-background focus-visible:border-border focus-visible:ring-0 aria-expanded:bg-background",
+                                                            "h-12 w-full justify-start rounded-lg border-border bg-background text-left font-normal hover:bg-background hover:text-current active:bg-background focus-visible:border-border focus-visible:ring-0 aria-expanded:bg-background",
                                                             !field.value && "text-muted-foreground",
                                                         )}
                                                     >
@@ -355,14 +355,14 @@ export default function BookingClient() {
                                 name="checkOut"
                                 render={({ field }) => (
                                     <FormItem className="flex flex-col">
-                                        <FormLabel className="font-sans text-xs uppercase tracking-widest text-muted">Check-out</FormLabel>
+                                        <FormLabel className="font-sans text-[11px] uppercase tracking-[0.18em] text-muted">Check-out</FormLabel>
                                         <Popover open={checkOutOpen} onOpenChange={setCheckOutOpen}>
                                             <PopoverTrigger asChild>
                                                 <FormControl>
                                                     <Button
                                                         variant={"outline"}
                                                         className={cn(
-                                                            "h-12 w-full justify-start rounded-none border-border bg-background text-left font-normal hover:bg-background hover:text-current active:bg-background focus-visible:border-border focus-visible:ring-0 aria-expanded:bg-background",
+                                                            "h-12 w-full justify-start rounded-lg border-border bg-background text-left font-normal hover:bg-background hover:text-current active:bg-background focus-visible:border-border focus-visible:ring-0 aria-expanded:bg-background",
                                                             !field.value && "text-muted-foreground",
                                                         )}
                                                     >
@@ -415,11 +415,11 @@ export default function BookingClient() {
                                 name="requests"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel className="font-sans text-xs uppercase tracking-widest text-muted">Special Requests</FormLabel>
+                                        <FormLabel className="font-sans text-[11px] uppercase tracking-[0.18em] text-muted">Special Requests</FormLabel>
                                         <FormControl>
                                             <Textarea
                                                 placeholder="Any special requests or arrival times..."
-                                                className="rounded-none border-border bg-background min-h-[120px] focus-visible:ring-accent"
+                                                className="min-h-[120px] rounded-lg border-border bg-background focus-visible:ring-accent"
                                                 {...field}
                                             />
                                         </FormControl>
@@ -431,7 +431,7 @@ export default function BookingClient() {
 
                         <Button
                             type="submit"
-                            className="w-full h-14 rounded-none bg-[#B89358] text-white font-sans text-sm font-semibold tracking-wide transition-colors hover:bg-accent"
+                            className="h-14 w-full rounded-lg bg-button font-sans text-[13px] font-medium uppercase tracking-[0.16em] text-white transition-colors hover:brightness-105"
                             disabled={form.formState.isSubmitting}
                         >
                             {form.formState.isSubmitting ? (
