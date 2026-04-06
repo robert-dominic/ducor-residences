@@ -43,17 +43,17 @@ export default function FeatureGrid({ amenities }: FeatureGridProps) {
                         return (
                             <div
                                 key={item.id}
-                                className="flex flex-col gap-4 border border-border bg-background p-8 transition-colors hover:border-accent"
+                                className="flex flex-col gap-4 rounded-2xl border border-border bg-background p-8 transition-colors hover:border-accent"
                             >
-                                <div className="inline-flex h-12 w-12 items-center justify-center bg-surface text-accent">
+                                <div className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-surface text-accent">
                                     <IconComponent size={24} strokeWidth={1.5} />
                                 </div>
 
-                                <h3 className="font-heading text-2xl font-semibold text-primary">
+                                <h3 className="font-heading text-[1.7rem] font-medium leading-[1.15] text-primary">
                                     {item.title}
                                 </h3>
 
-                                <p className="font-sans text-sm leading-relaxed text-muted">
+                                <p className="font-sans text-[15px] leading-7 text-muted">
                                     {item.description}
                                 </p>
                             </div>

@@ -50,18 +50,18 @@ export default function PoliciesSection({ policies }: PoliciesSectionProps) {
 
                     {/* Left: Timings */}
                     <div className="lg:col-span-4 space-y-8">
-                        <div className="space-y-4 rounded-sm border border-border bg-surface p-8">
-                            <h3 className="font-heading text-2xl font-semibold text-primary mb-6">
+                        <div className="space-y-4 rounded-2xl border border-border bg-surface p-8 shadow-[0_16px_36px_rgba(26,26,26,0.05)]">
+                            <h3 className="mb-6 font-heading text-[1.7rem] font-medium leading-[1.15] text-primary">
                                 Arrival & Departure
                             </h3>
 
                             <div className="flex items-center justify-between border-b border-border/50 pb-3">
                                 <span className="font-sans text-sm text-muted">Check-in</span>
-                                <span className="font-sans text-sm font-semibold text-primary">{policies.checkIn}</span>
+                                <span className="font-sans text-sm font-medium text-primary">{policies.checkIn}</span>
                             </div>
                             <div className="flex items-center justify-between border-b border-border/50 pb-3">
                                 <span className="font-sans text-sm text-muted">Check-out</span>
-                                <span className="font-sans text-sm font-semibold text-primary">{policies.checkOut}</span>
+                                <span className="font-sans text-sm font-medium text-primary">{policies.checkOut}</span>
                             </div>
 
                             <div className="pt-2 space-y-4">
@@ -77,21 +77,23 @@ export default function PoliciesSection({ policies }: PoliciesSectionProps) {
 
                     {/* Right: Rules List */}
                     <div className="lg:col-span-8">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+                        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                             {policies.rules.map((rule) => {
                                 const IconComponent = iconMap[rule.icon] || MoonStar
                                 return (
-                                    <div key={rule.id} className="flex flex-col gap-3">
+                                    <article key={rule.id} className="rounded-2xl border border-border bg-surface p-6 shadow-[0_16px_36px_rgba(26,26,26,0.05)]">
                                         <div className="flex items-center gap-3">
-                                            <IconComponent size={20} strokeWidth={1.5} className="text-accent" />
-                                            <h4 className="font-heading text-xl font-semibold text-primary">
+                                            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-background text-accent">
+                                                <IconComponent size={18} strokeWidth={1.5} />
+                                            </div>
+                                            <h4 className="font-heading text-[1.35rem] font-medium text-primary">
                                                 {rule.title}
                                             </h4>
                                         </div>
-                                        <p className="font-sans text-sm leading-relaxed text-muted pl-8">
+                                        <p className="mt-4 font-sans text-[15px] leading-7 text-muted">
                                             {rule.description}
                                         </p>
-                                    </div>
+                                    </article>
                                 )
                             })}
                         </div>

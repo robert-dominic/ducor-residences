@@ -3,7 +3,6 @@ import Footer from "@/components/shared/Footer"
 import PageHero from "@/components/shared/PageHero"
 import FeatureGrid from "@/components/amenities/FeatureGrid"
 import PoliciesSection from "@/components/amenities/PoliciesSection"
-import CTABanner from "@/components/shared/CTABanner"
 
 import amenitiesData from "@/data/amenities.json"
 import policiesData from "@/data/policies.json"
@@ -28,7 +27,6 @@ export default function AmenitiesPage() {
 
                 <FeatureGrid amenities={amenitiesData} />
                 <PoliciesSection policies={policiesData} />
-                <CTABanner />
             </main>
             <Footer />
         </>

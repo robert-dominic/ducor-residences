@@ -12,6 +12,58 @@ import galleryData from "@/data/gallery.json"
 import { Skeleton } from "@/components/ui/skeleton"
 
 const SKELETON_HEIGHTS = [280, 320, 260, 340, 300, 310, 290, 330, 270]
+const ease = [0.22, 1, 0.36, 1] as const
+
+const gridVariants = {
+    initial: {
+        opacity: 0,
+        y: 18,
+        filter: "blur(10px)",
+    },
+    animate: {
+        opacity: 1,
+        y: 0,
+        filter: "blur(0px)",
+        transition: {
+            duration: 0.45,
+            ease,
+            staggerChildren: 0.05,
+            delayChildren: 0.04,
+        },
+    },
+    exit: {
+        opacity: 0,
+        y: -10,
+        filter: "blur(8px)",
+        transition: {
+            duration: 0.28,
+            ease,
+        },
+    },
+}
+
+const itemVariants = {
+    initial: {
+        opacity: 0,
+        y: 22,
+    },
+    animate: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.45,
+            ease,
+        },
+    },
+    exit: {
+        opacity: 0,
+        y: -12,
+        transition: {
+            duration: 0.22,
+            ease,
+        },
+    },
+}
 
 export default function GalleryGrid() {
     const [filter, setFilter] = useState<GalleryFilterType>("All")
@@ -61,7 +113,7 @@ export default function GalleryGrid() {
                         // Masonry Skeleton (CSS columns)
                         <div className="columns-1 gap-6 sm:columns-2 lg:columns-3 space-y-6">
                             {Array.from({ length: 9 }).map((_, i) => (
-                                <div key={i} className="break-inside-avoid relative overflow-hidden bg-surface">
+                                <div key={i} className="break-inside-avoid relative overflow-hidden rounded-2xl bg-surface">
                                     <Skeleton
                                         className="w-full rounded-none"
                                         style={{
@@ -72,21 +124,20 @@ export default function GalleryGrid() {
                             ))}
                         </div>
                     ) : (
-                        // Actual Masonry Grid
-                        <motion.div
-                            layout
-                            className="columns-1 gap-6 sm:columns-2 lg:columns-3 space-y-6"
-                        >
-                            <AnimatePresence mode="popLayout">
+                        <AnimatePresence mode="wait" initial={false}>
+                            <motion.div
+                                key={filter}
+                                variants={gridVariants}
+                                initial="initial"
+                                animate="animate"
+                                exit="exit"
+                                className="columns-1 gap-6 sm:columns-2 lg:columns-3 space-y-6 will-change-transform"
+                            >
                                 {filteredImages.map((img, index) => (
                                     <motion.div
-                                        layout
-                                        initial={{ opacity: 0, scale: 0.95 }}
-                                        animate={{ opacity: 1, scale: 1 }}
-                                        exit={{ opacity: 0, scale: 0.95 }}
-                                        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                                         key={img.id}
-                                        className="break-inside-avoid relative cursor-pointer overflow-hidden bg-surface group"
+                                        variants={itemVariants}
+                                        className="group break-inside-avoid relative cursor-pointer overflow-hidden rounded-2xl bg-surface shadow-[0_16px_36px_rgba(26,26,26,0.05)]"
                                         onClick={() => handleOpenLightbox(index)}
                                         onContextMenu={handleContextMenu}
                                         style={{ WebkitTouchCallout: "none" }} // Disable iOS long-press menu
@@ -105,8 +156,8 @@ export default function GalleryGrid() {
                                         <div className="absolute inset-0 bg-primary/0 transition-colors duration-300 group-hover:bg-primary/20" />
                                     </motion.div>
                                 ))}
-                            </AnimatePresence>
-                        </motion.div>
+                            </motion.div>
+                        </AnimatePresence>
                     )}
 
                     {!loading && filteredImages.length === 0 && (

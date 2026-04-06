@@ -47,16 +47,16 @@ export default function ContactForm() {
   }
 
   return (
-    <Reveal className="border border-border bg-surface py-8 px-4 sm:p-12">
+    <Reveal className="rounded-2xl border border-border bg-surface px-4 py-8 shadow-[0_18px_40px_rgba(26,26,26,0.05)] sm:p-12">
       {submitted ? (
         <div className="space-y-4">
           <p className="font-sans text-xs uppercase tracking-[0.24em] text-muted">
             Thank You
           </p>
-          <h2 className="font-heading text-2xl md:text-3xl font-semibold text-primary">
+          <h2 className="font-heading text-[2rem] font-medium text-primary md:text-[2.4rem]">
             Your message has been received.
           </h2>
-          <p className="max-w-xl font-sans text-sm leading-7 text-muted">
+          <p className="max-w-xl font-sans text-[15px] leading-7 text-muted">
             Our reception team will get back to you shortly with the next
             available response.
           </p>
@@ -67,10 +67,10 @@ export default function ContactForm() {
             <p className="font-sans text-xs uppercase tracking-[0.24em] text-muted">
               Contact Reception
             </p>
-            <h2 className="font-heading text-2xl md:text-3xl font-semibold text-primary">
+            <h2 className="font-heading text-[2rem] font-medium text-primary md:text-[2.4rem]">
               Ask about stays, events, or private arrangements
             </h2>
-            <p className="max-w-xl font-sans text-sm leading-7 text-muted">
+            <p className="max-w-xl font-sans text-[15px] leading-7 text-muted">
               Send us a message and our team will follow up with availability,
               rates, or any other information you need.
             </p>
@@ -84,7 +84,7 @@ export default function ContactForm() {
                   name="fullName"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="font-sans text-xs uppercase tracking-widest text-muted">
+                      <FormLabel className="font-sans text-[11px] uppercase tracking-[0.18em] text-muted">
                         Full Name
                       </FormLabel>
                       <FormControl>
@@ -104,7 +104,7 @@ export default function ContactForm() {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="font-sans text-xs uppercase tracking-widest text-muted">
+                      <FormLabel className="font-sans text-[11px] uppercase tracking-[0.18em] text-muted">
                         Email
                       </FormLabel>
                       <FormControl>
@@ -126,7 +126,7 @@ export default function ContactForm() {
                 name="phone"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="font-sans text-xs uppercase tracking-widest text-muted">
+                    <FormLabel className="font-sans text-[11px] uppercase tracking-[0.18em] text-muted">
                       Phone
                     </FormLabel>
                     <FormControl>
@@ -147,7 +147,7 @@ export default function ContactForm() {
                 name="message"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="font-sans text-xs uppercase tracking-widest text-muted">
+                    <FormLabel className="font-sans text-[11px] uppercase tracking-[0.18em] text-muted">
                       Message
                     </FormLabel>
                     <FormControl>
@@ -165,7 +165,7 @@ export default function ContactForm() {
               <Button
                 type="submit"
                 disabled={form.formState.isSubmitting}
-                className="h-14 w-full bg-[#B89358] text-white font-sans text-sm font-semibold tracking-wide transition-colors hover:bg-accent"
+                className="h-14 w-full rounded-lg bg-button font-sans text-[13px] font-medium uppercase tracking-[0.16em] text-white transition-colors hover:bg-accent"
               >
                 {form.formState.isSubmitting ? "Sending Message" : "Send Message"}
               </Button>

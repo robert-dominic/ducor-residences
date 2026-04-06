@@ -21,10 +21,10 @@ export default function FilterTabs({ currentFilter, onFilterChange }: FilterTabs
                         key={filter}
                         onClick={() => onFilterChange(filter)}
                         className={cn(
-                            "rounded-sm border px-6 py-2.5 font-sans text-sm font-medium tracking-wide transition-all duration-300",
+                            "cursor-pointer rounded-lg border px-5 py-2.5 font-sans text-[12px] font-medium uppercase tracking-[0.14em] transition-all duration-300",
                             isActive
-                                ? "border-[#B89358] bg-[#B89358] text-white hover:bg-accent"
-                                : "border-border bg-surface text-muted hover:border-button hover:text-button"
+                                ? "border-button bg-button text-white hover:brightness-105"
+                                : "border-border bg-surface text-muted hover:border-button hover:bg-background hover:text-button"
                         )}
                     >
                         {filter}
