@@ -9,7 +9,7 @@ import roomsData from "@/data/rooms.json"
 
 const ease = [0.22, 1, 0.36, 1] as const
 
-const featuredRooms = (roomsData as Room[]).filter((r) => r.featured)
+const featuredRooms = (roomsData as Room[]).slice(0, 4)
 
 const containerVariants = {
     hidden: {},
@@ -27,12 +27,12 @@ const cardVariants = {
 
 export default function FeaturedRooms() {
     return (
-        <section className="bg-surface py-24">
+        <section id="featured-rooms" className="bg-surface py-24">
             <div className="mx-auto max-w-7xl px-6 lg:px-10 space-y-12">
                 <SectionHeading
-                    eyebrow="Our Finest"
+                    eyebrow="Selected Rooms"
                     title="Featured Rooms"
-                    subtitle="Spaces that define what a stay in Monrovia can be."
+                    subtitle="A curated selection of stays designed with comfort, calm, and a quietly elevated finish."
                 />
 
                 <motion.div
@@ -40,11 +40,11 @@ export default function FeaturedRooms() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: "-80px" }}
-                    className="grid grid-cols-1 gap-6 sm:grid-cols-2"
+                    className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4"
                 >
                     {featuredRooms.map((room) => (
                         <motion.div key={room.id} variants={cardVariants}>
-                            <RoomCard room={room} />
+                            <RoomCard room={room} compact />
                         </motion.div>
                     ))}
                 </motion.div>
@@ -58,9 +58,9 @@ export default function FeaturedRooms() {
                 >
                     <Link
                         href="/rooms"
-                        className="font-sans text-sm font-medium text-secondary underline-offset-4 hover:underline hover:text-accent transition-colors"
+                        className="inline-flex items-center justify-center rounded-lg border border-border bg-background px-6 py-3 font-sans text-[13px] font-medium uppercase tracking-[0.14em] text-primary transition-colors hover:border-accent hover:text-accent"
                     >
-                        View all rooms →
+                        View Our Rooms
                     </Link>
                 </motion.div>
             </div>

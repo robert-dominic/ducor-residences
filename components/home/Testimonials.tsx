@@ -8,7 +8,7 @@ import testimonialsData from "@/data/testimonials.json"
 
 const ease = [0.22, 1, 0.36, 1] as const
 
-const testimonials = testimonialsData as Testimonial[]
+const testimonials = (testimonialsData as Testimonial[]).slice(0, 4)
 
 const containerVariants = {
     hidden: {},
@@ -16,17 +16,17 @@ const containerVariants = {
 }
 
 const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, x: -24 },
     visible: {
         opacity: 1,
-        y: 0,
-        transition: { duration: 0.6, ease },
+        x: 0,
+        transition: { duration: 0.42, ease },
     },
 }
 
 export default function Testimonials() {
     return (
-        <section className="bg-background py-24">
+        <section className="overflow-hidden bg-background py-24">
             <div className="mx-auto max-w-7xl px-6 lg:px-10 space-y-14">
                 <SectionHeading
                     eyebrow="Guest Reviews"
@@ -39,13 +39,13 @@ export default function Testimonials() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: "-60px" }}
-                    className="grid grid-cols-1 gap-6 md:grid-cols-3"
+                    className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4"
                 >
                     {testimonials.map((t) => (
                         <motion.div
                             key={t.id}
                             variants={cardVariants}
-                            className="flex flex-col gap-5 border border-border bg-surface p-8"
+                            className="flex flex-col gap-5 rounded-2xl border border-border bg-surface p-8 shadow-[0_16px_36px_rgba(26,26,26,0.05)]"
                         >
                             {/* Stars */}
                             <div className="flex gap-1">
@@ -55,7 +55,7 @@ export default function Testimonials() {
                             </div>
 
                             {/* Quote */}
-                            <blockquote className="font-heading text-xl font-normal leading-snug text-primary">
+                            <blockquote className="font-heading text-[1.35rem] font-medium leading-[1.35] text-primary">
                                 &ldquo;{t.quote}&rdquo;
                             </blockquote>
 

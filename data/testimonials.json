@@ -19,5 +19,19 @@
         "rating": 5,
         "quote": "I travelled from Dakar for a regional conference and was not expecting much from the accommodation. I left genuinely impressed. The rooftop bar alone is worth the trip.",
         "country": "Senegal"
+    },
+    {
+        "id": "testimonial-004",
+        "name": "Nora Mensah",
+        "rating": 5,
+        "quote": "What stood out most was the calm. The rooms are beautifully finished, the staff are gracious, and the whole property feels far more considered than the usual business hotel experience.",
+        "country": "Ghana"
+    },
+    {
+        "id": "testimonial-005",
+        "name": "David Freeman",
+        "rating": 5,
+        "quote": "I booked for three nights and extended to five. The airport transfer was seamless, the service was polished, and the view at sunset made every evening feel special.",
+        "country": "United Kingdom"
     }
 ]

@@ -17,7 +17,7 @@ export default function AboutSnippet() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                         viewport={{ once: true }}
-                        className="relative aspect-[4/5] overflow-hidden"
+                        className="relative aspect-[4/5] overflow-hidden rounded-2xl"
                     >
                         <Image
                             src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=900&q=80"
@@ -28,7 +28,7 @@ export default function AboutSnippet() {
                         />
                         {/* Small accent block */}
                         <div className="absolute bottom-0 left-0 bg-accent px-6 py-4">
-                            <p className="font-heading text-lg font-semibold text-primary leading-tight">
+                            <p className="font-heading text-[1.05rem] font-medium leading-tight text-primary">
                                 Est. on<br />Ducor Hill
                             </p>
                         </div>
@@ -48,7 +48,7 @@ export default function AboutSnippet() {
                             subtitle="Ducor Residences takes its name from the historic Ducor hill — the highest point in Monrovia, once the site of the legendary Ducor Palace Hotel. We have built a new chapter on that legacy."
                         />
 
-                        <div className="space-y-4 font-sans text-base text-muted leading-relaxed">
+                        <div className="space-y-4 font-sans text-[15px] leading-7 text-muted">
                             <p>
                                 Perched above the Atlantic coast, Ducor Residences was conceived as
                                 an answer to a simple question: what does truly refined hospitality
@@ -66,7 +66,7 @@ export default function AboutSnippet() {
                         <div className="pt-2">
                             <Link
                                 href="/amenities"
-                                className="inline-block border border-[#B89358] bg-[#B89358] px-6 py-3 font-sans text-sm font-medium text-white transition-colors hover:bg-accent"
+                                className="inline-block rounded-lg border border-button bg-button px-6 py-3 font-sans text-[13px] font-medium uppercase tracking-[0.14em] text-white transition-colors hover:bg-accent"
                             >
                                 Explore Amenities
                             </Link>
