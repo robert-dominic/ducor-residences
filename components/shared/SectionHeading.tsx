@@ -30,7 +30,7 @@ export default function SectionHeading({
             {eyebrow && (
                 <p
                     className={cn(
-                        "font-sans text-xs font-semibold uppercase tracking-widest",
+                        "font-sans text-[11px] font-medium uppercase tracking-[0.22em]",
                         inverted ? "text-accent" : "text-secondary"
                     )}
                 >
@@ -40,7 +40,7 @@ export default function SectionHeading({
 
             <h2
                 className={cn(
-                    "font-heading text-3xl md:text-4xl font-semibold leading-tight",
+                    "font-heading text-[2rem] md:text-[2.5rem] font-medium leading-[1.08] tracking-[0.01em]",
                     inverted ? "text-white" : "text-primary"
                 )}
             >
@@ -58,7 +58,7 @@ export default function SectionHeading({
             {subtitle && (
                 <p
                     className={cn(
-                        "font-sans text-base leading-relaxed max-w-xl",
+                        "max-w-xl font-sans text-[15px] leading-7",
                         inverted ? "text-white/65" : "text-muted",
                         align === "center" && "mx-auto"
                     )}

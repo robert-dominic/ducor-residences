@@ -4,8 +4,8 @@ import { MapPin, Phone, Mail } from "lucide-react"
 const footerLinks = [
     { href: "/rooms", label: "Rooms" },
     { href: "/amenities", label: "Amenities" },
-    { href: "/gallery", label: "Gallery" },
     { href: "/booking", label: "Book a Stay" },
+    { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
 ]
 
@@ -17,7 +17,7 @@ export default function Footer() {
 
                     {/* Brand column */}
                     <div className="space-y-4">
-                        <h3 className="font-heading text-2xl font-semibold text-white">
+                        <h3 className="font-heading text-[1.8rem] font-medium text-white">
                             Ducor Residences
                         </h3>
                         <p className="font-sans text-sm leading-relaxed">
@@ -28,7 +28,7 @@ export default function Footer() {
 
                     {/* Navigation column */}
                     <div className="space-y-4">
-                        <h4 className="font-sans text-xs font-semibold uppercase tracking-widest text-accent">
+                        <h4 className="font-sans text-[11px] font-medium uppercase tracking-[0.18em] text-accent">
                             Navigate
                         </h4>
                         <ul className="space-y-2">
@@ -47,7 +47,7 @@ export default function Footer() {
 
                     {/* Contact column */}
                     <div className="space-y-4">
-                        <h4 className="font-sans text-xs font-semibold uppercase tracking-widest text-accent">
+                        <h4 className="font-sans text-[11px] font-medium uppercase tracking-[0.18em] text-accent">
                             Contact
                         </h4>
                         <ul className="space-y-3">
@@ -84,9 +84,14 @@ export default function Footer() {
                     <p className="font-sans text-xs text-white/40">
                         &copy; {new Date().getFullYear()} Ducor Residences. All rights reserved.
                     </p>
-                    <p className="font-sans text-xs text-white/30">
-                        A luxury guest house in Monrovia, Liberia.
-                    </p>
+                    <div className="flex flex-col items-center gap-1 sm:items-end">
+                        <p className="font-sans text-xs text-white/30">
+                            A luxury guest house in Monrovia, Liberia.
+                        </p>
+                        <p className="font-sans text-[11px] uppercase tracking-[0.16em] text-white/35">
+                            Built by WebNova Studio
+                        </p>
+                    </div>
                 </div>
             </div>
         </footer>

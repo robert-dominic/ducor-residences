@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { AnimatePresence, motion } from "framer-motion"
 import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
@@ -9,8 +10,8 @@ import { cn } from "@/lib/utils"
 const navLinks = [
     { href: "/rooms", label: "Rooms" },
     { href: "/amenities", label: "Amenities" },
-    { href: "/gallery", label: "Gallery" },
     { href: "/booking", label: "Booking" },
+    { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
 ]
 
@@ -19,10 +20,13 @@ interface NavbarProps {
 }
 
 export default function Navbar({ forceSolid = false }: NavbarProps) {
+    const pathname = usePathname()
     const [visible, setVisible] = useState(true)
     const [scrolled, setScrolled] = useState(forceSolid)
     const [mobileOpen, setMobileOpen] = useState(false)
     const lastScrollY = useRef(0)
+
+    const isActiveLink = (href: string) => pathname === href || pathname.startsWith(`${href}/`)
 
     useEffect(() => {
         const handleScroll = () => {
@@ -70,35 +74,44 @@ export default function Navbar({ forceSolid = false }: NavbarProps) {
                 className={cn(
                     "fixed top-0 left-0 right-0 z-50 w-full",
                     scrolled
-                        ? "bg-primary shadow-[0_1px_0_rgba(201,169,110,0.15)]"
-                        : "bg-transparent"
+                        ? "border-b border-border/70 bg-background/92 shadow-[0_10px_30px_rgba(26,26,26,0.06)] backdrop-blur-md"
+                        : "border-b border-border/45 bg-background/72 backdrop-blur-md"
                 )}
             >
                 <div className="mx-auto max-w-7xl px-6 lg:px-10">
-                    <div className="flex h-16 items-center justify-between">
+                    <div className="flex h-15 items-center justify-between lg:h-[4.6rem]">
                         {/* Logo / Wordmark */}
                         <Link
                             href="/"
                             className={cn(
-                                "font-heading text-xl font-semibold tracking-wide transition-colors duration-300",
-                                scrolled ? "text-accent" : "text-white"
+                                "font-heading text-[1.15rem] font-medium tracking-[0.07em] transition-colors duration-300 sm:text-[1.2rem] lg:text-[1.35rem]",
+                                "text-primary"
                             )}
                         >
                             Ducor Residences
                         </Link>
 
                         {/* Desktop nav links */}
-                        <ul className="hidden md:flex items-center gap-8">
+                        <ul className="hidden md:flex items-center gap-9 lg:gap-10">
                             {navLinks.map((link) => (
                                 <li key={link.href}>
                                     <Link
                                         href={link.href}
+                                        aria-current={isActiveLink(link.href) ? "page" : undefined}
                                         className={cn(
-                                            "font-sans text-sm font-medium tracking-wide transition-colors duration-200 hover:text-accent",
-                                            scrolled ? "text-white/80" : "text-white/90"
+                                            "relative inline-flex pb-2 font-sans text-[10px] font-normal uppercase tracking-[0.24em] transition-colors duration-200 hover:text-primary/90 lg:text-[11px]",
+                                            isActiveLink(link.href)
+                                                ? "text-primary"
+                                                : "text-primary/68"
                                         )}
                                     >
                                         {link.label}
+                                        <span
+                                            className={cn(
+                                                "absolute bottom-0 left-1/2 h-px w-7 -translate-x-1/2 origin-center bg-primary/75 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                                                isActiveLink(link.href) ? "scale-x-100" : "scale-x-0"
+                                            )}
+                                        />
                                     </Link>
                                 </li>
                             ))}
@@ -109,8 +122,7 @@ export default function Navbar({ forceSolid = false }: NavbarProps) {
                             <Link
                                 href="/booking"
                                 className={cn(
-                                    "inline-block border px-5 py-2 font-sans text-sm font-medium tracking-wide transition-all duration-200",
-                                    "border-accent text-accent hover:bg-accent hover:text-white"
+                                    "inline-block rounded-lg border border-accent bg-accent px-4 py-2.5 font-sans text-[11px] font-medium tracking-[0.2em] uppercase text-white transition-all duration-200 hover:brightness-105 lg:px-5"
                                 )}
                             >
                                 Book a Stay
@@ -124,7 +136,7 @@ export default function Navbar({ forceSolid = false }: NavbarProps) {
                             className={cn(
                                 "p-2 transition-colors md:hidden",
                                 mobileOpen && "pointer-events-none opacity-0",
-                                scrolled ? "text-white" : "text-white"
+                                "cursor-pointer text-primary"
                             )}
                             aria-label={mobileOpen ? "Close menu" : "Open menu"}
                         >
@@ -150,22 +162,22 @@ export default function Navbar({ forceSolid = false }: NavbarProps) {
                             animate={{ x: 0 }}
                             exit={{ x: "-100%" }}
                             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                            className="flex h-full w-[70vw] max-w-[280px] flex-col bg-primary px-6 pb-8 pt-6"
+                            className="flex h-full w-[78vw] max-w-[320px] flex-col border-r border-border bg-background px-6 pb-8 pt-6 shadow-[0_18px_40px_rgba(26,26,26,0.08)]"
                             onClick={(event) => event.stopPropagation()}
                         >
-                            <div className="border-b border-accent/25 pb-4">
+                            <div className="border-b border-border pb-4">
                                 <div className="flex items-center justify-between gap-3">
                                     <Link
                                         href="/"
                                         onClick={() => setMobileOpen(false)}
-                                        className="font-heading text-xl font-semibold leading-none tracking-wide text-accent"
+                                        className="font-heading text-[1.1rem] font-medium leading-none tracking-[0.07em] text-primary"
                                     >
                                         Ducor Residences
                                     </Link>
                                     <button
                                         type="button"
                                         onClick={() => setMobileOpen(false)}
-                                        className="flex h-10 w-10 items-center justify-center p-0 text-white transition-colors hover:text-accent"
+                                        className="flex h-10 w-10 items-center justify-center rounded-full p-0 text-primary transition-colors hover:bg-surface hover:text-accent cursor-pointer"
                                         aria-label="Close menu"
                                     >
                                         <X size={22} />
@@ -179,9 +191,21 @@ export default function Navbar({ forceSolid = false }: NavbarProps) {
                                         <Link
                                             href={link.href}
                                             onClick={() => setMobileOpen(false)}
-                                            className="font-sans text-sm tracking-wide text-white/85 transition-colors hover:text-accent"
+                                            aria-current={isActiveLink(link.href) ? "page" : undefined}
+                                            className={cn(
+                                                "flex items-center justify-between rounded-lg px-3 py-3 font-sans text-[11px] font-medium uppercase tracking-[0.12em] transition-all duration-200",
+                                                isActiveLink(link.href)
+                                                    ? "border border-accent/30 bg-surface text-accent"
+                                                    : "text-primary/80 hover:bg-surface hover:text-accent"
+                                            )}
                                         >
                                             {link.label}
+                                            <span
+                                                className={cn(
+                                                    "h-px w-5 origin-left bg-accent transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                                                    isActiveLink(link.href) ? "scale-x-100" : "scale-x-0"
+                                                )}
+                                            />
                                         </Link>
                                     </li>
                                 ))}
@@ -191,7 +215,7 @@ export default function Navbar({ forceSolid = false }: NavbarProps) {
                                 <Link
                                     href="/booking"
                                     onClick={() => setMobileOpen(false)}
-                                    className="inline-flex w-full items-center justify-center border border-accent px-5 py-3 font-sans text-sm font-medium text-accent transition-all duration-200 hover:bg-accent hover:text-white"
+                                    className="inline-flex w-full items-center justify-center rounded-lg border border-accent bg-accent px-5 py-3 font-sans text-[13px] font-medium uppercase tracking-[0.14em] text-white transition-all duration-200 hover:brightness-105"
                                 >
                                     Book a Stay
                                 </Link>
