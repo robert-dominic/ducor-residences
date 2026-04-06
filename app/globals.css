@@ -6,55 +6,59 @@
 
 @theme inline {
   /* Ducor Residences — design tokens */
-  --color-primary: #1a1a1a;
-  --color-secondary: #8B7355;
-  --color-button: #B89358;
-  --color-accent: #C9A96E;
-  --color-background: #FAFAF8;
-  --color-surface: #F5F3EF;
-  --color-muted: #6B6B6B;
+  --color-primary: #241C18;
+  --color-secondary: #6E5848;
+  --color-button: #B7925A;
+  --color-accent: #B7925A;
+  --color-background: #F4EEE6;
+  --color-surface: #FBF7F2;
+  --color-muted: #7C7066;
 
   /* Font families */
   --font-heading: var(--font-cormorant);
   --font-sans: var(--font-inter);
   --font-mono: var(--font-mono);
 
-  /* Radius — sharp per design philosophy */
-  --radius: 0.125rem;
+  /* Radius — moderate, refined corners */
+  --radius: 0.5rem;
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-lg: calc(var(--radius) * 1.2);
+  --radius-xl: calc(var(--radius) * 1.5);
 
   /* Map shadcn semantic vars to our palette */
-  --color-foreground: #1a1a1a;
-  --color-card: #F5F3EF;
-  --color-card-foreground: #1a1a1a;
-  --color-popover: #FAFAF8;
-  --color-popover-foreground: #1a1a1a;
-  --color-primary-foreground: #FAFAF8;
-  --color-secondary-foreground: #FAFAF8;
-  --color-muted-foreground: #6B6B6B;
-  --color-accent-foreground: #1a1a1a;
+  --color-foreground: #241C18;
+  --color-card: #FBF7F2;
+  --color-card-foreground: #241C18;
+  --color-popover: #FBF7F2;
+  --color-popover-foreground: #241C18;
+  --color-primary-foreground: #FBF7F2;
+  --color-secondary-foreground: #FBF7F2;
+  --color-muted-foreground: #7C7066;
+  --color-accent-foreground: #241C18;
   --color-destructive: oklch(0.577 0.245 27.325);
-  --color-border: #D4C9B8;
-  --color-input: #D4C9B8;
-  --color-ring: #C9A96E;
+  --color-border: #D7CCBD;
+  --color-input: #D7CCBD;
+  --color-ring: #B7925A;
 
   /* Sidebar (unused but required by shadcn) */
-  --color-sidebar: #F5F3EF;
-  --color-sidebar-foreground: #1a1a1a;
-  --color-sidebar-primary: #1a1a1a;
-  --color-sidebar-primary-foreground: #FAFAF8;
-  --color-sidebar-accent: #C9A96E;
-  --color-sidebar-accent-foreground: #1a1a1a;
-  --color-sidebar-border: #D4C9B8;
-  --color-sidebar-ring: #C9A96E;
+  --color-sidebar: #FBF7F2;
+  --color-sidebar-foreground: #241C18;
+  --color-sidebar-primary: #241C18;
+  --color-sidebar-primary-foreground: #FBF7F2;
+  --color-sidebar-accent: #B7925A;
+  --color-sidebar-accent-foreground: #241C18;
+  --color-sidebar-border: #D7CCBD;
+  --color-sidebar-ring: #B7925A;
 }
 
 
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   * {
     @apply border-border outline-ring/50;
   }
