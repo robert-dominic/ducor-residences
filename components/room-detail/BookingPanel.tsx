@@ -3,9 +3,10 @@ import { formatPrice } from "@/lib/utils"
 
 interface BookingPanelProps {
     price: number
+    roomSlug: string
 }
 
-export default function BookingPanel({ price }: BookingPanelProps) {
+export default function BookingPanel({ price, roomSlug }: BookingPanelProps) {
     return (
         <div className="sticky top-28 rounded-2xl border border-border bg-surface p-8 shadow-[0_16px_36px_rgba(26,26,26,0.05)]">
             <div className="space-y-6">
@@ -41,7 +42,7 @@ export default function BookingPanel({ price }: BookingPanelProps) {
                 </div>
 
                 <Link
-                    href="/booking"
+                    href={`/booking?room=${roomSlug}`}
                     className="flex w-full items-center justify-center rounded-lg bg-button px-4 py-3 font-sans text-[13px] font-medium uppercase tracking-[0.16em] text-white transition-colors hover:bg-accent"
                 >
                     Check Availability

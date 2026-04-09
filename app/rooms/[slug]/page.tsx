@@ -6,19 +6,19 @@ import RoomInfo from "@/components/room-detail/RoomInfo"
 import AmenitiesList from "@/components/room-detail/AmenitiesList"
 import BookingPanel from "@/components/room-detail/BookingPanel"
 import SimilarRooms from "@/components/room-detail/SimilarRooms"
+import { getRoomBySlug, getRooms } from "@/lib/rooms"
 import type { Room } from "@/types"
-import roomsData from "@/data/rooms.json"
 
-// Generate static params so all room detail pages are built at compile time
 export async function generateStaticParams() {
-    return (roomsData as Room[]).map((room) => ({
+    const rooms = await getRooms()
+    return rooms.map((room) => ({
         slug: room.slug,
     }))
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params
-    const room = (roomsData as Room[]).find((r) => r.slug === slug)
+    const room = await getRoomBySlug(slug)
 
     if (!room) return { title: "Room Not Found" }
 
@@ -34,7 +34,7 @@ export default async function RoomDetailPage({
     params: Promise<{ slug: string }>
 }) {
     const { slug } = await params
-    const room = (roomsData as Room[]).find((r) => r.slug === slug)
+    const room = await getRoomBySlug(slug)
 
     if (!room) {
         notFound()
@@ -63,7 +63,7 @@ export default async function RoomDetailPage({
 
                         {/* Right Col: Booking Panel (Sticky) */}
                         <div className="lg:col-span-4">
-                            <BookingPanel price={room.price} />
+                            <BookingPanel price={room.price} roomSlug={room.slug} />
                         </div>
 
                     </div>
