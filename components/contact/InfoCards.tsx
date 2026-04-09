@@ -1,13 +1,14 @@
 "use client"
 
 import {
+  Check,
   Clock3,
   Copy,
   Mail,
   MapPinned,
   Phone,
 } from "lucide-react"
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 import Reveal from "@/components/shared/Reveal"
 import { Skeleton } from "@/components/ui/skeleton"
@@ -41,12 +42,29 @@ const CONTACT_ITEMS = [
 
 export default function InfoCards() {
   const [copiedField, setCopiedField] = useState<string | null>(null)
+  const resetTimeoutRef = useRef<number | null>(null)
+
+  useEffect(() => {
+    return () => {
+      if (resetTimeoutRef.current !== null) {
+        window.clearTimeout(resetTimeoutRef.current)
+      }
+    }
+  }, [])
 
   const handleCopy = async (field: string, value: string) => {
     try {
       await navigator.clipboard.writeText(value)
       setCopiedField(field)
-      window.setTimeout(() => setCopiedField((current) => (current === field ? null : current)), 1800)
+
+      if (resetTimeoutRef.current !== null) {
+        window.clearTimeout(resetTimeoutRef.current)
+      }
+
+      resetTimeoutRef.current = window.setTimeout(() => {
+        setCopiedField((current) => (current === field ? null : current))
+        resetTimeoutRef.current = null
+      }, 1800)
     } catch {
       setCopiedField(null)
     }
@@ -58,6 +76,7 @@ export default function InfoCards() {
         const Icon = item.icon
         const isPhone = item.title === "Phone"
         const isEmail = item.title === "Email"
+        const isCopied = copiedField === item.title
         const href = isPhone
           ? `tel:${item.value.replace(/\s+/g, "")}`
           : isEmail
@@ -89,11 +108,22 @@ export default function InfoCards() {
                 <button
                   type="button"
                   onClick={() => handleCopy(item.title, item.value)}
-                  className="mt-1 inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background text-primary/70 transition-colors hover:border-accent hover:text-accent"
+                  className="mt-1 inline-flex min-w-[6.5rem] items-center justify-center gap-2 rounded-full border border-border bg-background px-3 py-2 text-[11px] font-medium uppercase tracking-[0.16em] text-primary/70 transition-colors hover:border-accent hover:text-accent"
                   aria-label={`Copy ${item.title}`}
-                  title={copiedField === item.title ? "Copied" : `Copy ${item.title}`}
+                  aria-live="polite"
+                  title={isCopied ? "Copied" : `Copy ${item.title}`}
                 >
-                  <Copy className="h-4 w-4" />
+                  {isCopied ? (
+                    <>
+                      <Check className="h-4 w-4 text-accent" />
+                      <span className="text-accent">Copied</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="h-4 w-4" />
+                      <span>Copy</span>
+                    </>
+                  )}
                 </button>
               </div>
             ) : (
