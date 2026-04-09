@@ -8,8 +8,10 @@ export interface Room {
     size: string
     description: string
     featured: boolean
+    is_available: boolean  // add this
     images: string[]
     amenities: string[]
+    created_at?: string    // add this
 }
 
 export interface Testimonial {
