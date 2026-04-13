@@ -63,7 +63,7 @@ export default async function RoomDetailPage({
 
                         {/* Right Col: Booking Panel (Sticky) */}
                         <div className="lg:col-span-4">
-                            <BookingPanel price={room.price} roomSlug={room.slug} />
+                            <BookingPanel price={room.price} roomSlug={room.slug} isAvailable={room.is_available} />
                         </div>
 
                     </div>

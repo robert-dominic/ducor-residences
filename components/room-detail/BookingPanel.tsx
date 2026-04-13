@@ -4,9 +4,10 @@ import { formatPrice } from "@/lib/utils"
 interface BookingPanelProps {
     price: number
     roomSlug: string
+    isAvailable: boolean
 }
 
-export default function BookingPanel({ price, roomSlug }: BookingPanelProps) {
+export default function BookingPanel({ price, roomSlug, isAvailable }: BookingPanelProps) {
     return (
         <div className="sticky top-28 rounded-2xl border border-border bg-surface p-8 shadow-[0_16px_36px_rgba(26,26,26,0.05)]">
             <div className="space-y-6">
@@ -41,12 +42,22 @@ export default function BookingPanel({ price, roomSlug }: BookingPanelProps) {
                     </ul>
                 </div>
 
-                <Link
-                    href={`/booking?room=${roomSlug}`}
-                    className="flex w-full items-center justify-center rounded-lg bg-button px-4 py-3 font-sans text-[13px] font-medium uppercase tracking-[0.16em] text-white transition-colors hover:bg-accent"
-                >
-                    Check Availability
-                </Link>
+                {isAvailable ? (
+                    <Link
+                        href={`/booking?room=${roomSlug}`}
+                        className="flex w-full items-center justify-center rounded-lg bg-button px-4 py-3 font-sans text-[13px] font-medium uppercase tracking-[0.16em] text-white transition-colors hover:bg-accent"
+                    >
+                        Check Availability
+                    </Link>
+                ) : (
+                    <button
+                        type="button"
+                        disabled
+                        className="flex h-[46px] w-full cursor-not-allowed items-center justify-center rounded-lg bg-muted/50 px-4 py-3 font-sans text-[13px] font-medium uppercase tracking-[0.16em] text-muted"
+                    >
+                        Currently Unavailable
+                    </button>
+                )}
 
                 <p className="text-center font-sans text-xs text-muted">
                     No charge until your stay is confirmed.

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 import { createClient } from "@supabase/supabase-js"
+import { sendGuestConfirmationEmail, sendAdminNotificationEmail } from "@/lib/emails"
 
 // Use service role key here — bypasses RLS so we can write to the table
 const supabase = createClient(
@@ -54,6 +55,26 @@ export async function POST(req: NextRequest) {
             )
         }
 
+        const { data: roomData, error: roomError } = await supabase
+            .from("rooms")
+            .select("name, is_available")
+            .eq("id", roomId)
+            .single()
+
+        if (roomError || !roomData) {
+            return NextResponse.json(
+                { error: "Selected room could not be found." },
+                { status: 404 }
+            )
+        }
+
+        if (!roomData.is_available) {
+            return NextResponse.json(
+                { error: "This room is currently unavailable for booking." },
+                { status: 409 }
+            )
+        }
+
         // Generate booking reference
         const phoneSuffix = phone.replace(/\D/g, "").slice(-4).padStart(4, "0")
         const roomPrefix = roomId.slice(0, 3).toUpperCase()
@@ -84,6 +105,35 @@ export async function POST(req: NextRequest) {
                 { status: 500 }
             )
         }
+
+        // Send emails
+        const formattedCheckIn = new Date(checkIn).toDateString()
+        const formattedCheckOut = new Date(checkOut).toDateString()
+
+        await Promise.all([
+            sendGuestConfirmationEmail({
+                guestName: fullName,
+                guestEmail: email,
+                bookingRef,
+                roomName: roomData?.name ?? "Your Room",
+                checkIn: formattedCheckIn,
+                checkOut: formattedCheckOut,
+                nights,
+                totalPrice,
+            }),
+            sendAdminNotificationEmail({
+                guestName: fullName,
+                guestEmail: email,
+                guestPhone: phone,
+                bookingRef,
+                roomName: roomData?.name ?? "Your Room",
+                checkIn: formattedCheckIn,
+                checkOut: formattedCheckOut,
+                nights,
+                totalPrice,
+                specialRequests,
+            }),
+        ])
 
         return NextResponse.json({ bookingRef }, { status: 201 })
 

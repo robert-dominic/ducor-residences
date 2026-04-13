@@ -3,8 +3,8 @@
 import { useForm, useWatch } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
-import { addDays, differenceInDays, format, startOfDay } from "date-fns"
-import { CalendarIcon } from "lucide-react"
+import { addDays, differenceInDays, format, parseISO, startOfDay } from "date-fns"
+import { CalendarIcon, Loader2 } from "lucide-react"
 import { useEffect, useState } from "react"
 
 import { cn, formatPrice } from "@/lib/utils"
@@ -89,6 +89,8 @@ export default function StepOne({ rooms, formData, updateFormData, onNext }: Ste
     const [checkInOpen, setCheckInOpen] = useState(false)
     const [checkOutOpen, setCheckOutOpen] = useState(false)
     const [isMobile, setIsMobile] = useState(false)
+    const [blockedDates, setBlockedDates] = useState<Date[]>([])
+    const [checkingAvailability, setCheckingAvailability] = useState(false)
     const today = startOfDay(new Date())
 
     useEffect(() => {
@@ -116,6 +118,56 @@ export default function StepOne({ rooms, formData, updateFormData, onNext }: Ste
     const nights = watchedCheckIn && watchedCheckOut
         ? Math.max(differenceInDays(watchedCheckOut, watchedCheckIn), 0)
         : 0
+
+    useEffect(() => {
+        if (!watchedRoomId) {
+            setBlockedDates([])
+            setCheckingAvailability(false)
+            return
+        }
+
+        const controller = new AbortController()
+
+        async function fetchBlockedDates() {
+            setBlockedDates([])
+            setCheckingAvailability(true)
+
+            try {
+                const response = await fetch(`/api/rooms/${watchedRoomId}/blocked-dates`, {
+                    signal: controller.signal,
+                })
+
+                const data = await response.json()
+
+                if (!response.ok) {
+                    throw new Error(data.error ?? "Failed to fetch blocked dates")
+                }
+
+                setBlockedDates(
+                    (data.blockedDates as string[]).map((dateString) => startOfDay(parseISO(dateString)))
+                )
+            } catch (error) {
+                if (controller.signal.aborted) return
+                console.error("Blocked dates fetch failed:", error)
+                setBlockedDates([])
+            } finally {
+                if (!controller.signal.aborted) {
+                    setCheckingAvailability(false)
+                }
+            }
+        }
+
+        fetchBlockedDates()
+
+        return () => controller.abort()
+    }, [watchedRoomId])
+
+    function isBlockedDate(date: Date) {
+        const normalizedDate = startOfDay(date)
+        return blockedDates.some(
+            (blockedDate) => blockedDate.getTime() === normalizedDate.getTime()
+        )
+    }
 
     function onSubmit(values: StepOneValues) {
         const room = rooms.find(r => r.id === values.roomId)
@@ -185,8 +237,17 @@ export default function StepOne({ rooms, formData, updateFormData, onNext }: Ste
                                                         !field.value && "text-muted-foreground"
                                                     )}
                                                 >
-                                                    <CalendarIcon className="mr-2 h-4 w-4" />
-                                                    {field.value ? format(field.value, "LLL dd, y") : <span className="text-muted">Select check-in date</span>}
+                                                    {checkingAvailability ? (
+                                                        <>
+                                                            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                                                            <span className="text-muted">Checking availability...</span>
+                                                        </>
+                                                    ) : (
+                                                        <>
+                                                            <CalendarIcon className="mr-2 h-4 w-4" />
+                                                            {field.value ? format(field.value, "LLL dd, y") : <span className="text-muted">Select check-in date</span>}
+                                                        </>
+                                                    )}
                                                 </Button>
                                             </FormControl>
                                         </PopoverTrigger>
@@ -206,7 +267,7 @@ export default function StepOne({ rooms, formData, updateFormData, onNext }: Ste
                                                     setCheckInOpen(false)
                                                 }}
                                                 numberOfMonths={isMobile ? 1 : 2}
-                                                disabled={(date) => startOfDay(date) < today}
+                                                disabled={(date) => startOfDay(date) < today || isBlockedDate(date)}
                                             />
                                         </PopoverContent>
                                     </Popover>
@@ -232,8 +293,17 @@ export default function StepOne({ rooms, formData, updateFormData, onNext }: Ste
                                                         !field.value && "text-muted-foreground"
                                                     )}
                                                 >
-                                                    <CalendarIcon className="mr-2 h-4 w-4" />
-                                                    {field.value ? format(field.value, "LLL dd, y") : <span className="text-muted">Select check-out date</span>}
+                                                    {checkingAvailability ? (
+                                                        <>
+                                                            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                                                            <span className="text-muted">Checking availability...</span>
+                                                        </>
+                                                    ) : (
+                                                        <>
+                                                            <CalendarIcon className="mr-2 h-4 w-4" />
+                                                            {field.value ? format(field.value, "LLL dd, y") : <span className="text-muted">Select check-out date</span>}
+                                                        </>
+                                                    )}
                                                 </Button>
                                             </FormControl>
                                         </PopoverTrigger>
@@ -253,7 +323,7 @@ export default function StepOne({ rooms, formData, updateFormData, onNext }: Ste
                                                     const min = watchedCheckIn
                                                         ? addDays(startOfDay(watchedCheckIn), 1)
                                                         : addDays(today, 1)
-                                                    return startOfDay(date) < min
+                                                    return startOfDay(date) < min || isBlockedDate(date) || startOfDay(date) < today
                                                 }}
                                             />
                                         </PopoverContent>
