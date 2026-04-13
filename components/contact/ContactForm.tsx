@@ -41,8 +41,17 @@ export default function ContactForm() {
   })
 
   async function onSubmit(values: ContactValues) {
-    await new Promise((resolve) => setTimeout(resolve, 700))
-    console.log("Contact Payload:", values)
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(values),
+    })
+
+    if (!response.ok) {
+      form.setError("root", { message: "Something went wrong. Please try again." })
+      return
+    }
+
     setSubmitted(true)
   }
 
@@ -161,6 +170,13 @@ export default function ContactForm() {
                   </FormItem>
                 )}
               />
+
+              {/* Error message */}
+              {form.formState.errors.root && (
+                <p className="rounded-lg bg-red-50 border border-red-200 px-4 py-3 font-sans text-sm text-red-600">
+                  {form.formState.errors.root.message}
+                </p>
+              )}
 
               <Button
                 type="submit"
