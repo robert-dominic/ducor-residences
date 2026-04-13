@@ -1,16 +1,18 @@
 import Reveal from "@/components/shared/Reveal"
 import SectionHeading from "@/components/shared/SectionHeading"
 import RoomCard from "@/components/shared/RoomCard"
+import { getRooms } from "@/lib/rooms"
 import type { Room } from "@/types"
-import roomsData from "@/data/rooms.json"
 
 interface SimilarRoomsProps {
     currentRoom: Room
 }
 
-export default function SimilarRooms({ currentRoom }: SimilarRoomsProps) {
+export default async function SimilarRooms({ currentRoom }: SimilarRoomsProps) {
+    const rooms = await getRooms()
+
     // Grab 2-3 other rooms that aren't the current one
-    const others = (roomsData as Room[])
+    const others = rooms
         .filter((r) => r.id !== currentRoom.id)
         .slice(0, 3)
 

@@ -5,10 +5,13 @@ import { motion, AnimatePresence } from "framer-motion"
 import RoomCard from "@/components/shared/RoomCard"
 import FilterBar, { type RoomFilterType } from "@/components/rooms/FilterBar"
 import type { Room } from "@/types"
-import roomsData from "@/data/rooms.json"
 import { Skeleton } from "@/components/ui/skeleton"
 
-export default function RoomGrid() {
+interface RoomGridProps {
+    rooms: Room[]
+}
+
+export default function RoomGrid({ rooms }: RoomGridProps) {
     const [filter, setFilter] = useState<RoomFilterType>("All")
     const [loading, setLoading] = useState(true)
 
@@ -20,7 +23,7 @@ export default function RoomGrid() {
         return () => clearTimeout(timer)
     }, [])
 
-    const filteredRooms = (roomsData as Room[]).filter((room) => {
+    const filteredRooms = rooms.filter((room) => {
         if (filter === "All") return true
         return room.type === filter
     })

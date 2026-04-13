@@ -2,13 +2,16 @@ import Navbar from "@/components/shared/Navbar"
 import Footer from "@/components/shared/Footer"
 import PageHero from "@/components/shared/PageHero"
 import RoomGrid from "@/components/rooms/RoomGrid"
+import { getRooms } from "@/lib/rooms"
 
 export const metadata = {
     title: "Rooms & Suites | Ducor Residences",
     description: "Explore our collection of finely appointed rooms, suites, and penthouses in the heart of Monrovia.",
 }
 
-export default function RoomsPage() {
+export default async function RoomsPage() {
+    const rooms = await getRooms()
+
     return (
         <>
             <Navbar />
@@ -20,7 +23,7 @@ export default function RoomsPage() {
                     imageAlt="A beautifully made bed in a Ducor Residences room"
                     compact
                 />
-                <RoomGrid />
+                <RoomGrid rooms={rooms} />
             </main>
             <Footer />
         </>
