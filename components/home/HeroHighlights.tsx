@@ -72,13 +72,13 @@ export default function HeroHighlights() {
   }
 
   return (
-    <div className="w-full rounded-2xl border border-border bg-background/88 p-5 text-left shadow-[0_18px_36px_rgba(26,26,26,0.06)] backdrop-blur-sm sm:p-6">
-      <div className="mb-5 flex items-center justify-between gap-4">
+    <div className="w-full rounded-[1.15rem] border border-border bg-background/88 p-4 text-left shadow-[0_18px_36px_rgba(26,26,26,0.06)] backdrop-blur-sm sm:rounded-2xl sm:p-6">
+      <div className="mb-4 flex items-center justify-between gap-3 sm:mb-5 sm:gap-4">
         <div>
           <p className="font-sans text-[10px] font-medium uppercase tracking-[0.24em] text-secondary">
             Why Ducor
           </p>
-          <p className="mt-1 font-sans text-[12px] text-muted">
+          <p className="mt-1 font-sans text-[11px] text-muted sm:text-[12px]">
             A few reasons guests stay longer.
           </p>
         </div>
@@ -112,7 +112,7 @@ export default function HeroHighlights() {
           animate="center"
           exit="exit"
           transition={{ duration: 0.42, ease }}
-          className="min-h-[12.5rem] space-y-4"
+          className="min-h-[11rem] space-y-3.5 sm:min-h-[12.5rem] sm:space-y-4"
           {...(isMobile
             ? {
                 drag: "x" as const,
@@ -128,26 +128,26 @@ export default function HeroHighlights() {
               }
             : {})}
         >
-          <div className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-border bg-surface text-accent">
-              <ActiveIcon size={18} strokeWidth={1.75} />
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-surface text-accent sm:h-11 sm:w-11 sm:rounded-xl">
+              <ActiveIcon size={17} strokeWidth={1.75} />
             </div>
-            <p className="font-sans text-[10px] font-medium uppercase tracking-[0.24em] text-muted">
+            <p className="font-sans text-[9px] font-medium uppercase tracking-[0.2em] text-muted sm:text-[10px] sm:tracking-[0.24em]">
               {activeItem.label}
             </p>
           </div>
 
-          <h2 className="font-heading text-[1.65rem] font-medium leading-[1.08] text-primary sm:text-[1.85rem]">
+          <h2 className="font-heading text-[1.4rem] font-medium leading-[1.05] text-primary sm:text-[1.85rem]">
             {activeItem.title}
           </h2>
 
-          <p className="font-sans text-[14px] leading-7 text-muted sm:text-[15px]">
+          <p className="font-sans text-[13px] leading-6 text-muted sm:text-[15px] sm:leading-7">
             {activeItem.description}
           </p>
         </motion.div>
       </AnimatePresence>
 
-      <div className="mt-5 flex items-center justify-between gap-4">
+      <div className="mt-4 flex items-center justify-between gap-3 sm:mt-5 sm:gap-4">
         <div className="flex items-center gap-2">
           {heroHighlights.map((item, index) => (
             <button
