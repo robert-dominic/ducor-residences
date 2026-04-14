@@ -39,53 +39,55 @@ export default function HeroSection() {
                     sizes="100vw"
                 />
             </div>
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(22,16,12,0.56)_0%,rgba(22,16,12,0.4)_20%,rgba(22,16,12,0.62)_58%,rgba(22,16,12,0.86)_100%)]" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(183,146,90,0.18),transparent_34%),radial-gradient(circle_at_bottom_left,rgba(0,0,0,0.24),transparent_38%)]" />
+            <div className="absolute inset-0 bg-black/40" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/60" />
 
-            <div className="relative mx-auto flex min-h-[100svh] max-w-7xl items-center px-4 pb-10 pt-20 sm:px-6 sm:pb-14 sm:pt-24 md:pt-26 lg:px-10 lg:pb-16 lg:pt-24">
-                <div className="grid w-full items-end gap-8 lg:min-h-[42rem] lg:grid-cols-[minmax(0,0.95fr)_minmax(18rem,0.55fr)] lg:gap-12">
+            <div className="relative mx-auto flex min-h-[100svh] max-w-7xl items-center px-5 pt-25 pb-20 md:px-8 lg:px-12">
+                <div className="grid w-full items-center gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-start">
                     <motion.div
                         variants={containerVariants}
                         initial="hidden"
                         animate="visible"
-                        className="flex max-w-3xl flex-col justify-center self-center pt-2 sm:pt-4 lg:pt-0"
+                        className="space-y-8 lg:pt-10"
                     >
-                        <motion.p
-                            variants={itemVariants}
-                            className="font-sans text-[10px] font-medium uppercase tracking-[0.22em] text-accent/90 sm:text-[11px] sm:tracking-[0.24em]"
-                        >
-                            Monrovia, Liberia
-                        </motion.p>
+                        <div className="space-y-4">
+                            <motion.p
+                                variants={itemVariants}
+                                className="font-sans text-[10px] tracking-[0.28em] uppercase text-white/70 py-3"
+                            >
+                                Monrovia, Liberia
+                            </motion.p>
 
-                        <motion.h1
-                            variants={itemVariants}
-                            className="mt-4 max-w-4xl font-heading text-[2.2rem] font-medium leading-[0.98] tracking-[0.01em] text-white sm:mt-5 sm:text-[3rem] md:text-[3.9rem] lg:text-[4.9rem]"
-                        >
-                            Quiet luxury with a clearer point of view.
-                        </motion.h1>
+                            <motion.h1
+                                variants={itemVariants}
+                                className="max-w-4xl font-heading text-4xl leading-[0.96] tracking-[0.01em] text-white sm:text-5xl md:text-6xl lg:text-[4.8rem]"
+                            >
+                                Quiet luxury with a clearer point of view.
+                            </motion.h1>
 
-                        <motion.p
-                            variants={itemVariants}
-                            className="mt-4 max-w-xl font-sans text-[14px] leading-6 text-white/82 sm:mt-5 sm:max-w-2xl sm:text-[15px] sm:leading-7 md:text-[16px]"
-                        >
-                            Ducor Residences offers a more composed stay in Monrovia,
-                            balancing elevated views, thoughtful interiors, and service
-                            that feels attentive without excess.
-                        </motion.p>
+                            <motion.p
+                                variants={itemVariants}
+                                className="max-w-lg font-sans text-[15px] leading-7 text-white/80 py-5"
+                            >
+                                Ducor Residences offers a more composed stay in Monrovia,
+                                balancing elevated views, thoughtful interiors, and service
+                                that feels attentive without excess.
+                            </motion.p>
+                        </div>
 
                         <motion.div
                             variants={itemVariants}
-                            className="mt-6 flex flex-wrap items-center gap-2.5 sm:mt-8 sm:gap-3"
+                            className="flex flex-wrap gap-4"
                         >
                             <Link
                                 href="/booking"
-                                className="inline-flex cursor-pointer rounded-lg bg-button px-5 py-2.5 font-sans text-[11px] font-medium uppercase tracking-[0.15em] text-white transition-colors hover:brightness-105 sm:px-7 sm:py-3 sm:text-[12px] sm:tracking-[0.16em]"
+                                className="inline-flex min-w-44 cursor-pointer items-center justify-center rounded-xl bg-white px-6 py-3.5 font-sans text-[11px] tracking-[0.22em] uppercase text-primary transition-colors duration-300 hover:bg-white/90"
                             >
                                 Book a Stay
                             </Link>
                             <Link
                                 href="#featured-rooms"
-                                className="inline-flex cursor-pointer rounded-lg border border-white/28 bg-white/8 px-5 py-2.5 font-sans text-[11px] font-medium uppercase tracking-[0.15em] text-white transition-all duration-300 hover:border-accent hover:bg-white/12 sm:px-7 sm:py-3 sm:text-[12px] sm:tracking-[0.16em]"
+                                className="inline-flex min-w-44 cursor-pointer items-center justify-center rounded-xl border border-white/20 bg-white/5 px-6 py-3.5 font-sans text-[11px] tracking-[0.22em] uppercase text-white transition-all duration-300 hover:border-white/40 hover:bg-white/10"
                             >
                                 View Our Rooms
                             </Link>
@@ -93,16 +95,12 @@ export default function HeroSection() {
                     </motion.div>
 
                     <motion.div
-                        initial={{ opacity: 0, y: 28 }}
+                        initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease }}
-                        className="self-end lg:justify-self-end"
+                        className="lg:pt-30 lg:justify-self-end"
                     >
-                        <div className="w-full max-w-xl rounded-[1.4rem] border border-white/14 bg-white/10 p-3 shadow-[0_24px_70px_rgba(0,0,0,0.18)] backdrop-blur-md sm:rounded-[1.75rem] sm:p-5">
-                            <div className="rounded-[1.1rem] border border-white/10 bg-black/20 p-1 sm:rounded-[1.35rem] sm:p-1.5">
-                                <HeroHighlights />
-                            </div>
-                        </div>
+                        <HeroHighlights />
                     </motion.div>
                 </div>
             </div>

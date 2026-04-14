@@ -1,73 +1,106 @@
 "use client"
 
+import { useState } from "react"
 import { motion } from "framer-motion"
-import { Star } from "lucide-react"
 import SectionHeading from "@/components/shared/SectionHeading"
-import type { Testimonial } from "@/types"
-import testimonialsData from "@/data/testimonials.json"
+import testimonials from "@/data/testimonials.json"
 
-const ease = [0.22, 1, 0.36, 1] as const
-
-const testimonials = (testimonialsData as Testimonial[]).slice(0, 4)
-
-const containerVariants = {
-    hidden: {},
-    visible: { transition: { staggerChildren: 0.15 } },
-}
-
-const cardVariants = {
-    hidden: { opacity: 0, x: -24 },
-    visible: {
-        opacity: 1,
-        x: 0,
-        transition: { duration: 0.42, ease },
-    },
+const CONFIG = {
+    scale: { hovered: 1.05, adjacent: 0.92, other: 0.92, idle: 1 },
+    tilt: { hovered: -12, adjacentLeft: -16, adjacentRight: 16, idle: 0 },
+    lift: { hovered: -12, idle: 0 },
+    opacity: { other: 0.6, idle: 1 },
+    transition: { duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] as const }
 }
 
 export default function Testimonials() {
+    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+
     return (
-        <section className="overflow-hidden bg-background py-24">
-            <div className="mx-auto max-w-7xl px-6 lg:px-10 space-y-14">
+        <section className="bg-background py-25 overflow-hidden">
+            <div className="mx-auto max-w-screen-2xl px-5 md:px-8 lg:px-12 mb-20">
                 <SectionHeading
                     eyebrow="Guest Reviews"
                     title="What our guests say"
                     align="center"
                 />
-
-                <motion.div
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: "-60px" }}
-                    className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4"
-                >
-                    {testimonials.map((t) => (
-                        <motion.div
-                            key={t.id}
-                            variants={cardVariants}
-                            className="flex flex-col gap-5 rounded-2xl border border-border bg-surface p-8 shadow-[0_16px_36px_rgba(26,26,26,0.05)]"
-                        >
-                            {/* Stars */}
-                            <div className="flex gap-1">
-                                {Array.from({ length: t.rating }).map((_, i) => (
-                                    <Star key={i} size={14} className="fill-accent text-accent" />
-                                ))}
-                            </div>
-
-                            {/* Quote */}
-                            <blockquote className="font-heading text-[1.35rem] font-medium leading-[1.35] text-primary">
-                                &ldquo;{t.quote}&rdquo;
-                            </blockquote>
-
-                            {/* Attribution */}
-                            <div className="mt-auto border-t border-border pt-5">
-                                <p className="font-sans text-sm font-medium text-primary">{t.name}</p>
-                                <p className="font-sans text-xs text-muted mt-0.5">{t.country}</p>
-                            </div>
-                        </motion.div>
-                    ))}
-                </motion.div>
             </div>
+
+            {/* Carousel Container */}
+            <div
+                className="relative w-full overflow-x-auto pb-20 no-scrollbar md:overflow-visible"
+                style={{ perspective: "1200px" }}
+            >
+                <div
+                    className="flex px-[15%] md:justify-center md:px-0 scroll-smooth snap-x snap-mandatory md:snap-none -space-x-16 md:-space-x-24"
+                >
+                    {testimonials.map((t, i) => {
+                        const isHovered = hoveredIndex === i
+                        const isAdjL = hoveredIndex !== null && i === hoveredIndex - 1
+                        const isAdjR = hoveredIndex !== null && i === hoveredIndex + 1
+                        const isOther = hoveredIndex !== null && !isHovered && !isAdjL && !isAdjR
+
+                        return (
+                            <motion.div
+                                key={t.id}
+                                className="relative shrink-0 snap-center md:snap-align-none cursor-pointer"
+                                style={{
+                                    transformStyle: "preserve-3d",
+                                    zIndex: isHovered ? 50 : (isAdjL || isAdjR ? 40 : (10 + i))
+                                }}
+                                onMouseEnter={() => setHoveredIndex(i)}
+                                onMouseLeave={() => setHoveredIndex(null)}
+                                animate={{
+                                    scale: isHovered ? CONFIG.scale.hovered : (isAdjL || isAdjR ? CONFIG.scale.adjacent : (isOther ? CONFIG.scale.other : CONFIG.scale.idle)),
+                                    y: isHovered ? CONFIG.lift.hovered : CONFIG.lift.idle,
+                                    rotateY: isHovered ? CONFIG.tilt.hovered : (isAdjL ? CONFIG.tilt.adjacentLeft : (isAdjR ? CONFIG.tilt.adjacentRight : CONFIG.tilt.idle)),
+                                    opacity: isOther ? CONFIG.opacity.other : CONFIG.opacity.idle,
+                                }}
+                                transition={CONFIG.transition}
+                            >
+                                <div className="w-[300px] rounded-2xl border border-border bg-white p-7 shadow-[0_4px_24px_rgba(26,26,46,0.04)] h-full flex flex-col">
+                                    {/* Large Opening Quote */}
+                                    <span className="font-heading text-[4rem] text-primary/10 leading-none h-10 select-none">
+                                        &ldquo;
+                                    </span>
+
+                                    {/* Quote Content */}
+                                    <div className="flex-1 mt-2">
+                                        <p className="font-sans text-[15px] leading-relaxed text-primary">
+                                            {t.quote}
+                                        </p>
+                                    </div>
+
+                                    {/* Attachment */}
+                                    <div className="mt-8 flex items-center gap-4">
+                                        <div className="h-10 w-10 rounded-full bg-primary flex items-center justify-center font-heading text-[11px] text-white uppercase select-none">
+                                            {t.initials}
+                                        </div>
+                                        <div className="flex flex-col">
+                                            <p className="font-heading text-[12px] font-medium tracking-wide text-primary uppercase leading-tight">
+                                                {t.name}
+                                            </p>
+                                            <p className="font-sans text-[10px] text-primary/40 uppercase tracking-widest mt-0.5">
+                                                {t.stay}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        )
+                    })}
+                </div>
+            </div>
+
+            <style jsx global>{`
+        .no-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        .no-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
         </section>
     )
 }

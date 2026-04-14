@@ -2,36 +2,55 @@
     {
         "id": "testimonial-001",
         "name": "Emmanuel Kpaan",
-        "rating": 5,
-        "quote": "Staying at Ducor Residences felt like coming home — if home had spectacular city views and the best jollof rice I have ever tasted. A genuinely proud moment for Monrovia.",
-        "country": "Liberia"
+        "stay": "Superior King Suite",
+        "quote": "Staying at Ducor Residences felt like coming home — if home had spectacular city views and the best jollof rice I have ever tasted.",
+        "initials": "EK",
+        "country": "Liberia",
+        "rating": 5
     },
     {
         "id": "testimonial-002",
         "name": "Cynthia Williamson-Cole",
-        "rating": 5,
-        "quote": "I visit Monrovia twice a year for work. I have tried every upscale option in the city. Nothing comes close to Ducor Residences — the quiet, the service, the attention to detail. It is my only choice now.",
-        "country": "United States"
+        "stay": "Executive Double Room",
+        "quote": "I visit Monrovia twice a year. Nothing comes close to Ducor Residences — the quiet, the service, the attention to detail. It is my only choice.",
+        "initials": "CW",
+        "country": "United States",
+        "rating": 5
     },
     {
         "id": "testimonial-003",
         "name": "Amara Diallo",
-        "rating": 5,
-        "quote": "I travelled from Dakar for a regional conference and was not expecting much from the accommodation. I left genuinely impressed. The rooftop bar alone is worth the trip.",
-        "country": "Senegal"
+        "stay": "Panoramic Suite",
+        "quote": "I left genuinely impressed. The rooftop bar alone is worth any trip to the city. A true standout in West African hospitality.",
+        "initials": "AD",
+        "country": "Senegal",
+        "rating": 5
     },
     {
         "id": "testimonial-004",
-        "name": "Nora Mensah",
-        "rating": 5,
-        "quote": "What stood out most was the calm. The rooms are beautifully finished, the staff are gracious, and the whole property feels far more considered than the usual business hotel experience.",
-        "country": "Ghana"
+        "name": "Sarah Jenkins",
+        "stay": "Deluxe Ocean View",
+        "quote": "The design is unlike anything else in Monrovia. Every corner feels intentional. A sanctuary of calm and taste.",
+        "initials": "SJ",
+        "country": "Canada",
+        "rating": 5
     },
     {
         "id": "testimonial-005",
-        "name": "David Freeman",
-        "rating": 5,
-        "quote": "I booked for three nights and extended to five. The airport transfer was seamless, the service was polished, and the view at sunset made every evening feel special.",
-        "country": "United Kingdom"
+        "name": "Malik Traoré",
+        "stay": "City Penthouse",
+        "quote": "Peaceful, polished, and perfectly located. The staff anticipate your every need without being intrusive.",
+        "initials": "MT",
+        "country": "Nigeria",
+        "rating": 5
+    },
+    {
+        "id": "testimonial-006",
+        "name": "Elena Rossi",
+        "stay": "Master Studio",
+        "quote": "A true sanctuary in the heart of the city. The rooftop dining is spectacular and the interiors are impeccably finished.",
+        "initials": "ER",
+        "country": "Italy",
+        "rating": 5
     }
 ]

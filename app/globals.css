@@ -6,17 +6,18 @@
 
 @theme inline {
   /* Ducor Residences — design tokens */
-  --color-primary: #241C18;
-  --color-secondary: #6E5848;
-  --color-button: #B7925A;
-  --color-accent: #B7925A;
-  --color-background: #F4EEE6;
-  --color-surface: #FBF7F2;
-  --color-muted: #7C7066;
+  --color-primary: #1A1A2E;
+  --color-secondary: #000000;
+  --color-button: #1A1A2E;
+  --color-button-hover: #000000;
+  --color-accent: #1A1A2E;
+  --color-background: #FFFFFF;
+  --color-surface: #FFFFFF;
+  --color-muted: #6B7280;
 
   /* Font families */
-  --font-heading: var(--font-cormorant);
-  --font-sans: var(--font-inter);
+  --font-heading: var(--font-montserrat);
+  --font-sans: var(--font-jakarta);
   --font-mono: var(--font-mono);
 
   /* Radius — moderate, refined corners */
@@ -27,29 +28,29 @@
   --radius-xl: calc(var(--radius) * 1.5);
 
   /* Map shadcn semantic vars to our palette */
-  --color-foreground: #241C18;
-  --color-card: #FBF7F2;
-  --color-card-foreground: #241C18;
-  --color-popover: #FBF7F2;
-  --color-popover-foreground: #241C18;
-  --color-primary-foreground: #FBF7F2;
-  --color-secondary-foreground: #FBF7F2;
-  --color-muted-foreground: #7C7066;
-  --color-accent-foreground: #241C18;
+  --color-foreground: #000000;
+  --color-card: #FFFFFF;
+  --color-card-foreground: #000000;
+  --color-popover: #FFFFFF;
+  --color-popover-foreground: #000000;
+  --color-primary-foreground: #FFFFFF;
+  --color-secondary-foreground: #FFFFFF;
+  --color-muted-foreground: #6B7280;
+  --color-accent-foreground: #FFFFFF;
   --color-destructive: oklch(0.577 0.245 27.325);
-  --color-border: #D7CCBD;
-  --color-input: #D7CCBD;
-  --color-ring: #B7925A;
+  --color-border: #E5E7EB;
+  --color-input: #E5E7EB;
+  --color-ring: #1A1A2E;
 
   /* Sidebar (unused but required by shadcn) */
-  --color-sidebar: #FBF7F2;
-  --color-sidebar-foreground: #241C18;
-  --color-sidebar-primary: #241C18;
-  --color-sidebar-primary-foreground: #FBF7F2;
-  --color-sidebar-accent: #B7925A;
-  --color-sidebar-accent-foreground: #241C18;
-  --color-sidebar-border: #D7CCBD;
-  --color-sidebar-ring: #B7925A;
+  --color-sidebar: #FFFFFF;
+  --color-sidebar-foreground: #1A1A2E;
+  --color-sidebar-primary: #1A1A2E;
+  --color-sidebar-primary-foreground: #FFFFFF;
+  --color-sidebar-accent: #E2B96F;
+  --color-sidebar-accent-foreground: #1A1A2E;
+  --color-sidebar-border: #E2DDD6;
+  --color-sidebar-ring: #E2B96F;
 }
 
 
@@ -66,6 +67,16 @@
   body {
     @apply bg-background text-primary font-sans;
   }
+
+  button,
+  a {
+    @apply cursor-pointer;
+  }
+
+  button:focus-visible,
+  a:focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-accent;
+  }
 }
 
 /* Ken Burns hero animation — pure CSS, no JS */
@@ -81,4 +92,44 @@
 
 .animate-ken-burns {
   animation: kenBurns 18s ease-in-out infinite alternate;
+}
+
+@keyframes expandFromCenter {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-33.33%);
+  }
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-33.33%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse 30s linear infinite;
 }

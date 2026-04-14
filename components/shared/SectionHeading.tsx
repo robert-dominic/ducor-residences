@@ -22,7 +22,7 @@ export default function SectionHeading({
     return (
         <div
             className={cn(
-                "space-y-3",
+                "space-y-5",
                 align === "center" && "text-center",
                 className
             )}
@@ -30,8 +30,8 @@ export default function SectionHeading({
             {eyebrow && (
                 <p
                     className={cn(
-                        "font-sans text-[11px] font-medium uppercase tracking-[0.22em]",
-                        inverted ? "text-accent" : "text-secondary"
+                        "font-sans text-[10px] tracking-[0.28em] uppercase",
+                        inverted ? "text-white/60" : "text-primary/60"
                     )}
                 >
                     {eyebrow}
@@ -40,17 +40,17 @@ export default function SectionHeading({
 
             <h2
                 className={cn(
-                    "font-heading text-[2rem] md:text-[2.5rem] font-medium leading-[1.08] tracking-[0.01em]",
+                    "font-heading text-4xl leading-[0.96] tracking-[0.01em] md:text-5xl lg:text-[4.2rem]",
                     inverted ? "text-white" : "text-primary"
                 )}
             >
                 {title}
             </h2>
 
-            {/* Accent rule */}
+            {/* Subtle accent rule */}
             <div
                 className={cn(
-                    "h-px w-10 bg-accent",
+                    "h-[1.5px] w-12 bg-primary/10",
                     align === "center" && "mx-auto"
                 )}
             />
@@ -58,8 +58,8 @@ export default function SectionHeading({
             {subtitle && (
                 <p
                     className={cn(
-                        "max-w-xl font-sans text-[15px] leading-7",
-                        inverted ? "text-white/65" : "text-muted",
+                        "max-w-lg font-sans text-[15px] leading-7",
+                        inverted ? "text-white/65" : "text-primary/70",
                         align === "center" && "mx-auto"
                     )}
                 >
