@@ -6,11 +6,11 @@ import SectionHeading from "@/components/shared/SectionHeading"
 import testimonials from "@/data/testimonials.json"
 
 const CONFIG = {
-    scale: { hovered: 1.05, adjacent: 0.92, other: 0.92, idle: 1 },
-    tilt: { hovered: -12, adjacentLeft: -16, adjacentRight: 16, idle: 0 },
-    lift: { hovered: -12, idle: 0 },
-    opacity: { other: 0.6, idle: 1 },
-    transition: { duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] as const }
+    scale: { hovered: 1.08, adjacent: 0.95, other: 0.9, idle: 1 },
+    tilt: { hovered: -12, adjacentLeft: -20, adjacentRight: 20, idle: 0 },
+    lift: { hovered: -20, idle: 0 },
+    opacity: { other: 0.4, idle: 1 },
+    transition: { duration: 0.25, ease: "easeOut" as const }
 }
 
 export default function Testimonials() {
@@ -29,10 +29,10 @@ export default function Testimonials() {
             {/* Carousel Container */}
             <div
                 className="relative w-full overflow-x-auto pb-20 no-scrollbar md:overflow-visible"
-                style={{ perspective: "1200px" }}
+                style={{ perspective: "1500px" }}
             >
                 <div
-                    className="flex px-[15%] md:justify-center md:px-0 scroll-smooth snap-x snap-mandatory md:snap-none -space-x-16 md:-space-x-24"
+                    className="flex px-[15%] md:justify-center md:px-0 scroll-smooth snap-x snap-mandatory md:snap-none -space-x-28 md:-space-x-32"
                 >
                     {testimonials.map((t, i) => {
                         const isHovered = hoveredIndex === i
@@ -46,7 +46,7 @@ export default function Testimonials() {
                                 className="relative shrink-0 snap-center md:snap-align-none cursor-pointer"
                                 style={{
                                     transformStyle: "preserve-3d",
-                                    zIndex: isHovered ? 50 : (isAdjL || isAdjR ? 40 : (10 + i))
+                                    zIndex: isHovered ? 100 : (isAdjL || isAdjR ? 80 : (20 + i))
                                 }}
                                 onMouseEnter={() => setHoveredIndex(i)}
                                 onMouseLeave={() => setHoveredIndex(null)}
@@ -54,11 +54,12 @@ export default function Testimonials() {
                                     scale: isHovered ? CONFIG.scale.hovered : (isAdjL || isAdjR ? CONFIG.scale.adjacent : (isOther ? CONFIG.scale.other : CONFIG.scale.idle)),
                                     y: isHovered ? CONFIG.lift.hovered : CONFIG.lift.idle,
                                     rotateY: isHovered ? CONFIG.tilt.hovered : (isAdjL ? CONFIG.tilt.adjacentLeft : (isAdjR ? CONFIG.tilt.adjacentRight : CONFIG.tilt.idle)),
+                                    rotateX: isHovered ? 5 : 0,
                                     opacity: isOther ? CONFIG.opacity.other : CONFIG.opacity.idle,
                                 }}
                                 transition={CONFIG.transition}
                             >
-                                <div className="w-[300px] rounded-2xl border border-border bg-white p-7 shadow-[0_4px_24px_rgba(26,26,46,0.04)] h-full flex flex-col">
+                                <div className="w-[300px] rounded-2xl border border-border bg-white p-7 shadow-[0_4px_24px_rgba(26,26,46,0.04)] h-full flex flex-col will-change-transform">
                                     {/* Large Opening Quote */}
                                     <span className="font-heading text-[4rem] text-primary/10 leading-none h-10 select-none">
                                         &ldquo;
