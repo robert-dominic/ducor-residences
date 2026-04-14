@@ -1,13 +1,12 @@
-import { createClient } from "@supabase/supabase-js"
-import RoomManager from "@/components/admin/RoomManager"
+import { createSupabaseServerClient } from "@/lib/supabase-server"
+import RoomList from "@/components/admin/RoomList"
 import type { Room } from "@/types"
 
-const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY!
-)
+export const metadata = {
+    title: "Rooms | Admin Dashboard",
+}
 
-async function getRooms(): Promise<Room[]> {
+async function getRooms(supabase: any): Promise<Room[]> {
     const { data, error } = await supabase
         .from("rooms")
         .select("*")
@@ -22,7 +21,8 @@ async function getRooms(): Promise<Room[]> {
 }
 
 export default async function AdminRoomsPage() {
-    const rooms = await getRooms()
+    const supabase = await createSupabaseServerClient()
+    const rooms = await getRooms(supabase)
 
     return (
         <div className="space-y-6">
@@ -31,7 +31,7 @@ export default async function AdminRoomsPage() {
                 <p className="mt-1 font-sans text-sm text-muted">Manage room inventory, pricing, and availability.</p>
             </div>
 
-            <RoomManager rooms={rooms} />
+            <RoomList initialRooms={rooms} />
         </div>
     )
 }

@@ -80,9 +80,14 @@ export default async function AdminDashboardPage() {
             </div>
 
             {/* Bookings table */}
-            <div className="space-y-4">
-                <h3 className="font-heading text-[1.4rem] font-medium text-primary">All Bookings</h3>
-                <BookingsTable bookings={bookings} />
+            <div className="space-y-4 relative">
+                <div className="flex items-center justify-between">
+                    <h3 className="font-heading text-[1.4rem] font-medium text-primary">Recent Bookings</h3>
+                    <a href="/admin/bookings" className="font-sans text-sm font-medium uppercase tracking-widest text-accent hover:text-primary transition-colors">
+                        View All
+                    </a>
+                </div>
+                <BookingsTable bookings={bookings.slice(0, 5)} />
             </div>
 
         </div>
