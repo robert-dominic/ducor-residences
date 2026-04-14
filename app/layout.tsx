@@ -1,19 +1,19 @@
 import type { Metadata } from "next"
-import { Cormorant_Garamond, Inter } from "next/font/google"
+import { Montserrat_Alternates, Plus_Jakarta_Sans } from "next/font/google"
 import "./globals.css"
 import { cn } from "@/lib/utils"
 
-const cormorant = Cormorant_Garamond({
+const montserrat = Montserrat_Alternates({
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  variable: "--font-cormorant",
+  weight: ["400", "500", "600"],
+  variable: "--font-montserrat",
   display: "swap",
 })
 
-const inter = Inter({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-inter",
+  weight: ["300", "400", "500"],
+  variable: "--font-jakarta",
   display: "swap",
 })
 
@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn(cormorant.variable, inter.variable)}
+      className={cn(montserrat.variable, jakarta.variable)}
     >
       <body className={cn("min-h-full flex flex-col bg-background text-primary antialiased font-sans")}>
         {children}

@@ -13,7 +13,7 @@ const filters: RoomFilterType[] = ["All", "Single", "Double", "Suite", "Penthous
 
 export default function FilterBar({ currentFilter, onFilterChange }: FilterBarProps) {
     return (
-        <div className="flex flex-wrap items-center justify-center gap-3 py-8">
+        <div className="flex w-full items-center gap-3 overflow-x-auto pb-4 pt-8 md:justify-center md:flex-wrap md:overflow-visible [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
             {filters.map((filter) => {
                 const isActive = currentFilter === filter
                 return (
@@ -21,10 +21,10 @@ export default function FilterBar({ currentFilter, onFilterChange }: FilterBarPr
                         key={filter}
                         onClick={() => onFilterChange(filter)}
                         className={cn(
-                            "cursor-pointer rounded-lg border px-5 py-2.5 font-sans text-[12px] font-medium uppercase tracking-[0.14em] transition-all duration-300",
+                            "cursor-pointer rounded-full border px-4 py-1.5 font-sans text-sm transition-colors duration-300 whitespace-nowrap",
                             isActive
-                                ? "border-button bg-button text-white hover:brightness-105"
-                                : "border-border bg-surface text-muted hover:border-button hover:bg-background hover:text-button"
+                                ? "border-primary bg-primary text-white"
+                                : "border-border bg-surface text-muted hover:border-primary hover:bg-background hover:text-primary"
                         )}
                     >
                         {filter}

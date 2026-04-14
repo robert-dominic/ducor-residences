@@ -14,13 +14,11 @@ export default function AmenitiesList({ amenities }: AmenitiesListProps) {
                 Room Amenities
             </h3>
 
-            <ul className="grid grid-cols-1 gap-y-4 sm:grid-cols-2 gap-x-8">
+            <ul className="grid grid-cols-2 gap-3 lg:grid-cols-3 md:gap-4 mt-6">
                 {amenities.map((amenity, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                        <div className="mt-0.5 rounded-md bg-surface p-1 text-accent">
-                            <Check size={14} strokeWidth={3} />
-                        </div>
-                        <span className="font-sans text-sm font-medium text-primary/80">
+                    <li key={i} className="flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2">
+                        <Check size={14} className="text-accent shrink-0" strokeWidth={3} />
+                        <span className="font-sans text-[13px] font-medium text-primary line-clamp-1">
                             {amenity}
                         </span>
                     </li>

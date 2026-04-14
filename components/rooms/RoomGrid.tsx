@@ -37,7 +37,7 @@ export default function RoomGrid({ rooms }: RoomGridProps) {
                 <div className="mt-8">
                     {loading ? (
                         // Skeleton Layout (must match RoomCard shape exactly)
-                        <div className="grid grid-cols-1 gap-5 md:grid-cols-3 xl:grid-cols-4">
+                        <div className="grid grid-cols-1 gap-[20px] md:grid-cols-2 md:gap-[24px] lg:grid-cols-3 lg:gap-[28px]">
                             {Array.from({ length: 4 }).map((_, i) => (
                                 <div key={i} className="overflow-hidden rounded-2xl border border-border bg-surface shadow-[0_16px_36px_rgba(26,26,26,0.05)]">
                                     <div className="relative aspect-[4/3]">
@@ -66,7 +66,7 @@ export default function RoomGrid({ rooms }: RoomGridProps) {
                         // Actual Grid
                         <motion.div
                             layout
-                            className="grid grid-cols-1 gap-5 md:grid-cols-3 xl:grid-cols-4"
+                            className="grid grid-cols-1 gap-[20px] md:grid-cols-2 md:gap-[24px] lg:grid-cols-3 lg:gap-[28px]"
                         >
                             <AnimatePresence mode="popLayout">
                                 {filteredRooms.map((room) => (

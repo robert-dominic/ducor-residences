@@ -29,53 +29,62 @@ export async function sendGuestConfirmationEmail({
         to: ADMIN_EMAIL, // sends to you in sandbox mode
         subject: `Booking Request Received — ${bookingRef}`,
         html: `
-            <div style="font-family: Georgia, serif; max-width: 600px; margin: 0 auto; padding: 40px 24px; color: #1a1a1a;">
-                <h1 style="font-size: 28px; font-weight: 500; margin-bottom: 8px;">Ducor Residences</h1>
-                <p style="font-size: 13px; color: #888; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 40px;">Monrovia, Liberia</p>
+            <div style="background-color: #F7F3EE; padding: 40px 20px;">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(26,26,46,0.04);">
+                    <tr>
+                        <td style="padding: 40px; font-family: Helvetica, Arial, sans-serif; color: #1A1A2E;">
+                            <h1 style="font-family: Georgia, serif; font-size: 28px; font-weight: 500; margin: 0 0 8px 0; color: #1A1A2E;">Ducor Residences</h1>
+                            <p style="font-size: 11px; color: #666; text-transform: uppercase; letter-spacing: 0.16em; margin: 0 0 32px 0;">Booking Confirmation</p>
+                            
+                            <p style="font-size: 15px; line-height: 1.6; margin: 0 0 24px 0; color: #1A1A2E;">
+                                Dear ${guestName},<br/><br/>
+                                Thank you for choosing Ducor Residences. We have received your booking request and our team will confirm your reservation shortly.
+                            </p>
 
-                <h2 style="font-size: 20px; font-weight: 500; margin-bottom: 16px;">Your Booking Request</h2>
-                <p style="font-size: 15px; line-height: 1.7; color: #444;">
-                    Dear ${guestName},<br/><br/>
-                    Thank you for choosing Ducor Residences. We have received your booking request and our team will confirm your reservation shortly.
-                </p>
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: #F7F3EE; border-radius: 8px; margin: 32px 0;">
+                                <tr>
+                                    <td style="padding: 24px;">
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-size: 14px; color: #1A1A2E;">
+                                            <tr>
+                                                <td style="padding: 12px 0; border-bottom: 1px solid rgba(26,26,46,0.1); color: #666;">Reference</td>
+                                                <td style="padding: 12px 0; border-bottom: 1px solid rgba(26,26,46,0.1); text-align: right; font-weight: 600;">${bookingRef}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 12px 0; border-bottom: 1px solid rgba(26,26,46,0.1); color: #666;">Room</td>
+                                                <td style="padding: 12px 0; border-bottom: 1px solid rgba(26,26,46,0.1); text-align: right;">${roomName}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 12px 0; border-bottom: 1px solid rgba(26,26,46,0.1); color: #666;">Check-in</td>
+                                                <td style="padding: 12px 0; border-bottom: 1px solid rgba(26,26,46,0.1); text-align: right;">${checkIn}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 12px 0; border-bottom: 1px solid rgba(26,26,46,0.1); color: #666;">Check-out</td>
+                                                <td style="padding: 12px 0; border-bottom: 1px solid rgba(26,26,46,0.1); text-align: right;">${checkOut}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 12px 0; border-bottom: 1px solid rgba(26,26,46,0.1); color: #666;">Nights</td>
+                                                <td style="padding: 12px 0; border-bottom: 1px solid rgba(26,26,46,0.1); text-align: right;">${nights}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 12px 0; color: #666;">Total</td>
+                                                <td style="padding: 12px 0; text-align: right; font-weight: 600; color: #1A1A2E;">$${totalPrice} USD</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
 
-                <div style="margin: 32px 0; padding: 24px; background: #f9f8f6; border-radius: 12px;">
-                    <table style="width: 100%; font-size: 14px; border-collapse: collapse;">
-                        <tr style="border-bottom: 1px solid #e8e6e1;">
-                            <td style="padding: 10px 0; color: #888;">Booking Reference</td>
-                            <td style="padding: 10px 0; text-align: right; font-weight: 600; word-break: break-word; overflow-wrap: break-word; max-width: 300px; white-space: normal;">${bookingRef}</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #e8e6e1;">
-                            <td style="padding: 10px 0; color: #888;">Room</td>
-                            <td style="padding: 10px 0; text-align: right; word-break: break-word; overflow-wrap: break-word; max-width: 300px; white-space: normal;">${roomName}</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #e8e6e1;">
-                            <td style="padding: 10px 0; color: #888;">Check-in</td>
-                            <td style="padding: 10px 0; text-align: right; word-break: break-word; overflow-wrap: break-word; max-width: 300px; white-space: normal;">${checkIn}</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #e8e6e1;">
-                            <td style="padding: 10px 0; color: #888;">Check-out</td>
-                            <td style="padding: 10px 0; text-align: right; word-break: break-word; overflow-wrap: break-word; max-width: 300px; white-space: normal;">${checkOut}</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #e8e6e1;">
-                            <td style="padding: 10px 0; color: #888;">Nights</td>
-                            <td style="padding: 10px 0; text-align: right; word-break: break-word; overflow-wrap: break-word; max-width: 300px; white-space: normal;">${nights}</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 10px 0; color: #888;">Total</td>
-                            <td style="padding: 10px 0; text-align: right; font-weight: 600; word-break: break-word; overflow-wrap: break-word; max-width: 300px; white-space: normal;">$${totalPrice} USD</td>
-                        </tr>
-                    </table>
-                </div>
+                            <p style="font-size: 13px; color: #666; line-height: 1.6; margin: 0 0 32px 0;">
+                                Check-in is from 2:00 PM. Check-out is by 12:00 PM.<br/>
+                                Cancellations must be made at least 48 hours before check-in.
+                            </p>
 
-                <p style="font-size: 13px; color: #888; line-height: 1.7;">
-                    Check-in is from 2:00 PM. Check-out is by 12:00 PM.<br/>
-                    Cancellations must be made at least 48 hours before check-in.
-                </p>
-
-                <p style="font-size: 13px; color: #888; margin-top: 40px;">
-                    Ducor Residences · Monrovia, Liberia
-                </p>
+                            <p style="font-size: 11px; color: #666; text-transform: uppercase; letter-spacing: 0.16em; margin: 0;">
+                                Ducor Residences · Monrovia, Liberia
+                            </p>
+                        </td>
+                    </tr>
+                </table>
             </div>
         `,
     })
@@ -109,56 +118,67 @@ export async function sendAdminNotificationEmail({
         to: ADMIN_EMAIL,
         subject: `New Booking Request — ${bookingRef}`,
         html: `
-            <div style="font-family: Georgia, serif; max-width: 600px; margin: 0 auto; padding: 40px 24px; color: #1a1a1a;">
-                <h1 style="font-size: 28px; font-weight: 500; margin-bottom: 8px;">New Booking Request</h1>
-                <p style="font-size: 13px; color: #888; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 40px;">Ducor Residences Admin</p>
+            <div style="background-color: #F7F3EE; padding: 40px 20px;">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(26,26,46,0.04);">
+                    <tr>
+                        <td style="padding: 40px; font-family: Helvetica, Arial, sans-serif; color: #1A1A2E;">
+                            <h1 style="font-family: Georgia, serif; font-size: 28px; font-weight: 500; margin: 0 0 8px 0; color: #1A1A2E;">New Booking Request</h1>
+                            <p style="font-size: 11px; color: #666; text-transform: uppercase; letter-spacing: 0.16em; margin: 0 0 32px 0;">Admin Notification</p>
 
-                <div style="margin: 32px 0; padding: 24px; background: #f9f8f6; border-radius: 12px;">
-                    <table style="width: 100%; font-size: 14px; border-collapse: collapse;">
-                        <tr style="border-bottom: 1px solid #e8e6e1;">
-                            <td style="padding: 10px 0; color: #888;">Reference</td>
-                            <td style="padding: 10px 0; text-align: right; font-weight: 600; word-break: break-word; overflow-wrap: break-word; max-width: 300px; white-space: normal;">${bookingRef}</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #e8e6e1;">
-                            <td style="padding: 10px 0; color: #888;">Guest</td>
-                            <td style="padding: 10px 0; text-align: right; word-break: break-word; overflow-wrap: break-word; max-width: 300px; white-space: normal;">${guestName}</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #e8e6e1;">
-                            <td style="padding: 10px 0; color: #888;">Email</td>
-                            <td style="padding: 10px 0; text-align: right; word-break: break-word; overflow-wrap: break-word; max-width: 300px; white-space: normal;">${guestEmail}</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #e8e6e1;">
-                            <td style="padding: 10px 0; color: #888;">Phone</td>
-                            <td style="padding: 10px 0; text-align: right; word-break: break-word; overflow-wrap: break-word; max-width: 300px; white-space: normal;">${guestPhone}</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #e8e6e1;">
-                            <td style="padding: 10px 0; color: #888;">Room</td>
-                            <td style="padding: 10px 0; text-align: right; word-break: break-word; overflow-wrap: break-word; max-width: 300px; white-space: normal;">${roomName}</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #e8e6e1;">
-                            <td style="padding: 10px 0; color: #888;">Check-in</td>
-                            <td style="padding: 10px 0; text-align: right; word-break: break-word; overflow-wrap: break-word; max-width: 300px; white-space: normal;">${checkIn}</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #e8e6e1;">
-                            <td style="padding: 10px 0; color: #888;">Check-out</td>
-                            <td style="padding: 10px 0; text-align: right; word-break: break-word; overflow-wrap: break-word; max-width: 300px; white-space: normal;">${checkOut}</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #e8e6e1;">
-                            <td style="padding: 10px 0; color: #888;">Nights</td>
-                            <td style="padding: 10px 0; text-align: right; word-break: break-word; overflow-wrap: break-word; max-width: 300px; white-space: normal;">${nights}</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #e8e6e1;">
-                            <td style="padding: 10px 0; color: #888;">Total</td>
-                            <td style="padding: 10px 0; text-align: right; font-weight: 600; word-break: break-word; overflow-wrap: break-word; max-width: 300px; white-space: normal;">$${totalPrice} USD</td>
-                        </tr>
-                        ${specialRequests ? `
-                        <tr>
-                            <td style="padding: 10px 0; color: #888;">Requests</td>
-                            <td style="padding: 10px 0; text-align: right; word-break: break-word; overflow-wrap: break-word; max-width: 300px; white-space: pre-wrap;">${specialRequests}</td>
-                        </tr>
-                        ` : ""}
-                    </table>
-                </div>
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: #F7F3EE; border-radius: 8px; margin: 32px 0;">
+                                <tr>
+                                    <td style="padding: 24px;">
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-size: 14px; color: #1A1A2E;">
+                                            <tr>
+                                                <td style="padding: 12px 0; border-bottom: 1px solid rgba(26,26,46,0.1); color: #666;">Reference</td>
+                                                <td style="padding: 12px 0; border-bottom: 1px solid rgba(26,26,46,0.1); text-align: right; font-weight: 600;">${bookingRef}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 12px 0; border-bottom: 1px solid rgba(26,26,46,0.1); color: #666;">Guest</td>
+                                                <td style="padding: 12px 0; border-bottom: 1px solid rgba(26,26,46,0.1); text-align: right;">${guestName}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 12px 0; border-bottom: 1px solid rgba(26,26,46,0.1); color: #666;">Email</td>
+                                                <td style="padding: 12px 0; border-bottom: 1px solid rgba(26,26,46,0.1); text-align: right;">${guestEmail}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 12px 0; border-bottom: 1px solid rgba(26,26,46,0.1); color: #666;">Phone</td>
+                                                <td style="padding: 12px 0; border-bottom: 1px solid rgba(26,26,46,0.1); text-align: right;">${guestPhone}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 12px 0; border-bottom: 1px solid rgba(26,26,46,0.1); color: #666;">Room</td>
+                                                <td style="padding: 12px 0; border-bottom: 1px solid rgba(26,26,46,0.1); text-align: right;">${roomName}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 12px 0; border-bottom: 1px solid rgba(26,26,46,0.1); color: #666;">Check-in</td>
+                                                <td style="padding: 12px 0; border-bottom: 1px solid rgba(26,26,46,0.1); text-align: right;">${checkIn}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 12px 0; border-bottom: 1px solid rgba(26,26,46,0.1); color: #666;">Check-out</td>
+                                                <td style="padding: 12px 0; border-bottom: 1px solid rgba(26,26,46,0.1); text-align: right;">${checkOut}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 12px 0; border-bottom: 1px solid rgba(26,26,46,0.1); color: #666;">Nights</td>
+                                                <td style="padding: 12px 0; border-bottom: 1px solid rgba(26,26,46,0.1); text-align: right;">${nights}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 12px 0; border-bottom: 1px solid rgba(26,26,46,0.1); color: #666;">Total</td>
+                                                <td style="padding: 12px 0; border-bottom: 1px solid rgba(26,26,46,0.1); text-align: right; font-weight: 600; color: #1A1A2E;">$${totalPrice} USD</td>
+                                            </tr>
+                                            ${specialRequests ? `
+                                            <tr>
+                                                <td style="padding: 12px 0; color: #666; vertical-align: top;">Requests</td>
+                                                <td style="padding: 12px 0; text-align: right; white-space: pre-wrap;">${specialRequests}</td>
+                                            </tr>
+                                            ` : ""}
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </td>
+                    </tr>
+                </table>
             </div>
         `,
     })

@@ -86,13 +86,13 @@ export default function InfoCards() {
         return (
           <article
             key={item.title}
-            className="rounded-2xl border border-border bg-surface p-6 shadow-[0_16px_36px_rgba(26,26,26,0.05)] sm:p-7"
+            className="rounded-xl border border-border bg-surface p-4 shadow-[0_8px_24px_rgba(26,26,26,0.04)]"
           >
-            <div className="mb-5 flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-lg border border-border bg-background">
-                <Icon className="h-5 w-5 text-accent" />
+            <div className="mb-3 flex items-center gap-2.5">
+              <div className="flex h-8 w-8 items-center justify-center rounded-md border border-border bg-background">
+                <Icon className="h-4 w-4 text-accent" />
               </div>
-              <p className="font-sans text-xs uppercase tracking-[0.24em] text-muted">
+              <p className="font-sans text-[11px] uppercase tracking-[0.16em] text-muted">
                 {item.title}
               </p>
             </div>
@@ -101,14 +101,14 @@ export default function InfoCards() {
               <div className="flex items-start justify-between gap-3">
                 <a
                   href={href}
-                  className="font-heading text-[1.65rem] font-medium text-primary transition-colors hover:text-accent"
+                  className="font-sans text-[14px] font-medium text-primary transition-colors hover:text-accent"
                 >
                   {item.value}
                 </a>
                 <button
                   type="button"
                   onClick={() => handleCopy(item.title, item.value)}
-                  className="mt-1 inline-flex min-w-[6.5rem] items-center justify-center gap-2 rounded-full border border-border bg-background px-3 py-2 text-[11px] font-medium uppercase tracking-[0.16em] text-primary/70 transition-colors hover:border-accent hover:text-accent"
+                  className="inline-flex items-center justify-center gap-1.5 rounded-full border border-border bg-background px-2.5 py-1.5 text-[10px] font-medium uppercase tracking-[0.16em] text-primary/70 transition-colors hover:border-accent hover:text-accent"
                   aria-label={`Copy ${item.title}`}
                   aria-live="polite"
                   title={isCopied ? "Copied" : `Copy ${item.title}`}
@@ -127,11 +127,11 @@ export default function InfoCards() {
                 </button>
               </div>
             ) : (
-              <h2 className="font-heading text-[1.65rem] font-medium text-primary">
+              <h2 className="font-sans text-[14px] font-medium text-primary">
                 {item.value}
               </h2>
             )}
-            <p className="mt-3 font-sans text-[15px] leading-7 text-muted">
+            <p className="mt-2 font-sans text-xs leading-relaxed text-muted">
               {item.detail}
             </p>
           </article>

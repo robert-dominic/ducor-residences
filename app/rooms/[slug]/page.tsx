@@ -53,7 +53,7 @@ export default async function RoomDetailPage({
                     </div>
 
                     {/* Bottom: 2-column layout */}
-                    <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16 pb-16 relative items-start">
+                    <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-12 pb-12 relative items-start">
 
                         {/* Left Col: Info + Amenities */}
                         <div className="lg:col-span-8">
@@ -62,7 +62,7 @@ export default async function RoomDetailPage({
                         </div>
 
                         {/* Right Col: Booking Panel (Sticky) */}
-                        <div className="lg:col-span-4">
+                        <div className="lg:col-span-4 sticky top-28">
                             <BookingPanel price={room.price} roomSlug={room.slug} isAvailable={room.is_available} />
                         </div>
 
