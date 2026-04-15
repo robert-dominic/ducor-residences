@@ -23,8 +23,8 @@ export default function Collaborators() {
         setIsPaused((p) => !p)
     }
 
-    // Duplicate the brands to create a seamless infinite loop
-    const duplicatedBrands = [...brands, ...brands, ...brands]
+    // Duplicate the brands to create a seamless infinite loop (2 sets for perfect -50% translation)
+    const duplicatedBrands = [...brands, ...brands]
 
     return (
         <section className="py-8 border-b border-border bg-white overflow-hidden">
