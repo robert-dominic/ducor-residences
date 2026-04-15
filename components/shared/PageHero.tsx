@@ -45,8 +45,8 @@ export default function PageHero({
             />
 
             {/* Text content */}
-            <div className="relative z-20 mx-auto w-full max-w-7xl px-6 lg:px-10 pb-12 pt-24">
-                <h1 className="font-heading text-3xl font-medium leading-[0.96] tracking-[0.01em] text-white md:text-[5rem]">
+            <div className="relative z-20 mx-auto w-full max-w-7xl px-5 pt-24">
+                <h1 className="font-heading text-2xl font-medium leading-[0.96] tracking-[0.01em] text-white md:text-[3rem]">
                     {title}
                 </h1>
                 {subtitle && (

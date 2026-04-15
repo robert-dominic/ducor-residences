@@ -59,13 +59,13 @@ export default function Navbar({ forceSolid = false }: NavbarProps) {
         <>
             <motion.header
                 animate={{ y: visible ? 0 : "-100%" }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
                 className={cn(
                     "fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300",
                     "border-b border-border/80 bg-background/98 shadow-sm backdrop-blur-md md:py-2"
                 )}
             >
-                <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-5 md:px-8 lg:px-12">
+                <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-5">
                     {/* Logo / Wordmark */}
                     <Link
                         href="/"

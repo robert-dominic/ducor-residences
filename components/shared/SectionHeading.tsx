@@ -40,7 +40,7 @@ export default function SectionHeading({
 
             <h2
                 className={cn(
-                    "font-heading text-2xl leading-[0.96] tracking-[0.01em] md:text-5xl lg:text-[4.2rem]",
+                    "font-heading text-[1.5rem] leading-[0.96] tracking-[0.01em] md:text-3xl lg:text-[3.2rem]",
                     inverted ? "text-white" : "text-primary"
                 )}
             >

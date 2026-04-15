@@ -12,7 +12,7 @@ const footerLinks = [
 export default function Footer() {
     return (
         <footer className="bg-primary text-white/60 border-t border-white/5">
-            <div className="mx-auto max-w-screen-2xl px-6 md:px-10 lg:px-12 py-20 lg:py-28">
+            <div className="mx-auto max-w-screen-2xl px-5 lg:px-20 pt-20 pb-5">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8">
 
                     {/* Brand Identity */}
@@ -98,7 +98,7 @@ export default function Footer() {
                 </div>
 
                 {/* Legal & Attribution */}
-                <div className="mt-20 lg:mt-32 pt-10 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-8">
+                <div className="mt-20 lg:mt-32 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-8">
                     <div className="space-y-1 text-center md:text-left">
                         <p className="font-sans text-[12px] text-white/30">
                             &copy; {new Date().getFullYear()} Ducor Residences. All rights reserved.

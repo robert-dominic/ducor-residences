@@ -16,7 +16,7 @@ export default function RoomCard({ room, compact = false }: RoomCardProps) {
     return (
         <motion.article
             whileHover="hover"
-            className="group relative overflow-hidden rounded-2xl bg-white border border-primary/5 shadow-sm transition-all duration-300 hover:shadow-md"
+            className="group relative flex h-full flex-col overflow-hidden rounded-2xl bg-white border border-primary/5 shadow-sm transition-all duration-300 hover:shadow-md"
         >
             {/* Image Section (60% height) */}
             <Link href={`/rooms/${room.slug}`} className={cn("block relative w-full overflow-hidden", compact ? "h-60" : "h-80")}>
@@ -45,9 +45,9 @@ export default function RoomCard({ room, compact = false }: RoomCardProps) {
             </Link>
 
             {/* Content Area */}
-            <div className="bg-white p-5 space-y-5">
-                <div className="flex items-start justify-between gap-4">
-                    <h3 className={cn("font-heading font-medium leading-tight tracking-[0.01em] text-primary", compact ? "text-lg" : "text-xl")}>
+            <div className="flex flex-1 flex-col p-5">
+                <div className="flex justify-between gap-4">
+                    <h3 className={cn("font-heading font-medium leading-[1.1] tracking-[0.01em] text-primary", compact ? "text-[1rem]" : "text-[1.1rem] md:text-[1.3rem]")}>
                         {room.name}
                     </h3>
                     <div className="text-right shrink-0">
@@ -58,30 +58,32 @@ export default function RoomCard({ room, compact = false }: RoomCardProps) {
                     </div>
                 </div>
 
-                <div className="flex items-center justify-between border-t border-border/50 pt-5">
-                    <div className="flex items-center gap-5 text-primary/60">
-                        <span className="flex items-center gap-2 font-sans text-[10px] uppercase tracking-wider">
-                            <Users size={14} strokeWidth={1.5} className="text-primary/30" />
-                            {room.capacity}
-                        </span>
-                        <span className="flex items-center gap-2 font-sans text-[10px] uppercase tracking-wider">
-                            <Maximize2 size={14} strokeWidth={1.5} className="text-primary/30" />
-                            {room.size}
-                        </span>
-                    </div>
+                <div className="mt-auto pt-6">
+                    <div className="flex items-center justify-between border-t border-border/50 pt-5">
+                        <div className="flex items-center gap-5 text-primary/60">
+                            <span className="flex items-center gap-2 font-sans text-[10px] uppercase tracking-wider">
+                                <Users size={14} strokeWidth={1.5} className="text-primary/30" />
+                                {room.capacity}
+                            </span>
+                            <span className="flex items-center gap-2 font-sans text-[10px] uppercase tracking-wider">
+                                <Maximize2 size={14} strokeWidth={1.5} className="text-primary/30" />
+                                {room.size}
+                            </span>
+                        </div>
 
-                    <Link
-                        href={`/rooms/${room.slug}`}
-                        className="flex items-center gap-2 font-sans text-[9px] uppercase tracking-[0.24em] text-primary hover:text-black transition-colors"
-                    >
-                        Details
-                        <motion.span
-                            variants={{ hover: { x: 3 } }}
-                            transition={{ duration: 0.3 }}
+                        <Link
+                            href={`/rooms/${room.slug}`}
+                            className="flex items-center gap-2 font-sans text-[9px] uppercase tracking-[0.24em] text-primary hover:text-black transition-colors"
                         >
-                            <ArrowRight size={14} strokeWidth={2} />
-                        </motion.span>
-                    </Link>
+                            Details
+                            <motion.span
+                                variants={{ hover: { x: 3 } }}
+                                transition={{ duration: 0.3 }}
+                            >
+                                <ArrowRight size={14} strokeWidth={2} />
+                            </motion.span>
+                        </Link>
+                    </div>
                 </div>
             </div>
         </motion.article>
