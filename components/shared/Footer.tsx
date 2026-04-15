@@ -18,7 +18,7 @@ export default function Footer() {
                     {/* Brand Identity */}
                     <div className="lg:col-span-5 space-y-8">
                         <div className="space-y-4">
-                            <h3 className="font-heading text-[2rem] font-medium tracking-tight text-white leading-none">
+                            <h3 className="font-heading text-[1.5rem] font-medium tracking-tight text-white leading-none">
                                 Ducor Residences
                             </h3>
                             <p className="font-sans text-[15px] leading-relaxed max-w-sm">

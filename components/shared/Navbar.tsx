@@ -62,14 +62,14 @@ export default function Navbar({ forceSolid = false }: NavbarProps) {
                 transition={{ duration: 0.3, ease: "easeOut" }}
                 className={cn(
                     "fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300",
-                    "border-b border-border/80 bg-background/98 shadow-sm backdrop-blur-md py-2"
+                    "border-b border-border/80 bg-background/98 shadow-sm backdrop-blur-md md:py-2"
                 )}
             >
                 <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-5 md:px-8 lg:px-12">
                     {/* Logo / Wordmark */}
                     <Link
                         href="/"
-                        className="font-heading text-[0.8rem] md:text-[1rem] tracking-[0.12em] uppercase text-primary transition-colors duration-300 shrink-0"
+                        className="font-heading text-[0.7rem] md:text-[1rem] tracking-[0.12em] uppercase text-primary transition-colors duration-300 shrink-0"
                     >
                         Ducor Residences
                     </Link>
@@ -149,13 +149,13 @@ export default function Navbar({ forceSolid = false }: NavbarProps) {
                             initial={{ x: '-100%' }}
                             animate={{ x: 0 }}
                             exit={{ x: '-100%' }}
-                            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                            transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
                         >
                             <div className="mb-6 flex items-center justify-between gap-4 border-b border-border pb-4">
                                 <Link
                                     href="/"
                                     onClick={() => setMobileOpen(false)}
-                                    className="font-heading text-[0.95rem] tracking-[0.14em] uppercase text-primary"
+                                    className="font-heading text-[0.7rem] tracking-[0.14em] uppercase text-primary"
                                 >
                                     Ducor Residences
                                 </Link>
@@ -181,7 +181,7 @@ export default function Navbar({ forceSolid = false }: NavbarProps) {
                                             href={link.href}
                                             onClick={() => setMobileOpen(false)}
                                             className={cn(
-                                                "border-b border-border py-4 font-heading text-[1.1rem] leading-none transition-colors duration-200 uppercase tracking-[0.18em]",
+                                                "border-b border-border py-4 font-heading text-[0.7rem] leading-none transition-colors duration-200 uppercase tracking-[0.18em]",
                                                 isActive ? "text-primary" : "text-black hover:text-black/70"
                                             )}
                                         >

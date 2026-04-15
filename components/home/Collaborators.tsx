@@ -23,9 +23,6 @@ export default function Collaborators() {
         setIsPaused((p) => !p)
     }
 
-    // Duplicate the brands to create a seamless infinite loop (2 sets for perfect -50% translation)
-    const duplicatedBrands = [...brands, ...brands]
-
     return (
         <section className="py-8 border-b border-border bg-white overflow-hidden">
             <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-12">
@@ -46,19 +43,34 @@ export default function Collaborators() {
                     <div className="absolute right-0 top-0 z-20 h-full w-24 bg-gradient-to-l from-white to-transparent pointer-events-none" />
 
                     <div
-                        className="animate-marquee flex items-center gap-16 md:gap-24 whitespace-nowrap will-change-transform"
+                        className="animate-marquee flex w-max will-change-transform"
                         style={{
                             animationPlayState: isPaused ? "paused" : "running"
                         }}
                     >
-                        {duplicatedBrands.map((brand, index) => (
-                            <div
-                                key={`${brand.name}-${index}`}
-                                className="flex items-center grayscale opacity-50 transition-all duration-500 hover:grayscale-0 hover:opacity-100 h-10 select-none"
-                            >
-                                {brand.logo}
-                            </div>
-                        ))}
+                        {/* We use two identical blocks. Each block has a right-padding 
+                            equal to the gap. This makes the total width 2 * (Content + Gap),
+                            so -50% is a mathematically perfect loop point. */}
+                        <div className="flex items-center gap-16 md:gap-24 pr-16 md:pr-24 shrink-0">
+                            {brands.map((brand, index) => (
+                                <div
+                                    key={`b1-${brand.name}-${index}`}
+                                    className="flex items-center grayscale opacity-50 transition-all duration-500 hover:grayscale-0 hover:opacity-100 h-10 select-none"
+                                >
+                                    {brand.logo}
+                                </div>
+                            ))}
+                        </div>
+                        <div className="flex items-center gap-16 md:gap-24 pr-16 md:pr-24 shrink-0">
+                            {brands.map((brand, index) => (
+                                <div
+                                    key={`b2-${brand.name}-${index}`}
+                                    className="flex items-center grayscale opacity-50 transition-all duration-500 hover:grayscale-0 hover:opacity-100 h-10 select-none"
+                                >
+                                    {brand.logo}
+                                </div>
+                            ))}
+                        </div>
                     </div>
 
                     <div className="mt-8 flex justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
