@@ -7,9 +7,13 @@ const brands = [
     { name: "Aesop", logo: <AesopLogo /> },
     { name: "Four Seasons", logo: <FourSeasonsLogo /> },
     { name: "Bang & Olufsen", logo: <BOLogo /> },
+    { name: "LVMH", logo: <LVMHLogo /> },
     { name: "Rolex", logo: <RolexLogo /> },
+    { name: "Hermès", logo: <HermesLogo /> },
     { name: "Ritz-Carlton", logo: <RitzLogo /> },
     { name: "Le Labo", logo: <LeLaboLogo /> },
+    { name: "Hyatt", logo: <HyattLogo /> },
+    { name: "Marriott", logo: <MarriottLogo /> },
 ]
 
 export default function Collaborators() {
@@ -27,7 +31,7 @@ export default function Collaborators() {
             <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-12">
                 <div className="mb-10 flex items-center justify-center gap-4">
                     <span className="h-px w-8 bg-primary/20" />
-                    <p className="font-sans text-[10px] tracking-[0.28em] uppercase text-primary/60">
+                    <p className="font-heading text-[10px] tracking-[0.28em] uppercase text-primary/60">
                         Selected Partnerships
                     </p>
                     <span className="h-px w-8 bg-primary/20" />
@@ -70,9 +74,7 @@ export default function Collaborators() {
 }
 
 function AmanLogo() {
-    return (
-        <span className="font-heading text-[1.4rem] tracking-[0.35em] uppercase text-primary">Aman</span>
-    )
+    return <span className="font-heading text-[1.4rem] tracking-[0.35em] uppercase text-primary">Aman</span>
 }
 
 function AesopLogo() {
@@ -98,17 +100,13 @@ function BOLogo() {
     return (
         <svg viewBox="0 0 24 24" className="h-9 w-auto stroke-primary fill-none" strokeWidth="1.2">
             <circle cx="12" cy="12" r="10.5" />
-            <text
-                x="12"
-                y="12.5"
-                textAnchor="middle"
-                dominantBaseline="central"
-                className="font-heading text-[7.5px] fill-primary stroke-none font-bold"
-            >
-                B&O
-            </text>
+            <text x="12" y="12.5" textAnchor="middle" dominantBaseline="central" className="font-heading text-[7.5px] fill-primary stroke-none font-bold">B&O</text>
         </svg>
     )
+}
+
+function LVMHLogo() {
+    return <span className="font-heading text-[1.2rem] tracking-[0.1em] font-bold text-primary">L V M H</span>
 }
 
 function RolexLogo() {
@@ -120,6 +118,10 @@ function RolexLogo() {
             <span className="font-sans text-[0.65rem] tracking-[0.2em] uppercase font-bold mt-1">Rolex</span>
         </div>
     )
+}
+
+function HermesLogo() {
+    return <span className="font-heading text-[1.1rem] tracking-[0.4em] uppercase text-primary">HERMÈS</span>
 }
 
 function RitzLogo() {
@@ -139,4 +141,12 @@ function LeLaboLogo() {
             <span className="font-mono text-[0.85rem] tracking-tighter uppercase font-bold">Le Labo</span>
         </div>
     )
+}
+
+function HyattLogo() {
+    return <span className="font-heading text-[1.2rem] tracking-[0.15em] uppercase text-primary">HYATT</span>
+}
+
+function MarriottLogo() {
+    return <span className="font-sans text-[0.9rem] tracking-[0.05em] uppercase font-bold text-primary">Marriott</span>
 }
