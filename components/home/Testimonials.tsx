@@ -28,11 +28,11 @@ export default function Testimonials() {
 
             {/* Carousel Container */}
             <div
-                className="relative w-full overflow-x-auto pb-20 no-scrollbar md:overflow-visible"
+                className="relative w-full overflow-x-auto pb-20 no-scrollbar lg:overflow-visible"
                 style={{ perspective: "1500px" }}
             >
                 <div
-                    className="flex px-[15%] md:justify-center md:px-0 scroll-smooth snap-x snap-mandatory md:snap-none -space-x-28 md:-space-x-32"
+                    className="flex px-[15%] md:px-[10%] lg:justify-center lg:px-0 scroll-smooth snap-x snap-mandatory lg:snap-none -space-x-24 md:-space-x-28 lg:-space-x-32"
                 >
                     {testimonials.map((t, i) => {
                         const isHovered = hoveredIndex === i

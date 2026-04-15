@@ -42,7 +42,7 @@ export default function HeroSection() {
             <div className="absolute inset-0 bg-black/40" />
             <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/60" />
 
-            <div className="relative mx-auto flex min-h-[100svh] max-w-7xl items-center px-5 pt-25 pb-20 md:px-8 lg:px-12">
+            <div className="relative mx-auto flex min-h-[100svh] max-w-7xl items-center px-5 pt-25 pb-20">
                 <div className="grid w-full items-center gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-start">
                     <motion.div
                         variants={containerVariants}
@@ -55,12 +55,12 @@ export default function HeroSection() {
                                 variants={itemVariants}
                                 className="font-sans text-[10px] tracking-[0.28em] uppercase text-white/70 py-3"
                             >
-                                Monrovia, Liberia
+                                Ducor Hill, Monrovia
                             </motion.p>
 
                             <motion.h1
                                 variants={itemVariants}
-                                className="max-w-4xl font-heading text-4xl leading-[0.96] tracking-[0.01em] text-white sm:text-5xl md:text-6xl lg:text-[4.8rem]"
+                                className="max-w-4xl font-heading text-3xl leading-[0.96] tracking-[0.01em] text-white sm:text-4xl md:text-4xl lg:text-[4rem]"
                             >
                                 Quiet luxury with a clearer point of view.
                             </motion.h1>

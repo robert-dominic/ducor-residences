@@ -29,7 +29,7 @@ const cardVariants = {
 export default function FeaturedRoomsClient({ featuredRooms }: FeaturedRoomsClientProps) {
     return (
         <section id="featured-rooms" className="bg-background py-25 border-t border-border/40">
-            <div className="mx-auto max-w-screen-2xl px-5 md:px-8 lg:px-12 space-y-16">
+            <div className="mx-auto max-w-screen-2xl px-5 lg:px-20 space-y-16">
                 <SectionHeading
                     eyebrow="Selected Rooms"
                     title="Featured Rooms"
@@ -41,7 +41,7 @@ export default function FeaturedRoomsClient({ featuredRooms }: FeaturedRoomsClie
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: "-80px" }}
-                    className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
+                    className="grid grid-cols-1 gap-4 xl:gap-6 sm:grid-cols-2 xl:grid-cols-4"
                 >
                     {featuredRooms.map((room) => (
                         <motion.div key={room.id} variants={cardVariants}>
@@ -61,7 +61,7 @@ export default function FeaturedRoomsClient({ featuredRooms }: FeaturedRoomsClie
                         href="/rooms"
                         className="inline-flex min-w-44 items-center justify-center rounded-xl border border-border bg-white px-6 py-3.5 font-sans text-[11px] tracking-[0.22em] uppercase text-primary transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white"
                     >
-                        View Our Rooms
+                        View All Rooms
                     </Link>
                 </motion.div>
             </div>

@@ -29,7 +29,7 @@ const itemVariants = {
 export default function HighlightsGrid() {
     return (
         <section className="bg-primary py-10">
-            <div className="mx-auto max-w-7xl px-6 lg:px-10">
+            <div className="mx-auto max-w-7xl px-5">
                 <motion.div
                     variants={containerVariants}
                     initial="hidden"
@@ -43,7 +43,7 @@ export default function HighlightsGrid() {
                             <motion.div
                                 key={item.label}
                                 variants={itemVariants}
-                                className="flex flex-col items-center justify-center gap-3 bg-primary px-6 py-10 text-center"
+                                className="flex flex-col items-center justify-center gap-3 bg-primary px-3 py-10 text-center"
                             >
                                 <Icon size={22} strokeWidth={1.5} className="text-accent" />
                                 <div>
