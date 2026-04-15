@@ -10,7 +10,7 @@ const CONFIG = {
     tilt: { hovered: -12, adjacentLeft: -20, adjacentRight: 20, idle: 0 },
     lift: { hovered: -20, idle: 0 },
     opacity: { other: 0.4, idle: 1 },
-    transition: { duration: 0.25, ease: "easeOut" as const }
+    transition: { duration: 0.1, ease: "easeOut" as const }
 }
 
 export default function Testimonials() {
