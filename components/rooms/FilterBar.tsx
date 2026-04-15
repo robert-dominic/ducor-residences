@@ -14,7 +14,7 @@ const filters: RoomFilterType[] = ["All", "Single", "Double", "Suite", "Penthous
 
 export default function FilterBar({ currentFilter, onFilterChange }: FilterBarProps) {
     return (
-        <div className="flex w-full items-center gap-8 overflow-x-auto pb-4 pt-12 md:justify-center md:flex-wrap md:overflow-visible [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] border-b border-primary/5">
+        <div className="flex w-full items-center gap-8 overflow-x-auto pb-4 md:justify-center md:flex-wrap md:overflow-visible [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] border-b border-primary/5">
             {filters.map((filter) => {
                 const isActive = currentFilter === filter
                 return (

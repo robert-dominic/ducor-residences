@@ -12,7 +12,7 @@ export default function BookingPanel({ price, roomSlug, isAvailable }: BookingPa
         <div className="sticky top-28 rounded-2xl border border-border bg-surface p-8 shadow-[0_16px_36px_rgba(26,26,26,0.05)]">
             <div className="space-y-6">
                 <div>
-                    <p className="font-sans text-[11px] font-medium uppercase tracking-[0.18em] text-muted">
+                    <p className="font-sans text-[11px] uppercase tracking-[0.18em] text-muted">
                         Starting from
                     </p>
                     <div className="mt-2 flex items-baseline gap-2">
@@ -45,7 +45,7 @@ export default function BookingPanel({ price, roomSlug, isAvailable }: BookingPa
                 {isAvailable ? (
                     <Link
                         href={`/booking?room=${roomSlug}`}
-                        className="flex w-full items-center justify-center rounded-lg bg-button px-4 py-3 font-sans text-[13px] font-medium uppercase tracking-[0.16em] text-white transition-colors hover:bg-accent"
+                        className="flex w-full items-center justify-center rounded-lg bg-button px-4 py-3 font-sans text-[10px] md:text-[12px] font-medium uppercase tracking-[0.16em] text-white transition-colors hover:bg-accent"
                     >
                         Check Availability
                     </Link>

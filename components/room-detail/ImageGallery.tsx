@@ -14,7 +14,7 @@ export default function ImageGallery({ images, roomName }: ImageGalleryProps) {
     return (
         <div className="flex flex-col gap-4">
             {/* Main Hero Image */}
-            <div className="relative aspect-[16/9] w-full overflow-hidden bg-surface md:aspect-[21/9]">
+            <div className="relative aspect-[16/9] w-full overflow-hidden bg-surface">
                 <Image
                     src={mainImage}
                     alt={`${roomName} - Main View`}
@@ -27,7 +27,7 @@ export default function ImageGallery({ images, roomName }: ImageGalleryProps) {
 
             {/* Thumbnails (desktop: 4, mobile: 2 or scroll) */}
             {thumbnails.length > 0 && (
-                <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+                <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
                     {thumbnails.map((src, i) => (
                         <div
                             key={i}

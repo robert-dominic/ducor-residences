@@ -30,14 +30,14 @@ export default function RoomGrid({ rooms }: RoomGridProps) {
 
     return (
         <section className="bg-white py-24">
-            <div className="mx-auto max-w-screen-2xl px-5 md:px-8 lg:px-12">
+            <div className="mx-auto max-w-screen-2xl px-5 lg:px-20">
 
                 <FilterBar currentFilter={filter} onFilterChange={setFilter} />
 
                 <div className="mt-8">
                     {loading ? (
                         // Skeleton Layout (must match RoomCard shape exactly)
-                        <div className="grid grid-cols-1 gap-[20px] md:grid-cols-2 md:gap-[24px] lg:grid-cols-3 lg:gap-[28px]">
+                        <div className="grid grid-cols-1 gap-[20px] md:grid-cols-2 lg:grid-cols-3">
                             {Array.from({ length: 4 }).map((_, i) => (
                                 <div key={i} className="overflow-hidden rounded-2xl border border-border bg-surface shadow-[0_16px_36px_rgba(26,26,26,0.05)]">
                                     <div className="relative aspect-[4/3]">
@@ -66,7 +66,7 @@ export default function RoomGrid({ rooms }: RoomGridProps) {
                         // Actual Grid
                         <motion.div
                             layout
-                            className="grid grid-cols-1 gap-[20px] md:grid-cols-2 md:gap-[24px] lg:grid-cols-3 lg:gap-[28px]"
+                            className="grid grid-cols-1 gap-[20px] md:grid-cols-2 lg:grid-cols-3"
                         >
                             <AnimatePresence mode="popLayout">
                                 {filteredRooms.map((room) => (

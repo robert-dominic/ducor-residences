@@ -10,10 +10,10 @@ export default function RoomInfo({ room }: RoomInfoProps) {
     return (
         <Reveal className="space-y-8">
             <div>
-                <div className="mb-3 inline-block rounded-md bg-primary px-3 py-1 font-sans text-[11px] font-medium uppercase tracking-[0.16em] text-white">
+                <div className="mb-3 inline-block rounded-md bg-primary px-3 py-2 font-sans text-[11px] font-medium uppercase tracking-[0.16em] text-white">
                     {room.type}
                 </div>
-                <h1 className="font-heading text-[2.2rem] font-medium leading-[1.05] text-primary md:text-[3.5rem]">
+                <h1 className="font-heading text-[1.2rem] md:text-[1.7rem] leading-[1.05] text-primary">
                     {room.name}
                 </h1>
             </div>
@@ -31,7 +31,7 @@ export default function RoomInfo({ room }: RoomInfoProps) {
             </div>
 
             {/* Description */}
-            <div className="prose max-w-none prose-p:font-sans prose-p:text-[15px] prose-p:leading-7 prose-p:text-muted">
+            <div className="prose max-w-none prose-p:font-sans prose-p:text-[15px] prose-p:leading-7">
                 <p>{room.description}</p>
             </div>
         </Reveal>

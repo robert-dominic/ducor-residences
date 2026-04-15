@@ -20,13 +20,13 @@ export default async function SimilarRooms({ currentRoom }: SimilarRoomsProps) {
 
     return (
         <section className="bg-surface py-20 mt-12 border-t border-border">
-            <Reveal className="mx-auto max-w-7xl px-6 lg:px-10 space-y-10">
+            <Reveal className="mx-auto max-w-7xl px-5 space-y-10">
                 <SectionHeading
                     title="Similar Rooms"
                     subtitle="Explore other spaces that might catch your eye."
                 />
 
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+                <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
                     {others.map((room) => (
                         <RoomCard key={room.id} room={room} />
                     ))}
