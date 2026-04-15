@@ -55,7 +55,6 @@ components/
   amenities/
   booking/
   contact/
-  gallery/
   home/
   room-detail/
   rooms/
