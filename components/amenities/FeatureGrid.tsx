@@ -34,28 +34,30 @@ interface FeatureGridProps {
 
 export default function FeatureGrid({ amenities }: FeatureGridProps) {
     return (
-        <section className="bg-surface py-24">
-            <Reveal className="mx-auto max-w-7xl px-6 lg:px-10">
-                <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <section className="bg-white py-24">
+            <Reveal className="mx-auto max-w-screen-2xl px-5 md:px-8 lg:px-12">
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                     {amenities.map((item) => {
                         const IconComponent = iconMap[item.icon] || Wifi // Fallback
 
                         return (
                             <div
                                 key={item.id}
-                                className="flex flex-col gap-4 rounded-2xl border border-border bg-background p-8 transition-colors hover:border-accent"
+                                className="flex flex-col gap-6 rounded-2xl border border-primary/5 bg-[#F9F9F9] p-8 transition-all group hover:bg-white"
                             >
-                                <div className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-surface text-accent">
+                                <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-white text-primary shadow-sm group-hover:bg-primary group-hover:text-white transition-colors duration-300">
                                     <IconComponent size={24} strokeWidth={1.5} />
                                 </div>
 
-                                <h3 className="font-heading text-[1.7rem] font-medium leading-[1.15] text-primary">
-                                    {item.title}
-                                </h3>
+                                <div className="space-y-3">
+                                    <h3 className="font-heading text-[1.6rem] font-medium leading-[1.04] tracking-[0.01em] text-primary">
+                                        {item.title}
+                                    </h3>
 
-                                <p className="font-sans text-[15px] leading-7 text-muted">
-                                    {item.description}
-                                </p>
+                                    <p className="font-sans text-[15px] leading-relaxed text-primary/60">
+                                        {item.description}
+                                    </p>
+                                </div>
                             </div>
                         )
                     })}

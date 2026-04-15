@@ -23,6 +23,8 @@ export const metadata: Metadata = {
     "Where Monrovia's story meets modern comfort. Experience luxury accommodation at Ducor Residences, nestled in the heart of Monrovia, Liberia.",
 }
 
+import ScrollToTop from "@/components/shared/ScrollToTop"
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -34,6 +36,7 @@ export default function RootLayout({
       className={cn(montserrat.variable, jakarta.variable)}
     >
       <body className={cn("min-h-full flex flex-col bg-background text-primary antialiased font-sans")}>
+        <ScrollToTop />
         {children}
       </body>
     </html>

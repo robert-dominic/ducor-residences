@@ -12,7 +12,7 @@ export default function PriceSummary({ nights, roomTitle, basePrice }: PriceSumm
     const total = subtotal + tax
 
     return (
-        <div className="sticky top-28 rounded-2xl border border-border bg-surface shadow-[0_18px_40px_rgba(26,26,26,0.05)]">
+        <div className="sticky top-28 rounded-2xl border border-primary/5 bg-[#F9F9F9]">
             {/* Header */}
             <div className="border-b border-border/50 p-8 space-y-2">
                 <h3 className="font-heading text-[1.7rem] font-medium text-primary">
@@ -26,13 +26,15 @@ export default function PriceSummary({ nights, roomTitle, basePrice }: PriceSumm
             {/* Body */}
             <div className="p-8 space-y-6">
                 <ul className="space-y-4 font-sans text-sm text-primary/80">
-                    <li className="flex justify-between">
-                        <span>{formatPrice(basePrice).split(" / ")[0]} × {nights} {nights === 1 ? "night" : "nights"}</span>
-                        <span className="font-medium">{formatPrice(subtotal).split(" / ")[0]}</span>
+                    <li className="flex items-end gap-3">
+                        <span className="shrink-0">{formatPrice(basePrice).split(" / ")[0]} × {nights} {nights === 1 ? "night" : "nights"}</span>
+                        <div className="mb-1 flex-1 border-b border-dotted border-primary/20" />
+                        <span className="font-medium shrink-0">{formatPrice(subtotal).split(" / ")[0]}</span>
                     </li>
-                    <li className="flex justify-between">
-                        <span>Taxes & Fees (15%)</span>
-                        <span className="font-medium">{formatPrice(tax).split(" / ")[0]}</span>
+                    <li className="flex items-end gap-3">
+                        <span className="shrink-0">Taxes & Fees (15%)</span>
+                        <div className="mb-1 flex-1 border-b border-dotted border-primary/20" />
+                        <span className="font-medium shrink-0">{formatPrice(tax).split(" / ")[0]}</span>
                     </li>
                 </ul>
 

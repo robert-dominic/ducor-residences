@@ -3,7 +3,7 @@
 import { useForm, useWatch } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
-import { addDays, differenceInDays, format, parseISO, startOfDay } from "date-fns"
+import { addDays, differenceInDays, format, isAfter, parseISO, startOfDay } from "date-fns"
 import { CalendarIcon, Loader2 } from "lucide-react"
 import { useEffect, useState } from "react"
 
@@ -169,6 +169,12 @@ export default function StepOne({ rooms, formData, updateFormData, onNext }: Ste
         )
     }
 
+    const firstBlockedAfterCheckIn = watchedCheckIn
+        ? blockedDates
+            .filter((d) => isAfter(d, startOfDay(watchedCheckIn)))
+            .sort((a, b) => a.getTime() - b.getTime())[0]
+        : null
+
     function onSubmit(values: StepOneValues) {
         const room = rooms.find(r => r.id === values.roomId)
         updateFormData({
@@ -186,7 +192,7 @@ export default function StepOne({ rooms, formData, updateFormData, onNext }: Ste
         <div className="grid grid-cols-1 items-start gap-12 md:grid-cols-12 md:gap-10 lg:gap-16">
             <div className="order-1 md:order-1 md:col-span-7 lg:col-span-8">
                 <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 rounded-2xl border border-border bg-surface px-4 py-6 shadow-[0_18px_40px_rgba(26,26,26,0.05)] sm:p-12">
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 rounded-2xl border border-primary/5 bg-[#F9F9F9] px-4 py-6 sm:p-12">
                         <h2 className="font-heading text-[1.7rem] font-medium leading-[1.15] text-primary">
                             Stay Details
                         </h2>
@@ -251,7 +257,7 @@ export default function StepOne({ rooms, formData, updateFormData, onNext }: Ste
                                                 </Button>
                                             </FormControl>
                                         </PopoverTrigger>
-                                        <PopoverContent className="w-[calc(100vw-2rem)] max-w-full p-0 sm:w-[19rem] md:w-auto" align="start">
+                                        <PopoverContent className="w-[280px] p-0 sm:w-[19rem] md:w-auto" align="start">
                                             <Calendar
                                                 autoFocus
                                                 mode="single"
@@ -267,7 +273,11 @@ export default function StepOne({ rooms, formData, updateFormData, onNext }: Ste
                                                     setCheckInOpen(false)
                                                 }}
                                                 numberOfMonths={isMobile ? 1 : 2}
-                                                disabled={(date) => startOfDay(date) < today || isBlockedDate(date)}
+                                                disabled={(date) => {
+                                                    const d = startOfDay(date)
+                                                    const max = watchedCheckOut ? startOfDay(watchedCheckOut) : null
+                                                    return d < today || isBlockedDate(date) || (max !== null && d >= max)
+                                                }}
                                             />
                                         </PopoverContent>
                                     </Popover>
@@ -307,7 +317,7 @@ export default function StepOne({ rooms, formData, updateFormData, onNext }: Ste
                                                 </Button>
                                             </FormControl>
                                         </PopoverTrigger>
-                                        <PopoverContent className="w-[calc(100vw-2rem)] max-w-full p-0 sm:w-[19rem] md:w-auto" align="start">
+                                        <PopoverContent className="w-[280px] p-0 sm:w-[19rem] md:w-auto" align="start">
                                             <Calendar
                                                 autoFocus
                                                 mode="single"
@@ -320,10 +330,16 @@ export default function StepOne({ rooms, formData, updateFormData, onNext }: Ste
                                                 }}
                                                 numberOfMonths={isMobile ? 1 : 2}
                                                 disabled={(date) => {
+                                                    const d = startOfDay(date)
                                                     const min = watchedCheckIn
                                                         ? addDays(startOfDay(watchedCheckIn), 1)
                                                         : addDays(today, 1)
-                                                    return startOfDay(date) < min || isBlockedDate(date) || startOfDay(date) < today
+
+                                                    return (
+                                                        d < min ||
+                                                        d < today ||
+                                                        (!!firstBlockedAfterCheckIn && isAfter(d, firstBlockedAfterCheckIn))
+                                                    )
                                                 }}
                                             />
                                         </PopoverContent>

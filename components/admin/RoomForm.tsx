@@ -119,20 +119,20 @@ export default function RoomForm({ initialRoom }: RoomFormProps) {
     }
 
     return (
-        <div className="rounded-2xl border border-border bg-surface p-6 shadow-[0_8px_24px_rgba(26,26,26,0.05)]">
-            <div className="mt-2 grid grid-cols-1 gap-5 md:grid-cols-2">
+        <div className="rounded-2xl border border-primary/5 bg-[#F9F9F9] p-10">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
                 <Field label="Name">
                     <Input
                         value={formState.name}
                         onChange={(event) => updateField("name", event.target.value)}
-                        className="h-11 rounded-lg border-border bg-background px-4 text-sm text-primary"
+                        className="h-12 rounded-xl border-primary/5 bg-white px-5 font-sans text-sm text-primary transition-all focus:border-primary/20 focus:ring-4 focus:ring-primary/2"
                     />
                 </Field>
                 <Field label="Slug">
                     <Input
                         value={formState.slug}
                         onChange={(event) => updateField("slug", event.target.value)}
-                        className="h-11 rounded-lg border-border bg-background px-4 text-sm text-primary"
+                        className="h-12 rounded-xl border-primary/5 bg-white px-5 font-sans text-sm text-primary transition-all focus:border-primary/20 focus:ring-4 focus:ring-primary/2"
                     />
                 </Field>
                 <Field label="Type">
@@ -140,25 +140,25 @@ export default function RoomForm({ initialRoom }: RoomFormProps) {
                         value={formState.type}
                         onValueChange={(value) => updateField("type", value as RoomType)}
                     >
-                        <SelectTrigger className="h-11 w-full rounded-lg border-border bg-background px-4 font-sans text-sm text-primary focus:ring-accent">
+                        <SelectTrigger className="h-12 w-full rounded-xl border-primary/5 bg-white px-5 font-sans text-sm text-primary transition-all focus:border-primary/20 focus:ring-4 focus:ring-primary/2">
                             <SelectValue placeholder="Select type" />
                         </SelectTrigger>
-                        <SelectContent>
+                        <SelectContent className="rounded-xl border-primary/5 shadow-2xl">
                             {ROOM_TYPES.map((type) => (
-                                <SelectItem key={type} value={type}>
+                                <SelectItem key={type} value={type} className="rounded-lg font-sans text-sm py-2.5">
                                     {type}
                                 </SelectItem>
                             ))}
                         </SelectContent>
                     </Select>
                 </Field>
-                <Field label="Price">
+                <Field label="Price per Night">
                     <Input
                         type="number"
                         min="0"
                         value={formState.price}
                         onChange={(event) => updateField("price", event.target.value)}
-                        className="h-11 rounded-lg border-border bg-background px-4 text-sm text-primary"
+                        className="h-12 rounded-xl border-primary/5 bg-white px-5 font-sans text-sm text-primary transition-all focus:border-primary/20 focus:ring-4 focus:ring-primary/2"
                     />
                 </Field>
                 <Field label="Capacity">
@@ -167,77 +167,81 @@ export default function RoomForm({ initialRoom }: RoomFormProps) {
                         min="1"
                         value={formState.capacity}
                         onChange={(event) => updateField("capacity", event.target.value)}
-                        className="h-11 rounded-lg border-border bg-background px-4 text-sm text-primary"
+                        className="h-12 rounded-xl border-primary/5 bg-white px-5 font-sans text-sm text-primary transition-all focus:border-primary/20 focus:ring-4 focus:ring-primary/2"
                     />
                 </Field>
-                <Field label="Size">
+                <Field label="Size (e.g. 45m²)">
                     <Input
                         value={formState.size}
                         onChange={(event) => updateField("size", event.target.value)}
-                        className="h-11 rounded-lg border-border bg-background px-4 text-sm text-primary"
+                        className="h-12 rounded-xl border-primary/5 bg-white px-5 font-sans text-sm text-primary transition-all focus:border-primary/20 focus:ring-4 focus:ring-primary/2"
                     />
                 </Field>
             </div>
 
-            <div className="mt-5">
+            <div className="mt-8">
                 <Field label="Description">
                     <Textarea
                         value={formState.description}
                         onChange={(event) => updateField("description", event.target.value)}
-                        className="min-h-28 rounded-lg border-border bg-background px-4 py-3 text-sm text-primary"
+                        className="min-h-32 rounded-xl border-primary/5 bg-white px-5 py-4 font-sans text-sm text-primary leading-relaxed transition-all focus:border-primary/20 focus:ring-4 focus:ring-primary/2"
                     />
                 </Field>
             </div>
 
-            <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-2">
-                <Field label="Images">
+            <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2">
+                <Field label="Image URLs (comma separated)">
                     <Textarea
                         value={formState.images}
                         onChange={(event) => updateField("images", event.target.value)}
-                        className="min-h-24 rounded-lg border-border bg-background px-4 py-3 text-sm text-primary"
+                        className="min-h-24 rounded-xl border-primary/5 bg-white px-5 py-4 font-sans text-[13px] text-primary/60 leading-relaxed transition-all focus:border-primary/20 focus:ring-4 focus:ring-primary/2"
                         placeholder="https://..., https://..."
                     />
                 </Field>
-                <Field label="Amenities">
+                <Field label="Amenities (comma separated)">
                     <Textarea
                         value={formState.amenities}
                         onChange={(event) => updateField("amenities", event.target.value)}
-                        className="min-h-24 rounded-lg border-border bg-background px-4 py-3 text-sm text-primary"
+                        className="min-h-24 rounded-xl border-primary/5 bg-white px-5 py-4 font-sans text-[13px] text-primary/60 leading-relaxed transition-all focus:border-primary/20 focus:ring-4 focus:ring-primary/2"
                         placeholder="Free WiFi, Air Conditioning, Flat-screen TV"
                     />
                 </Field>
             </div>
 
-            <label className="mt-5 inline-flex items-center gap-3 font-sans text-sm text-primary">
-                <input
-                    type="checkbox"
-                    checked={formState.featured}
-                    onChange={(event) => updateField("featured", event.target.checked)}
-                    className="h-4 w-4 rounded border-border"
-                />
-                Featured room
-            </label>
+            <div className="mt-8 flex items-center">
+                <label className="inline-flex cursor-pointer items-center gap-3 font-sans text-[13px] font-medium text-primary/60 hover:text-primary transition-colors">
+                    <div className="relative flex items-center">
+                        <input
+                            type="checkbox"
+                            checked={formState.featured}
+                            onChange={(event) => updateField("featured", event.target.checked)}
+                            className="peer h-5 w-5 rounded-lg border-primary/10 bg-white text-primary transition-all focus:ring-0"
+                        />
+                    </div>
+                    Featured Property
+                </label>
+            </div>
 
             {error && (
-                <p className="mt-5 rounded-lg border border-red-200 bg-red-50 px-4 py-3 font-sans text-sm text-red-600">
+                <p className="mt-8 rounded-xl border border-red-100 bg-white px-5 py-4 font-sans text-sm text-red-600 italic">
                     {error}
                 </p>
             )}
 
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                 <Button
                     type="button"
                     onClick={handleSave}
                     disabled={saving}
-                    className="h-11 rounded-lg bg-button px-5 font-sans text-[12px] font-medium uppercase tracking-[0.14em] text-white hover:brightness-105"
+                    className="h-12 rounded-xl bg-primary px-8 font-sans text-[11px] font-medium uppercase tracking-[0.2em] text-white shadow-sm hover:brightness-105 transition-all"
                 >
                     {saving ? (
                         <>
                             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                            Saving...
+                            Synchronizing...
                         </>
                     ) : (
-                        "Save Room"
+                        "Save Definition"
                     )}
                 </Button>
                 <Button
@@ -245,9 +249,9 @@ export default function RoomForm({ initialRoom }: RoomFormProps) {
                     variant="outline"
                     onClick={() => router.push("/admin/rooms")}
                     disabled={saving}
-                    className="h-11 rounded-lg border-border bg-background px-5 font-sans text-[12px] font-medium uppercase tracking-[0.14em]"
+                    className="h-12 rounded-xl border-primary/10 bg-white px-8 font-sans text-[11px] font-medium uppercase tracking-[0.2em] text-primary/60 hover:text-primary transition-all"
                 >
-                    Cancel
+                    Return to List
                 </Button>
             </div>
         </div>
@@ -256,9 +260,9 @@ export default function RoomForm({ initialRoom }: RoomFormProps) {
 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
     return (
-        <label className="space-y-2">
-            <span className="font-sans text-[11px] uppercase tracking-[0.18em] text-muted">{label}</span>
+        <div className="space-y-3">
+            <span className="font-heading text-[9px] uppercase tracking-[0.24em] text-primary/40 block ml-1">{label}</span>
             {children}
-        </label>
+        </div>
     )
 }

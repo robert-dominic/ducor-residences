@@ -8,7 +8,7 @@ interface ConfirmationScreenProps {
 
 export default function ConfirmationScreen({ email, bookingNumber }: ConfirmationScreenProps) {
     return (
-        <div className="flex h-full min-h-[500px] flex-col items-center justify-center space-y-8 rounded-2xl border border-border bg-surface p-12 text-center shadow-[0_18px_40px_rgba(26,26,26,0.05)]">
+        <div className="flex h-full min-h-[500px] flex-col items-center justify-center space-y-8 rounded-2xl border border-primary/5 bg-[#F9F9F9] p-12 text-center">
             <div className="p-4 text-accent">
                 <CheckCircle2 size={48} strokeWidth={1.5} />
             </div>

@@ -45,75 +45,77 @@ export default function RoomList({ initialRooms }: RoomListProps) {
     const sortedRooms = [...rooms].sort((a, b) => a.price - b.price)
 
     return (
-        <div className="space-y-6">
-            <div className="flex items-center justify-between">
+        <div className="space-y-8">
+            <div className="flex items-end justify-between">
                 <div>
-                    <h3 className="font-heading text-[1.4rem] font-medium text-primary">All Rooms</h3>
-                    <p className="mt-1 font-sans text-sm text-muted">Manage your inventory and availability.</p>
+                    <h3 className="font-heading text-[1.4rem] font-medium leading-[1.04] tracking-[0.01em] text-primary">All Rooms</h3>
+                    <p className="mt-2 font-sans text-[11px] text-primary/40 leading-relaxed uppercase tracking-[0.1em]">Manage your inventory and availability.</p>
                 </div>
                 <Link href="/admin/rooms/new">
-                    <Button className="h-11 rounded-lg bg-button px-5 font-sans text-[12px] font-medium uppercase tracking-[0.14em] text-white hover:brightness-105">
-                        <Plus className="mr-2 h-4 w-4" />
+                    <Button className="h-12 rounded-xl bg-primary px-6 font-sans text-[11px] font-medium uppercase tracking-[0.2em] text-white shadow-sm hover:brightness-105 transition-all">
+                        <Plus className="mr-2 h-4 w-4" strokeWidth={1.5} />
                         Add Room
                     </Button>
                 </Link>
             </div>
 
             {error && (
-                <p className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 font-sans text-sm text-red-600">
+                <p className="rounded-xl border border-red-100 bg-white px-5 py-4 font-sans text-sm text-red-600 italic">
                     {error}
                 </p>
             )}
 
-            <div className="overflow-hidden rounded-2xl border border-border bg-surface shadow-[0_8px_24px_rgba(26,26,26,0.05)]">
+            <div className="overflow-hidden rounded-2xl border border-primary/5 bg-[#F9F9F9]">
                 <div className="overflow-x-auto">
                     <table className="w-full text-sm">
                         <thead>
-                            <tr className="border-b border-border bg-background">
+                            <tr className="border-b border-primary/5 bg-white">
                                 {["Name", "Type", "Price", "Capacity", "Availability", "Actions"].map((heading) => (
                                     <th
                                         key={heading}
-                                        className="px-5 py-4 text-left font-sans text-[11px] uppercase tracking-[0.14em] text-muted"
+                                        className="px-6 py-5 text-left font-heading text-[9px] uppercase tracking-[0.24em] text-primary/40"
                                     >
                                         {heading}
                                     </th>
                                 ))}
                             </tr>
                         </thead>
-                        <tbody className="divide-y divide-border">
+                        <tbody className="divide-y divide-primary/5 bg-[#F9F9F9]">
                             {sortedRooms.map((room) => (
-                                <tr key={room.id} className="hover:bg-background/50 transition-colors">
-                                    <td className="px-5 py-4">
-                                        <p className="font-sans font-medium text-primary">{room.name}</p>
-                                        <p className="font-sans text-xs text-muted">{room.slug}</p>
+                                <tr key={room.id} className="hover:bg-white transition-colors duration-300">
+                                    <td className="px-6 py-5">
+                                        <p className="font-sans font-medium text-primary text-[13px]">{room.name}</p>
+                                        <p className="font-sans text-[10px] text-primary/40 mt-0.5 uppercase tracking-wider">{room.slug}</p>
                                     </td>
-                                    <td className="px-5 py-4 font-sans text-primary">{room.type}</td>
-                                    <td className="px-5 py-4 font-sans text-primary">${room.price}</td>
-                                    <td className="px-5 py-4 font-sans text-primary">{room.capacity}</td>
-                                    <td className="px-5 py-4">
-                                        <button
-                                            type="button"
-                                            onClick={() => handleToggleAvailability(room)}
-                                            disabled={togglingId === room.id}
-                                            className={`relative inline-flex h-7 w-14 items-center rounded-full transition-colors ${room.is_available ? "bg-button" : "bg-border"} ${togglingId === room.id ? "opacity-70" : ""}`}
-                                            aria-pressed={room.is_available}
-                                        >
-                                            <span
-                                                className={`inline-block h-5 w-5 transform rounded-full bg-white transition-transform ${room.is_available ? "translate-x-8" : "translate-x-1"}`}
-                                            />
-                                        </button>
-                                        <p className="mt-2 font-sans text-xs text-muted">
-                                            {room.is_available ? "Available" : "Unavailable"}
-                                        </p>
+                                    <td className="px-6 py-5 font-sans text-primary/60 text-[13px]">{room.type}</td>
+                                    <td className="px-6 py-5 font-sans font-medium text-primary text-[13px]">${room.price}</td>
+                                    <td className="px-6 py-5 font-sans text-primary/60 text-[13px]">{room.capacity} <span className="text-[9px] uppercase ml-1">guests</span></td>
+                                    <td className="px-6 py-5">
+                                        <div className="flex items-center gap-4">
+                                            <button
+                                                type="button"
+                                                onClick={() => handleToggleAvailability(room)}
+                                                disabled={togglingId === room.id}
+                                                className={`relative inline-flex h-6 w-12 items-center rounded-full transition-all duration-300 ${room.is_available ? "bg-emerald-500" : "bg-primary/10"} ${togglingId === room.id ? "opacity-50" : ""}`}
+                                                aria-pressed={room.is_available}
+                                            >
+                                                <span
+                                                    className={`inline-block h-4 w-4 transform rounded-full bg-white shadow-sm transition-transform duration-300 ${room.is_available ? "translate-x-7" : "translate-x-1"}`}
+                                                />
+                                            </button>
+                                            <span className={`font-sans text-[11px] font-medium uppercase tracking-widest ${room.is_available ? "text-emerald-600" : "text-primary/30"}`}>
+                                                {room.is_available ? "Live" : "Hidden"}
+                                            </span>
+                                        </div>
                                     </td>
-                                    <td className="px-5 py-4">
+                                    <td className="px-6 py-5">
                                         <Link href={`/admin/rooms/${room.id}/edit`}>
                                             <Button
                                                 type="button"
                                                 variant="outline"
-                                                className="rounded-lg border-border bg-background font-sans text-[11px] uppercase tracking-[0.14em] text-primary"
+                                                className="h-9 rounded-lg border-primary/10 bg-white px-4 font-sans text-[10px] font-medium uppercase tracking-[0.18em] text-primary/60 hover:text-primary hover:border-primary/20 transition-all"
                                             >
-                                                <Pencil className="mr-2 h-3.5 w-3.5" />
+                                                <Pencil className="mr-2 h-3 w-3" />
                                                 Edit
                                             </Button>
                                         </Link>

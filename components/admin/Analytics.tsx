@@ -54,8 +54,8 @@ export default function Analytics({ bookings }: AnalyticsProps) {
 
     if (bookings.length === 0) {
         return (
-            <div className="rounded-2xl border border-border bg-surface px-8 py-16 text-center shadow-[0_8px_24px_rgba(26,26,26,0.05)]">
-                <p className="font-sans text-sm text-muted">No data yet — analytics will appear once bookings come in.</p>
+            <div className="rounded-2xl border border-primary/5 bg-[#F9F9F9] px-8 py-16 text-center">
+                <p className="font-sans text-sm text-primary/40 leading-relaxed max-w-xs mx-auto italic">No data yet — analytics will appear once bookings come in.</p>
             </div>
         )
     }
@@ -111,33 +111,33 @@ export default function Analytics({ bookings }: AnalyticsProps) {
 
     return (
         <div className="space-y-6">
-            <div className="grid gap-4 md:grid-cols-2">
-                <div className="rounded-2xl border border-border bg-surface p-6 shadow-[0_8px_24px_rgba(26,26,26,0.05)]">
-                    <p className="font-sans text-[11px] uppercase tracking-[0.18em] text-muted">Most Booked Room</p>
-                    <p className="mt-3 font-heading text-[1.4rem] font-medium leading-tight text-primary">
+            <div className="grid gap-6 md:grid-cols-2">
+                <div className="rounded-2xl border border-primary/5 bg-[#F9F9F9] p-7 transition-all hover:bg-white group">
+                    <p className="font-sans text-[10px] uppercase tracking-[0.2em] text-primary/40 group-hover:text-primary/60 transition-colors uppercase">Most Booked Room</p>
+                    <p className="mt-4 font-heading text-[1.6rem] font-medium leading-[1.04] tracking-[0.01em] text-primary">
                         {mostBooked ? mostBooked[0] : "—"}
                     </p>
-                    <p className="mt-1 font-sans text-sm text-muted">
+                    <p className="mt-2 font-sans text-xs text-primary/40">
                         {mostBooked ? `${mostBooked[1]} booking${mostBooked[1] === 1 ? "" : "s"}` : "No bookings in this range"}
                     </p>
                 </div>
 
-                <div className="rounded-2xl border border-border bg-surface p-6 shadow-[0_8px_24px_rgba(26,26,26,0.05)]">
-                    <p className="font-sans text-[11px] uppercase tracking-[0.18em] text-muted">Conversion Rate</p>
-                    <p className="mt-3 font-heading text-[1.4rem] font-medium leading-tight text-primary">
+                <div className="rounded-2xl border border-primary/5 bg-[#F9F9F9] p-7 transition-all hover:bg-white group">
+                    <p className="font-sans text-[10px] uppercase tracking-[0.2em] text-primary/40 group-hover:text-primary/60 transition-colors uppercase">Conversion Rate</p>
+                    <p className="mt-4 font-heading text-[1.6rem] font-medium leading-[1.04] tracking-[0.01em] text-primary">
                         {conversionRate}%
                     </p>
-                    <p className="mt-1 font-sans text-sm text-muted">confirmed or paid</p>
+                    <p className="mt-2 font-sans text-xs text-primary/40 lowercase italic">Confirmed or paid success rate</p>
                 </div>
             </div>
 
-            <div className="rounded-2xl border border-border bg-surface p-6 shadow-[0_8px_24px_rgba(26,26,26,0.05)]">
-                <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-                    <h3 className="font-sans text-[11px] uppercase tracking-[0.18em] text-muted">
+            <div className="rounded-2xl border border-primary/5 bg-[#F9F9F9] p-8">
+                <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+                    <h3 className="font-sans text-[10px] uppercase tracking-[0.2em] text-primary/40">
                         Bookings & Revenue
                     </h3>
 
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-3">
                         {FILTERS.map((filter) => (
                             <button
                                 key={filter.key}
@@ -145,8 +145,8 @@ export default function Analytics({ bookings }: AnalyticsProps) {
                                 onClick={() => setActiveFilter(filter.key)}
                                 className={
                                     activeFilter === filter.key
-                                        ? "rounded-2xl bg-button px-4 py-2 font-sans text-[11px] uppercase tracking-[0.18em] text-white"
-                                        : "rounded-2xl border border-border bg-surface px-4 py-2 font-sans text-[11px] uppercase tracking-[0.18em] text-muted"
+                                        ? "rounded-xl bg-primary px-5 py-2 font-sans text-[10px] uppercase tracking-[0.2em] text-white shadow-sm"
+                                        : "rounded-xl border border-primary/5 bg-white px-5 py-2 font-sans text-[10px] uppercase tracking-[0.2em] text-primary/40 hover:text-primary transition-colors"
                                 }
                             >
                                 {filter.label}
@@ -181,14 +181,16 @@ export default function Analytics({ bookings }: AnalyticsProps) {
                                     tick={{ fill: "#7C7066", fontSize: 11, fontFamily: "var(--font-inter)" }}
                                 />
                                 <Tooltip
-                                    cursor={{ fill: "rgba(201,168,124,0.08)" }}
+                                    cursor={{ fill: "rgba(26,26,26,0.02)" }}
                                     contentStyle={{
-                                        background: "#FBF7F2",
-                                        border: "none",
+                                        background: "#ffffff",
+                                        border: "1px solid rgba(26,26,26,0.05)",
                                         borderRadius: 16,
-                                        boxShadow: "0 8px 24px rgba(26,26,26,0.05)",
-                                        color: "#1a1a1a",
-                                        fontFamily: "var(--font-inter)",
+                                        boxShadow: "0 12px 32px rgba(26,26,26,0.04)",
+                                        color: "#1a1a2e",
+                                        fontFamily: "var(--font-jakarta)",
+                                        fontSize: "12px",
+                                        padding: "16px",
                                     }}
                                     formatter={(value, name) => {
                                         if (name === "Revenue") {
@@ -202,19 +204,20 @@ export default function Analytics({ bookings }: AnalyticsProps) {
                                     yAxisId="bookings"
                                     dataKey="bookings"
                                     name="Bookings"
-                                    fill="#c9a87c"
-                                    barSize={28}
-                                    radius={[8, 8, 0, 0]}
+                                    fill="#1a1a2e"
+                                    barSize={20}
+                                    radius={[4, 4, 0, 0]}
+                                    opacity={0.15}
                                 />
                                 <Line
                                     yAxisId="revenue"
                                     type="monotone"
                                     dataKey="revenue"
                                     name="Revenue"
-                                    stroke="#1a1a1a"
-                                    strokeWidth={2.5}
-                                    dot={{ r: 4, fill: "#1a1a1a", strokeWidth: 0 }}
-                                    activeDot={{ r: 5, fill: "#1a1a1a", strokeWidth: 0 }}
+                                    stroke="#1a1a2e"
+                                    strokeWidth={2}
+                                    dot={{ r: 3, fill: "#ffffff", stroke: "#1a1a2e", strokeWidth: 1.5 }}
+                                    activeDot={{ r: 4, fill: "#ffffff", stroke: "#1a1a2e", strokeWidth: 2 }}
                                 />
                             </ComposedChart>
                         </ResponsiveContainer>

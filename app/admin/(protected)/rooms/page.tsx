@@ -26,9 +26,11 @@ export default async function AdminRoomsPage() {
 
     return (
         <div className="space-y-6">
-            <div className="border-b border-border pb-6">
-                <h2 className="font-heading text-[2rem] font-medium text-primary">Rooms</h2>
-                <p className="mt-1 font-sans text-sm text-muted">Manage room inventory, pricing, and availability.</p>
+            <div className="pb-10">
+                <p className="font-heading text-[10px] uppercase tracking-[0.28em] text-primary/40">
+                    Inventory
+                </p>
+                <h2 className="mt-4 font-heading text-[2.2rem] font-medium leading-[1.04] tracking-[0.01em] text-primary">Rooms</h2>
             </div>
 
             <RoomList initialRooms={rooms} />

@@ -4,6 +4,7 @@ import { useState } from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
+import { motion } from "framer-motion"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -56,51 +57,53 @@ export default function ContactForm() {
   }
 
   return (
-    <Reveal className="rounded-2xl border border-border bg-surface px-4 py-8 shadow-[0_18px_40px_rgba(26,26,26,0.05)] sm:p-12">
+    <Reveal className="rounded-2xl border border-primary/5 bg-[#F9F9F9] p-8 md:p-12">
       {submitted ? (
-        <div className="space-y-4">
-          <p className="font-sans text-xs uppercase tracking-[0.24em] text-muted">
-            Thank You
-          </p>
-          <h2 className="font-heading text-[2rem] font-medium text-primary md:text-[2.4rem]">
-            Your message has been received.
-          </h2>
-          <p className="max-w-xl font-sans text-[15px] leading-7 text-muted">
+        <div className="space-y-6">
+          <div>
+            <p className="font-heading text-[10px] uppercase tracking-[0.28em] text-primary/40">
+              Thank You
+            </p>
+            <h2 className="mt-4 font-heading text-[1.8rem] font-medium leading-[1.04] tracking-[0.01em] text-primary md:text-[2.2rem]">
+              Your message has been received.
+            </h2>
+          </div>
+          <p className="max-w-xl font-sans text-[15px] leading-relaxed text-primary/70">
             Our reception team will get back to you shortly with the next
-            available response.
+            available response. We look forward to hosting you soon.
           </p>
         </div>
       ) : (
         <>
-          <div className="mb-8 space-y-3">
-            <p className="font-sans text-xs uppercase tracking-[0.24em] text-muted">
+          <div className="mb-10 space-y-4">
+            <p className="font-heading text-[10px] uppercase tracking-[0.28em] text-primary/40">
               Contact Reception
             </p>
-            <h2 className="font-heading text-[2rem] font-medium text-primary md:text-[2.4rem]">
+            <h2 className="font-heading text-[2.2rem] font-medium leading-[1.04] tracking-[0.01em] text-primary">
               Ask about stays, events, or private arrangements
             </h2>
-            <p className="max-w-xl font-sans text-[15px] leading-7 text-muted">
+            <p className="max-w-xl font-sans text-[15px] leading-relaxed text-primary/60">
               Send us a message and our team will follow up with availability,
               rates, or any other information you need.
             </p>
           </div>
 
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 <FormField
                   control={form.control}
                   name="fullName"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="font-sans text-[11px] uppercase tracking-[0.18em] text-muted">
+                      <FormLabel className="font-heading text-[10px] uppercase tracking-[0.18em] text-primary/50">
                         Full Name
                       </FormLabel>
                       <FormControl>
                         <Input
                           {...field}
                           placeholder="John Doe"
-                          className="h-12 border-border bg-background"
+                          className="h-12 border-primary/10 bg-white focus:border-primary/30 transition-all rounded-xl"
                         />
                       </FormControl>
                       <FormMessage />
@@ -113,7 +116,7 @@ export default function ContactForm() {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="font-sans text-[11px] uppercase tracking-[0.18em] text-muted">
+                      <FormLabel className="font-heading text-[10px] uppercase tracking-[0.18em] text-primary/50">
                         Email
                       </FormLabel>
                       <FormControl>
@@ -121,7 +124,7 @@ export default function ContactForm() {
                           {...field}
                           type="email"
                           placeholder="john@example.com"
-                          className="h-12 border-border bg-background"
+                          className="h-12 border-primary/10 bg-white focus:border-primary/30 transition-all rounded-xl"
                         />
                       </FormControl>
                       <FormMessage />
@@ -135,15 +138,15 @@ export default function ContactForm() {
                 name="phone"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="font-sans text-[11px] uppercase tracking-[0.18em] text-muted">
-                      Phone
+                    <FormLabel className="font-heading text-[10px] uppercase tracking-[0.18em] text-primary/50">
+                      Phone Number
                     </FormLabel>
                     <FormControl>
                       <Input
                         {...field}
                         type="tel"
                         placeholder="+231 77 000 0000"
-                        className="h-12 border-border bg-background"
+                        className="h-12 border-primary/10 bg-white focus:border-primary/30 transition-all rounded-xl"
                       />
                     </FormControl>
                     <FormMessage />
@@ -156,14 +159,14 @@ export default function ContactForm() {
                 name="message"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="font-sans text-[11px] uppercase tracking-[0.18em] text-muted">
-                      Message
+                    <FormLabel className="font-heading text-[10px] uppercase tracking-[0.18em] text-primary/50">
+                      How can we help?
                     </FormLabel>
                     <FormControl>
                       <Textarea
                         {...field}
-                        placeholder="Tell us how we can help."
-                        className="min-h-[180px] border-border bg-background"
+                        placeholder="Tell us about your plans..."
+                        className="min-h-[160px] border-primary/10 bg-white focus:border-primary/30 transition-all rounded-xl p-4"
                       />
                     </FormControl>
                     <FormMessage />
@@ -173,7 +176,7 @@ export default function ContactForm() {
 
               {/* Error message */}
               {form.formState.errors.root && (
-                <p className="rounded-lg bg-red-50 border border-red-200 px-4 py-3 font-sans text-sm text-red-600">
+                <p className="rounded-xl bg-red-50 border border-red-100 px-4 py-3 font-sans text-[13px] text-red-600">
                   {form.formState.errors.root.message}
                 </p>
               )}
@@ -181,9 +184,9 @@ export default function ContactForm() {
               <Button
                 type="submit"
                 disabled={form.formState.isSubmitting}
-                className="h-14 w-full rounded-lg bg-button font-sans text-[13px] font-medium uppercase tracking-[0.16em] text-white transition-colors hover:bg-accent"
+                className="h-14 w-full rounded-xl bg-[#1A1A2E] font-heading text-[11px] font-medium uppercase tracking-[0.22em] text-white transition-all hover:bg-black hover:translate-y-[-2px] active:translate-y-0 shadow-sm"
               >
-                {form.formState.isSubmitting ? "Sending Message" : "Send Message"}
+                {form.formState.isSubmitting ? "Sending..." : "Send Inquiry"}
               </Button>
             </form>
           </Form>

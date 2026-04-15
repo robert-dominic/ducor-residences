@@ -46,16 +46,16 @@ export default function PageHero({
 
             {/* Text content */}
             <div className="relative z-20 mx-auto w-full max-w-7xl px-6 lg:px-10 pb-12 pt-24">
-                <h1 className="font-heading text-[2.7rem] font-medium leading-[1.03] tracking-[0.01em] text-white md:text-[4rem]">
+                <h1 className="font-heading text-3xl font-medium leading-[0.96] tracking-[0.01em] text-white md:text-[5rem]">
                     {title}
                 </h1>
                 {subtitle && (
-                    <p className="mt-3 max-w-xl font-sans text-[15px] leading-7 text-white/72">
+                    <p className="mt-4 max-w-xl font-sans text-[15px] leading-relaxed text-white/70 tracking-wide">
                         {subtitle}
                     </p>
                 )}
                 {/* Accent underline */}
-                <div className="mt-4 h-px w-12 bg-accent" />
+                <div className="mt-6 h-px w-8 bg-white/30" />
             </div>
         </section>
     )

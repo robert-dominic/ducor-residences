@@ -33,12 +33,12 @@ export default async function BookingsPage() {
     const bookings = await getAllBookings(supabase)
 
     return (
-        <div className="space-y-8">
-            <div className="border-b border-border pb-6 flex items-end justify-between">
-                <div>
-                    <h2 className="font-heading text-[2rem] font-medium text-primary">All Bookings</h2>
-                    <p className="mt-1 font-sans text-sm text-muted">Manage reservations, update statuses, and view guest details.</p>
-                </div>
+        <div className="space-y-10">
+            <div className="pb-10">
+                <p className="font-heading text-[10px] uppercase tracking-[0.28em] text-primary/40">
+                    Reservations
+                </p>
+                <h2 className="mt-4 font-heading text-[2.2rem] font-medium leading-[1.04] tracking-[0.01em] text-primary">All Bookings</h2>
             </div>
             <BookingsClient initialBookings={bookings} />
         </div>

@@ -4,6 +4,7 @@ import Navbar from "@/components/shared/Navbar"
 import Footer from "@/components/shared/Footer"
 import PageHero from "@/components/shared/PageHero"
 import SectionHeading from "@/components/shared/SectionHeading"
+import Reveal from "@/components/shared/Reveal"
 
 export const metadata = {
   title: "About | Ducor Residences",
@@ -33,7 +34,7 @@ export default function AboutPage() {
   return (
     <>
       <Navbar />
-      <main className="bg-background">
+      <main className="bg-white">
         <PageHero
           title="Our Story"
           subtitle="A new chapter in hospitality shaped by Ducor Hill, Monrovia, and the idea that luxury should feel calm."
@@ -43,18 +44,18 @@ export default function AboutPage() {
         />
 
         <section className="py-24">
-          <div className="mx-auto grid max-w-7xl gap-14 px-6 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20 lg:px-10">
-            <div className="space-y-6">
+          <Reveal className="mx-auto grid max-w-screen-2xl gap-14 px-5 md:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-24 lg:px-12">
+            <div className="space-y-8">
               <SectionHeading
                 eyebrow="Ducor Hill"
                 title="A home built on Monrovia's memory"
-                subtitle="Ducor Residences takes its name from one of Monrovia's most storied locations, long associated with elevation, outlook, and the city's sense of possibility."
+                subtitle="Ducor Residences takes its name from one of Monrovia's most storied locations, long associated with elevation and the city's sense of possibility."
               />
 
-              <div className="space-y-4 font-sans text-[15px] leading-7 text-muted">
+              <div className="space-y-6 font-sans text-[15px] leading-relaxed text-primary/70 max-w-xl">
                 <p>
                   Perched above the Atlantic coast, Ducor Residences was conceived as
-                  an answer to a simple question: what does truly refined hospitality
+                  an answers to a simple question: what does truly refined hospitality
                   look like in modern Liberia? The answer is unhurried, personal, and
                   deeply rooted in place.
                 </p>
@@ -72,62 +73,62 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div className="grid gap-5 sm:grid-cols-2">
-              <div className="relative min-h-[460px] overflow-hidden rounded-[2rem] border border-border shadow-[0_20px_55px_rgba(26,26,26,0.08)] sm:row-span-2">
+            <div className="grid gap-6 sm:grid-cols-2">
+              <div className="relative min-h-[500px] overflow-hidden rounded-2xl border border-primary/5 sm:row-span-2">
                 <Image
                   src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=1000&q=85"
                   alt="Warmly lit Ducor Residences interior"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-700 hover:scale-105"
                   sizes="(max-width: 640px) 100vw, 33vw"
                 />
               </div>
-              <div className="relative min-h-[220px] overflow-hidden rounded-[2rem] border border-border shadow-[0_20px_55px_rgba(26,26,26,0.08)]">
+              <div className="relative min-h-[250px] overflow-hidden rounded-2xl border border-primary/5">
                 <Image
                   src="https://images.unsplash.com/photo-1522798514-97ceb8c4f1c8?w=900&q=80"
                   alt="Reception lounge with elegant lighting"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-700 hover:scale-105"
                   sizes="(max-width: 640px) 100vw, 25vw"
                 />
               </div>
-              <div className="rounded-[2rem] border border-border bg-surface p-6 shadow-[0_18px_40px_rgba(26,26,26,0.05)]">
-                <p className="font-sans text-[10px] font-medium uppercase tracking-[0.22em] text-secondary">
+              <div className="rounded-2xl border border-primary/5 bg-[#F9F9F9] p-8 flex flex-col justify-center">
+                <p className="font-heading text-[10px] font-medium uppercase tracking-[0.28em] text-primary/40">
                   Perspective
                 </p>
-                <p className="mt-3 font-heading text-[1.7rem] font-medium leading-[1.12] text-primary">
+                <p className="mt-4 font-heading text-[1.3rem] font-medium leading-[1.04] tracking-[0.01em] text-primary md:text-[1.6rem]">
                   Designed for guests who value atmosphere as much as service.
                 </p>
               </div>
             </div>
-          </div>
+          </Reveal>
         </section>
 
-        <section className="border-t border-border bg-surface py-24">
-          <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        <section className="border-t border-primary/5 bg-[#F9F9F9] py-24">
+          <Reveal className="mx-auto max-w-screen-2xl px-5 md:px-8 lg:px-12">
             <SectionHeading
               eyebrow="Our Approach"
               title="What guides the stay"
               subtitle="The guest experience at Ducor Residences is shaped by a few core principles that influence how we design, host, and serve."
-              className="mb-14"
+              className="mb-16"
             />
 
             <div className="grid gap-6 md:grid-cols-3">
               {values.map((value) => (
                 <article
                   key={value.title}
-                  className="rounded-2xl border border-border bg-background p-8 shadow-[0_16px_36px_rgba(26,26,26,0.05)]"
+                  className="rounded-2xl border border-primary/5 bg-white p-8 transition-all hover:bg-[#F9F9F9] duration-300"
                 >
-                  <h2 className="font-heading text-[1.55rem] font-medium text-primary">
+                  <h3 className="font-heading text-[1.4rem] font-medium leading-[1.04] tracking-[0.01em] text-primary">
                     {value.title}
-                  </h2>
-                  <p className="mt-4 font-sans text-[15px] leading-7 text-muted">
+                  </h3>
+                  <p className="mt-5 font-sans text-[15px] leading-relaxed text-primary/60">
                     {value.description}
                   </p>
                 </article>
               ))}
             </div>
-          </div>
+          </Reveal>
         </section>
 
       </main>

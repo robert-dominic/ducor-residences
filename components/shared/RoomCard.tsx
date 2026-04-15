@@ -16,7 +16,7 @@ export default function RoomCard({ room, compact = false }: RoomCardProps) {
     return (
         <motion.article
             whileHover="hover"
-            className="group relative overflow-hidden rounded-2xl bg-white border border-border/40 shadow-[0_4px_20px_rgba(26,26,46,0.06)] transition-all duration-300 hover:shadow-[0_12px_40px_rgba(26,26,46,0.12)]"
+            className="group relative overflow-hidden rounded-2xl bg-white border border-primary/5 shadow-sm transition-all duration-300 hover:shadow-md"
         >
             {/* Image Section (60% height) */}
             <Link href={`/rooms/${room.slug}`} className={cn("block relative w-full overflow-hidden", compact ? "h-60" : "h-80")}>

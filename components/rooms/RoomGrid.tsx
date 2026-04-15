@@ -29,8 +29,8 @@ export default function RoomGrid({ rooms }: RoomGridProps) {
     })
 
     return (
-        <section className="bg-background pb-24">
-            <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        <section className="bg-white py-24">
+            <div className="mx-auto max-w-screen-2xl px-5 md:px-8 lg:px-12">
 
                 <FilterBar currentFilter={filter} onFilterChange={setFilter} />
 

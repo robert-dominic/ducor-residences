@@ -86,54 +86,52 @@ export default function InfoCards() {
         return (
           <article
             key={item.title}
-            className="rounded-xl border border-border bg-surface p-4 shadow-[0_8px_24px_rgba(26,26,26,0.04)]"
+            className="rounded-2xl border border-primary/5 bg-[#F9F9F9] p-6 flex items-start gap-5 group transition-all hover:bg-white"
           >
-            <div className="mb-3 flex items-center gap-2.5">
-              <div className="flex h-8 w-8 items-center justify-center rounded-md border border-border bg-background">
-                <Icon className="h-4 w-4 text-accent" />
-              </div>
-              <p className="font-sans text-[11px] uppercase tracking-[0.16em] text-muted">
-                {item.title}
-              </p>
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white text-primary shadow-sm group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+              <Icon size={20} strokeWidth={1.5} />
             </div>
 
-            {href ? (
-              <div className="flex items-start justify-between gap-3">
-                <a
-                  href={href}
-                  className="font-sans text-[14px] font-medium text-primary transition-colors hover:text-accent"
-                >
-                  {item.value}
-                </a>
-                <button
-                  type="button"
-                  onClick={() => handleCopy(item.title, item.value)}
-                  className="inline-flex items-center justify-center gap-1.5 rounded-full border border-border bg-background px-2.5 py-1.5 text-[10px] font-medium uppercase tracking-[0.16em] text-primary/70 transition-colors hover:border-accent hover:text-accent"
-                  aria-label={`Copy ${item.title}`}
-                  aria-live="polite"
-                  title={isCopied ? "Copied" : `Copy ${item.title}`}
-                >
-                  {isCopied ? (
-                    <>
-                      <Check className="h-4 w-4 text-accent" />
-                      <span className="text-accent">Copied</span>
-                    </>
-                  ) : (
-                    <>
+            <div className="space-y-1.5 flex-1">
+              <p className="font-heading text-[10px] uppercase tracking-[0.22em] text-primary/40">
+                {item.title}
+              </p>
+
+              <div className="flex items-center justify-between gap-4">
+                {href ? (
+                  <a
+                    href={href}
+                    className="font-heading text-[1.1rem] font-medium leading-none tracking-tight text-primary transition-colors hover:text-primary/70"
+                  >
+                    {item.value}
+                  </a>
+                ) : (
+                  <p className="font-heading text-[1.1rem] font-medium leading-none tracking-tight text-primary">
+                    {item.value}
+                  </p>
+                )}
+
+                {(isPhone || isEmail) && (
+                  <button
+                    type="button"
+                    onClick={() => handleCopy(item.title, item.value)}
+                    className="inline-flex items-center justify-center p-2 rounded-lg text-primary/30 hover:text-primary hover:bg-primary/5 transition-all"
+                    aria-label={`Copy ${item.title}`}
+                    title={isCopied ? "Copied" : `Copy ${item.title}`}
+                  >
+                    {isCopied ? (
+                      <Check className="h-4 w-4 text-green-600" />
+                    ) : (
                       <Copy className="h-4 w-4" />
-                      <span>Copy</span>
-                    </>
-                  )}
-                </button>
+                    )}
+                  </button>
+                )}
               </div>
-            ) : (
-              <h2 className="font-sans text-[14px] font-medium text-primary">
-                {item.value}
-              </h2>
-            )}
-            <p className="mt-2 font-sans text-xs leading-relaxed text-muted">
-              {item.detail}
-            </p>
+
+              <p className="font-sans text-[13px] leading-relaxed text-primary/60">
+                {item.detail}
+              </p>
+            </div>
           </article>
         )
       })}

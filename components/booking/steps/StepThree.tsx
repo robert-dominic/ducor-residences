@@ -57,7 +57,7 @@ export default function StepThree({ formData, onBack, onComplete }: StepThreePro
     return (
         <div className="grid grid-cols-1 items-start gap-12 md:grid-cols-12 md:gap-10 lg:gap-16">
             <div className="order-1 md:order-1 md:col-span-7 lg:col-span-8">
-                <div className="space-y-8 rounded-2xl border border-border bg-surface px-4 py-6 shadow-[0_18px_40px_rgba(26,26,26,0.05)] sm:p-12">
+                <div className="space-y-8 rounded-2xl border border-primary/5 bg-[#F9F9F9] px-4 py-6 sm:p-12">
                     <h2 className="font-heading text-[1.7rem] font-medium leading-[1.15] text-primary">
                         Review Your Booking
                     </h2>
@@ -149,9 +149,10 @@ export default function StepThree({ formData, onBack, onComplete }: StepThreePro
 // Small helper component for review rows
 function Row({ label, value }: { label: string; value: string }) {
     return (
-        <div className="flex flex-col items-start gap-1 sm:flex-row sm:justify-between sm:gap-4">
-            <span className="font-sans text-sm text-muted shrink-0">{label}</span>
-            <span className="min-w-0 break-words font-sans text-sm text-primary sm:max-w-[70%] sm:text-right">
+        <div className="flex items-end gap-3 font-sans text-sm">
+            <span className="text-muted shrink-0">{label}</span>
+            <div className="mb-1 flex-1 border-b border-dotted border-primary/20" />
+            <span className="font-medium text-primary text-right">
                 {value}
             </span>
         </div>

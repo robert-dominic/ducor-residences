@@ -15,7 +15,7 @@ export default function ContactPage() {
   return (
     <>
       <Navbar />
-      <main className="bg-background pb-24">
+      <main className="bg-white pb-24">
         <PageHero
           title="Contact"
           subtitle="Reach our reception team for reservations, arrivals, events, and private guest requests."
@@ -24,8 +24,8 @@ export default function ContactPage() {
           compact
         />
 
-        <section className="mx-auto mt-16 max-w-7xl px-6 lg:px-10">
-          <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-16">
+        <section className="mx-auto mt-24 max-w-screen-2xl px-5 md:px-8 lg:px-12">
+          <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-24">
             <div className="lg:col-span-7">
               <ContactForm />
             </div>
@@ -35,7 +35,7 @@ export default function ContactPage() {
             </aside>
           </div>
 
-          <div className="mt-16">
+          <div className="mt-24 overflow-hidden rounded-2xl border border-primary/5 shadow-sm">
             <MapEmbed />
           </div>
         </section>

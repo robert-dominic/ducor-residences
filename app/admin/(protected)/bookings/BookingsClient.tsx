@@ -23,19 +23,19 @@ export default function BookingsClient({ initialBookings }: BookingsClientProps)
     })
 
     return (
-        <div className="space-y-6">
-            <div className="flex items-center gap-4">
-                <span className="font-sans text-sm font-medium uppercase tracking-widest text-muted">Filter By Status:</span>
+        <div className="space-y-8">
+            <div className="flex items-center gap-6">
+                <span className="font-heading text-[9px] uppercase tracking-[0.2em] text-primary/40">Filter Status</span>
                 <Select value={statusFilter} onValueChange={setStatusFilter}>
-                    <SelectTrigger className="w-[180px] rounded-lg border-border bg-surface font-sans text-sm outline-none focus:ring-accent">
+                    <SelectTrigger className="w-[200px] h-11 rounded-xl border-primary/5 bg-white font-sans text-sm text-primary shadow-sm outline-none focus:ring-primary/2 transition-all">
                         <SelectValue placeholder="All Statuses" />
                     </SelectTrigger>
-                    <SelectContent>
-                        <SelectItem value="all">All Bookings</SelectItem>
-                        <SelectItem value="pending">Pending</SelectItem>
-                        <SelectItem value="confirmed">Confirmed</SelectItem>
-                        <SelectItem value="paid">Paid</SelectItem>
-                        <SelectItem value="cancelled">Cancelled</SelectItem>
+                    <SelectContent className="rounded-xl border-primary/5 shadow-2xl">
+                        <SelectItem value="all" className="rounded-lg py-2.5 font-sans text-sm">All Bookings</SelectItem>
+                        <SelectItem value="pending" className="rounded-lg py-2.5 font-sans text-sm">Pending</SelectItem>
+                        <SelectItem value="confirmed" className="rounded-lg py-2.5 font-sans text-sm">Confirmed</SelectItem>
+                        <SelectItem value="paid" className="rounded-lg py-2.5 font-sans text-sm">Paid</SelectItem>
+                        <SelectItem value="cancelled" className="rounded-lg py-2.5 font-sans text-sm">Cancelled</SelectItem>
                     </SelectContent>
                 </Select>
             </div>

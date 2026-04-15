@@ -15,13 +15,13 @@ export default async function ProtectedAdminLayout({
     }
 
     return (
-        <div className="min-h-screen bg-background flex flex-col md:flex-row">
+        <div className="min-h-screen bg-white flex flex-col md:flex-row">
             {/* Desktop Sidebar */}
             <AdminSidebar email={user.email} />
 
             {/* Main Content Area */}
-            <main className="flex-1 w-full md:ml-[220px] mb-16 md:mb-0">
-                <div className="p-6 md:p-10 max-w-6xl mx-auto">
+            <main className="flex-1 w-full md:ml-[240px] mb-16 md:mb-0">
+                <div className="p-6 md:p-10 lg:p-12 max-w-7xl mx-auto">
                     {children}
                 </div>
             </main>

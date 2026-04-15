@@ -26,10 +26,10 @@ interface BookingsTableProps {
 }
 
 const STATUS_STYLES = {
-    pending: "bg-amber-50 text-amber-700 border-amber-200",
-    confirmed: "bg-emerald-50 text-emerald-700 border-emerald-200",
-    cancelled: "bg-red-50 text-red-700 border-red-200",
-    paid: "bg-blue-50 text-blue-700 border-blue-200",
+    pending: "bg-white text-amber-600 border-amber-100",
+    confirmed: "bg-white text-emerald-600 border-emerald-100",
+    cancelled: "bg-white text-red-600 border-red-100",
+    paid: "bg-white text-primary border-primary/10",
 }
 
 export default function BookingsTable({ bookings }: BookingsTableProps) {
@@ -63,8 +63,8 @@ export default function BookingsTable({ bookings }: BookingsTableProps) {
 
     if (localBookings.length === 0) {
         return (
-            <div className="rounded-2xl border border-border bg-surface px-8 py-16 text-center">
-                <p className="font-sans text-sm text-muted">No bookings yet.</p>
+            <div className="rounded-2xl border border-primary/5 bg-[#F9F9F9] px-8 py-16 text-center italic text-primary/30">
+                <p className="font-sans text-sm leading-relaxed">No bookings yet.</p>
             </div>
         )
     }
@@ -107,53 +107,53 @@ export default function BookingsTable({ bookings }: BookingsTableProps) {
     }
 
     return (
-        <div className="rounded-2xl border border-border bg-surface overflow-hidden shadow-[0_8px_24px_rgba(26,26,26,0.05)]">
+        <div className="rounded-2xl border border-primary/5 bg-[#F9F9F9] overflow-hidden">
             {/* Desktop table */}
             <div className="hidden lg:block overflow-x-auto">
                 <table className="w-full text-sm">
                     <thead>
-                        <tr className="border-b border-border bg-background">
+                        <tr className="border-b border-primary/5 bg-white">
                             {["Reference", "Guest", "Room", "Dates", "Nights", "Total", "Status", "Actions"].map(h => (
-                                <th key={h} className="px-5 py-4 text-left font-sans text-[11px] uppercase tracking-[0.14em] text-muted">
+                                <th key={h} className="px-6 py-5 text-left font-heading text-[9px] uppercase tracking-[0.24em] text-primary/40">
                                     {h}
                                 </th>
                             ))}
                         </tr>
                     </thead>
-                    <tbody className="divide-y divide-border">
+                    <tbody className="divide-y divide-primary/5 bg-[#F9F9F9]">
                         {localBookings.map(booking => (
-                            <tr key={booking.id} className="hover:bg-background/50 transition-colors">
-                                <td className="px-5 py-4 font-sans text-xs font-medium text-primary">
+                            <tr key={booking.id} className="hover:bg-white transition-colors duration-300">
+                                <td className="px-6 py-5 font-sans text-xs font-medium text-primary uppercase tracking-wider">
                                     {booking.payment_reference}
                                 </td>
-                                <td className="px-5 py-4">
-                                    <p className="font-sans font-medium text-primary">{booking.full_name}</p>
-                                    <p className="font-sans text-xs text-muted">{booking.email}</p>
-                                    <p className="font-sans text-xs text-muted">{booking.phone}</p>
+                                <td className="px-6 py-5">
+                                    <p className="font-sans font-medium text-primary text-[13px]">{booking.full_name}</p>
+                                    <p className="font-sans text-[11px] text-primary/40 mt-0.5">{booking.email}</p>
+                                    <p className="font-sans text-[11px] text-primary/40">{booking.phone}</p>
                                 </td>
-                                <td className="px-5 py-4">
-                                    <p className="font-sans text-primary">{booking.rooms?.name ?? "—"}</p>
-                                    <p className="font-sans text-xs text-muted">{booking.rooms?.type}</p>
+                                <td className="px-6 py-5">
+                                    <p className="font-sans text-primary text-[13px]">{booking.rooms?.name ?? "—"}</p>
+                                    <p className="font-sans text-[11px] text-primary/40 mt-0.5">{booking.rooms?.type}</p>
                                 </td>
-                                <td className="px-5 py-4 font-sans text-primary">
+                                <td className="px-6 py-5 font-sans text-primary text-[13px]">
                                     <p>{format(new Date(booking.check_in), "MMM dd, yyyy")}</p>
-                                    <p className="text-xs text-muted">→ {format(new Date(booking.check_out), "MMM dd, yyyy")}</p>
+                                    <p className="text-[11px] text-primary/40 mt-0.5 whitespace-nowrap italic">to {format(new Date(booking.check_out), "MMM dd, yyyy")}</p>
                                 </td>
-                                <td className="px-5 py-4 font-sans text-primary">
-                                    {booking.nights}
+                                <td className="px-6 py-5 font-sans text-primary/60 text-[13px]">
+                                    {booking.nights} <span className="text-[10px] uppercase ml-1">nts</span>
                                 </td>
-                                <td className="px-5 py-4 font-sans font-medium text-primary">
+                                <td className="px-6 py-5 font-sans font-medium text-primary text-[13px]">
                                     ${booking.total_price}
                                 </td>
-                                <td className="px-5 py-4">
+                                <td className="px-6 py-5">
                                     <span className={cn(
-                                        "inline-flex items-center rounded-full border px-2.5 py-0.5 font-sans text-[11px] font-medium uppercase tracking-[0.1em]",
+                                        "inline-flex items-center rounded-lg border px-3 py-1 font-sans text-[9px] font-medium uppercase tracking-[0.12em]",
                                         STATUS_STYLES[booking.status]
                                     )}>
                                         {booking.status}
                                     </span>
                                 </td>
-                                <td className="px-5 py-4">
+                                <td className="px-6 py-5">
                                     {renderActions(booking)}
                                 </td>
                             </tr>

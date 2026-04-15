@@ -60,13 +60,15 @@ export default async function AdminDashboardPage() {
         <div className="space-y-10">
 
             {/* Page header */}
-            <div className="border-b border-border pb-6">
-                <h2 className="font-heading text-[2rem] font-medium text-primary">Overview</h2>
-                <p className="mt-1 font-sans text-sm text-muted">All bookings and property activity at a glance.</p>
+            <div className="pb-10">
+                <p className="font-heading text-[10px] uppercase tracking-[0.28em] text-primary/40">
+                    Dashboard
+                </p>
+                <h2 className="mt-4 font-heading text-[2.2rem] font-medium leading-[1.04] tracking-[0.01em] text-primary">Overview</h2>
             </div>
 
             {/* Stats row */}
-            <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+            <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
                 <StatCard label="Total Bookings" value={stats.totalBookings} />
                 <StatCard label="Pending" value={stats.pendingCount} accent="amber" />
                 <StatCard label="Confirmed" value={stats.confirmedCount} accent="green" />
@@ -74,16 +76,16 @@ export default async function AdminDashboardPage() {
             </div>
 
             {/* Analytics */}
-            <div className="space-y-4">
-                <h3 className="font-heading text-[1.4rem] font-medium text-primary">Analytics</h3>
+            <div className="space-y-6">
+                <h3 className="font-heading text-[1.4rem] font-medium leading-[1.04] tracking-[0.01em] text-primary">Performance</h3>
                 <Analytics bookings={bookings} />
             </div>
 
             {/* Bookings table */}
-            <div className="space-y-4 relative">
-                <div className="flex items-center justify-between">
-                    <h3 className="font-heading text-[1.4rem] font-medium text-primary">Recent Bookings</h3>
-                    <a href="/admin/bookings" className="font-sans text-sm font-medium uppercase tracking-widest text-accent hover:text-primary transition-colors">
+            <div className="space-y-6 relative">
+                <div className="flex items-end justify-between">
+                    <h3 className="font-heading text-[1.4rem] font-medium leading-[1.04] tracking-[0.01em] text-primary">Recent Bookings</h3>
+                    <a href="/admin/bookings" className="font-sans text-[11px] font-medium uppercase tracking-[0.2em] text-primary/40 hover:text-primary transition-colors">
                         View All
                     </a>
                 </div>
@@ -110,9 +112,9 @@ function StatCard({
             : "text-primary"
 
     return (
-        <div className="rounded-2xl border border-border bg-surface p-6 shadow-[0_8px_24px_rgba(26,26,26,0.05)]">
-            <p className="font-sans text-[11px] uppercase tracking-[0.18em] text-muted">{label}</p>
-            <p className={`mt-3 font-heading text-[2rem] font-medium leading-none ${accentColor}`}>
+        <div className="rounded-2xl border border-primary/5 bg-[#F9F9F9] p-7 transition-all hover:bg-white group">
+            <p className="font-sans text-[10px] uppercase tracking-[0.18em] text-primary/40 group-hover:text-primary/60 transition-colors uppercase">{label}</p>
+            <p className={`mt-4 font-heading text-[1.8rem] font-medium leading-[1.04] tracking-[0.01em] ${accentColor}`}>
                 {value}
             </p>
         </div>

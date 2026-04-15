@@ -103,19 +103,19 @@ export default function GalleryGrid() {
     }
 
     return (
-        <section className="bg-background pb-24">
-            <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        <section className="bg-white pb-24">
+            <div className="mx-auto max-w-screen-2xl px-5 md:px-8 lg:px-12">
 
                 <FilterTabs currentFilter={filter} onFilterChange={setFilter} />
 
-                <div className="mt-8">
+                <div className="mt-12">
                     {loading ? (
                         // Masonry Skeleton (CSS columns)
                         <div className="columns-1 gap-6 sm:columns-2 lg:columns-3 space-y-6">
                             {Array.from({ length: 9 }).map((_, i) => (
-                                <div key={i} className="break-inside-avoid relative overflow-hidden rounded-2xl bg-surface">
+                                <div key={i} className="break-inside-avoid relative overflow-hidden rounded-2xl bg-[#F9F9F9]">
                                     <Skeleton
-                                        className="w-full rounded-none"
+                                        className="w-full rounded-none opacity-40"
                                         style={{
                                             height: `${SKELETON_HEIGHTS[i % SKELETON_HEIGHTS.length]}px`
                                         }}
@@ -137,7 +137,7 @@ export default function GalleryGrid() {
                                     <motion.div
                                         key={img.id}
                                         variants={itemVariants}
-                                        className="group break-inside-avoid relative cursor-pointer overflow-hidden rounded-2xl bg-surface shadow-[0_16px_36px_rgba(26,26,26,0.05)]"
+                                        className="group break-inside-avoid relative cursor-pointer overflow-hidden rounded-2xl border border-primary/5 bg-[#F9F9F9]"
                                         onClick={() => handleOpenLightbox(index)}
                                         onContextMenu={handleContextMenu}
                                         style={{ WebkitTouchCallout: "none" }} // Disable iOS long-press menu
