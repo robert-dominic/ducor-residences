@@ -127,9 +127,9 @@
 }
 
 .animate-marquee {
-  animation: marquee 10s linear infinite;
+  animation: marquee 22s linear infinite;
 }
 
 .animate-marquee-reverse {
-  animation: marquee-reverse 10s linear infinite;
+  animation: marquee-reverse 22s linear infinite;
 }

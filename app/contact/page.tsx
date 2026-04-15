@@ -24,8 +24,8 @@ export default function ContactPage() {
           compact
         />
 
-        <section className="mx-auto mt-24 max-w-screen-2xl px-5 md:px-8 lg:px-12">
-          <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-24">
+        <section className="mx-auto mt-24 max-w-screen-2xl px-5 md:px-10 lg:px-20">
+          <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12">
             <div className="lg:col-span-7">
               <ContactForm />
             </div>

@@ -3,10 +3,17 @@ import Footer from "@/components/shared/Footer"
 import PageHero from "@/components/shared/PageHero"
 import BookingClient from "@/components/booking/BookingClient"
 import { getRooms } from "@/lib/rooms"
+import { Suspense } from "react"
+import { Loader2 } from "lucide-react"
 
 export const metadata = {
     title: "Book Your Stay | Ducor Residences",
     description: "Reserve your suite or room at Ducor Residences in Monrovia.",
+}
+
+async function BookingContent({ preselectedSlug }: { preselectedSlug?: string }) {
+    const rooms = await getRooms()
+    return <BookingClient rooms={rooms} preselectedSlug={preselectedSlug} />
 }
 
 export default async function BookingPage({
@@ -15,7 +22,6 @@ export default async function BookingPage({
     searchParams: Promise<{ room?: string }>
 }) {
     const { room } = await searchParams
-    const rooms = await getRooms()
 
     return (
         <>
@@ -29,8 +35,17 @@ export default async function BookingPage({
                     compact
                 />
 
-                <div className="mx-auto max-w-7xl px-6 lg:px-10 mt-16">
-                    <BookingClient rooms={rooms} preselectedSlug={room} />
+                <div className="mx-auto max-w-7xl px-5 mt-12">
+                    <Suspense fallback={
+                        <div className="flex flex-col items-center justify-center py-32 space-y-5">
+                            <Loader2 className="h-10 w-10 animate-spin text-primary/10" strokeWidth={1.5} />
+                            <p className="font-heading text-[10px] uppercase tracking-[0.24em] text-primary/40">
+                                Synchronizing Availability
+                            </p>
+                        </div>
+                    }>
+                        <BookingContent preselectedSlug={room} />
+                    </Suspense>
                 </div>
             </main>
             <Footer />

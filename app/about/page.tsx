@@ -44,7 +44,7 @@ export default function AboutPage() {
         />
 
         <section className="py-24">
-          <Reveal className="mx-auto grid max-w-screen-2xl gap-14 px-5 md:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-24 lg:px-12">
+          <Reveal className="mx-auto grid max-w-screen-2xl gap-12 px-5 md:px-10 lg:px-20 lg:grid-cols-2">
             <div className="space-y-8">
               <SectionHeading
                 eyebrow="Ducor Hill"
@@ -65,47 +65,32 @@ export default function AboutPage() {
                   expression of hospitality: one defined by thoughtful rooms,
                   attentive service, and a quieter sense of luxury.
                 </p>
-                <p>
-                  Every detail is shaped by the belief that a memorable stay is not
-                  about spectacle. It is about comfort, assurance, and the feeling
-                  that everything has been considered with care.
+              </div>
+
+              <div className="rounded-2xl border border-primary/5 bg-[#F9F9F9] p-8">
+                <p className="font-heading text-[10px] font-medium uppercase tracking-[0.28em] text-primary/40">
+                  Perspective
+                </p>
+                <p className="mt-4 font-heading text-[1.1rem] font-medium leading-[1.04] tracking-[0.01em] text-primary md:text-[1.6rem]">
+                  Designed for guests who value atmosphere as much as service.
                 </p>
               </div>
             </div>
 
-            <div className="grid gap-6 sm:grid-cols-2">
-              <div className="relative min-h-[500px] overflow-hidden rounded-2xl border border-primary/5 sm:row-span-2">
-                <Image
-                  src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=1000&q=85"
-                  alt="Warmly lit Ducor Residences interior"
-                  fill
-                  className="object-cover transition-transform duration-700 hover:scale-105"
-                  sizes="(max-width: 640px) 100vw, 33vw"
-                />
-              </div>
-              <div className="relative min-h-[250px] overflow-hidden rounded-2xl border border-primary/5">
-                <Image
-                  src="https://images.unsplash.com/photo-1522798514-97ceb8c4f1c8?w=900&q=80"
-                  alt="Reception lounge with elegant lighting"
-                  fill
-                  className="object-cover transition-transform duration-700 hover:scale-105"
-                  sizes="(max-width: 640px) 100vw, 25vw"
-                />
-              </div>
-              <div className="rounded-2xl border border-primary/5 bg-[#F9F9F9] p-8 flex flex-col justify-center">
-                <p className="font-heading text-[10px] font-medium uppercase tracking-[0.28em] text-primary/40">
-                  Perspective
-                </p>
-                <p className="mt-4 font-heading text-[1.3rem] font-medium leading-[1.04] tracking-[0.01em] text-primary md:text-[1.6rem]">
-                  Designed for guests who value atmosphere as much as service.
-                </p>
-              </div>
+            <div className="relative min-h-[400px] lg:min-h-[600px] overflow-hidden rounded-2xl border border-primary/5">
+              <Image
+                src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=1000&q=85"
+                alt="Warmly lit Ducor Residences interior"
+                fill
+                className="object-cover transition-transform duration-700 hover:scale-105"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
             </div>
           </Reveal>
         </section>
 
         <section className="border-t border-primary/5 bg-[#F9F9F9] py-24">
-          <Reveal className="mx-auto max-w-screen-2xl px-5 md:px-8 lg:px-12">
+          <Reveal className="mx-auto max-w-screen-2xl px-5 lg:px-20">
             <SectionHeading
               eyebrow="Our Approach"
               title="What guides the stay"
@@ -113,13 +98,13 @@ export default function AboutPage() {
               className="mb-16"
             />
 
-            <div className="grid gap-6 md:grid-cols-3">
+            <div className="grid gap-4 lg:gap-6 md:grid-cols-3">
               {values.map((value) => (
                 <article
                   key={value.title}
                   className="rounded-2xl border border-primary/5 bg-white p-8 transition-all hover:bg-[#F9F9F9] duration-300"
                 >
-                  <h3 className="font-heading text-[1.4rem] font-medium leading-[1.04] tracking-[0.01em] text-primary">
+                  <h3 className="font-heading text-[1rem] font-medium leading-[1.04] tracking-[0.01em] text-primary">
                     {value.title}
                   </h3>
                   <p className="mt-5 font-sans text-[15px] leading-relaxed text-primary/60">

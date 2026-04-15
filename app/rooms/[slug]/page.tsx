@@ -45,7 +45,7 @@ export default async function RoomDetailPage({
             <Navbar forceSolid />
 
             <main className="bg-background">
-                <div className="mx-auto max-w-7xl px-6 lg:px-10 pt-28">
+                <div className="mx-auto max-w-7xl px-5 pt-28">
 
                     {/* Top: Gallery */}
                     <div className="mb-12 lg:mb-16">
@@ -53,7 +53,7 @@ export default async function RoomDetailPage({
                     </div>
 
                     {/* Bottom: 2-column layout */}
-                    <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-12 pb-12 relative items-start">
+                    <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 pb-12 relative items-start">
 
                         {/* Left Col: Info + Amenities */}
                         <div className="lg:col-span-8">
