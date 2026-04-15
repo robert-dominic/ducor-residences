@@ -57,7 +57,7 @@ export default function ContactForm() {
   }
 
   return (
-    <Reveal className="rounded-2xl border border-primary/5 bg-[#F9F9F9] p-8 md:p-12">
+    <Reveal className="rounded-2xl border border-primary/5 bg-[#F9F9F9] px-5 py-8">
       {submitted ? (
         <div className="space-y-6">
           <div>
@@ -79,7 +79,7 @@ export default function ContactForm() {
             <p className="font-heading text-[10px] uppercase tracking-[0.28em] text-primary/40">
               Contact Reception
             </p>
-            <h2 className="font-heading text-[2.2rem] font-medium leading-[1.04] tracking-[0.01em] text-primary">
+            <h2 className="font-heading text-[1.2rem] md:text-[1.7rem] font-medium leading-[1.04] tracking-[0.01em] text-primary">
               Ask about stays, events, or private arrangements
             </h2>
             <p className="max-w-xl font-sans text-[15px] leading-relaxed text-primary/60">

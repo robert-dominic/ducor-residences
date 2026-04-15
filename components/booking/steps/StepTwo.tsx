@@ -54,8 +54,8 @@ export default function StepTwo({ formData, updateFormData, onNext, onBack }: St
         <div className="grid grid-cols-1 items-start gap-12 md:grid-cols-12 md:gap-10 lg:gap-16">
             <div className="order-1 md:order-1 md:col-span-7 lg:col-span-8">
                 <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 rounded-2xl border border-primary/5 bg-[#F9F9F9] px-4 py-6 sm:p-12">
-                        <h2 className="font-heading text-[1.7rem] font-medium leading-[1.15] text-primary">
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 rounded-2xl border border-primary/5 bg-[#F9F9F9] px-5 py-8">
+                        <h2 className="font-heading text-[1.3rem] font-medium leading-[1.15] text-primary">
                             Guest Details
                         </h2>
 
@@ -134,18 +134,18 @@ export default function StepTwo({ formData, updateFormData, onNext, onBack }: St
                             )}
                         />
 
-                        <div className="flex flex-col gap-4 sm:flex-row">
+                        <div className="flex flex-col gap-2 sm:flex-row">
                             <Button
                                 type="button"
                                 variant="outline"
                                 onClick={onBack}
-                                className="h-14 w-full rounded-lg border-border bg-background font-sans text-[13px] font-medium uppercase tracking-[0.16em] hover:bg-surface hover:text-primary sm:w-auto sm:min-w-[10rem]"
+                                className="h-12 w-full rounded-lg border-border bg-background font-sans text-[10px] md:text-[12px] font-medium uppercase tracking-[0.16em] hover:bg-surface hover:text-primary sm:w-auto sm:min-w-[10rem]"
                             >
                                 Back
                             </Button>
                             <Button
                                 type="submit"
-                                className="h-14 w-full rounded-lg bg-button font-sans text-[13px] font-medium uppercase tracking-[0.16em] text-white hover:brightness-105 sm:w-auto sm:min-w-[14rem]"
+                                className="h-12 w-full rounded-lg bg-button font-sans text-[10px] md:text-[12px] font-medium uppercase tracking-[0.16em] text-white hover:brightness-105 sm:w-auto sm:min-w-[14rem]"
                             >
                                 Review Booking
                             </Button>

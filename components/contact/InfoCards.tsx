@@ -86,7 +86,7 @@ export default function InfoCards() {
         return (
           <article
             key={item.title}
-            className="rounded-2xl border border-primary/5 bg-[#F9F9F9] p-6 flex items-start gap-5 group transition-all hover:bg-white"
+            className="rounded-2xl border border-primary/5 bg-[#F9F9F9] p-6 flex items-start gap-4 group transition-all hover:bg-white"
           >
             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white text-primary shadow-sm group-hover:bg-primary group-hover:text-white transition-colors duration-300">
               <Icon size={20} strokeWidth={1.5} />
@@ -97,16 +97,16 @@ export default function InfoCards() {
                 {item.title}
               </p>
 
-              <div className="flex items-center justify-between gap-4">
+              <div className="flex items-center justify-between gap-3">
                 {href ? (
                   <a
                     href={href}
-                    className="font-heading text-[1.1rem] font-medium leading-none tracking-tight text-primary transition-colors hover:text-primary/70"
+                    className="font-heading text-[1rem] font-medium leading-none tracking-tight text-primary transition-colors hover:text-primary/70"
                   >
                     {item.value}
                   </a>
                 ) : (
-                  <p className="font-heading text-[1.1rem] font-medium leading-none tracking-tight text-primary">
+                  <p className="font-heading text-[1rem] font-medium leading-none tracking-tight text-primary">
                     {item.value}
                   </p>
                 )}
