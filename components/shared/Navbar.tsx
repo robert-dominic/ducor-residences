@@ -65,7 +65,7 @@ export default function Navbar({ forceSolid = false }: NavbarProps) {
                     "border-b border-border/80 bg-background/98 shadow-sm backdrop-blur-md md:py-2"
                 )}
             >
-                <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-5">
+                <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-3">
                     {/* Logo / Wordmark */}
                     <Link
                         href="/"
