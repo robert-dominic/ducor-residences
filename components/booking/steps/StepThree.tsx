@@ -146,15 +146,17 @@ export default function StepThree({ formData, onBack, onComplete }: StepThreePro
     )
 }
 
-// Small helper component for review rows
-function Row({ label, value }: { label: string; value: string }) {
+//  Fixed Row component
+function Row({ label, value }: { label: string; value?: string | null }) {
     return (
         <div className="flex items-end gap-3 font-sans text-sm">
             <span className="text-muted shrink-0">{label}</span>
+
             <div className="mb-1 flex-1 border-b border-dotted border-primary/20" />
-            <span className="font-medium text-primary text-right">
-                {value}
+
+            <span className="font-medium text-primary text-right max-w-[60%] break-words">
+                {value || "—"}
             </span>
         </div>
     )
-}
+                                                                                  }
